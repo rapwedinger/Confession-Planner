@@ -172,6 +172,21 @@ h2 {
     border-radius: 4px;
     text-align: center;
 }
+/* Hide teaching details by default */
+.teaching-expand-box {
+    display: none;
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background: #f8f9fa;
+    border-left: 3px solid var(--accent-color);
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Show details when the wrapper has the 'expanded' class */
+.teaching-pill-wrapper.expanded .teaching-expand-box {
+    display: block;
+}
 
 /* Script Output Container */
 #script-container {

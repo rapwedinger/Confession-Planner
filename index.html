@@ -8,6 +8,52 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#2c3e50">
     <link rel="apple-touch-icon" href="icon-192.png">
+    <style>
+        /* CSS to stack the teaching pill wrappers vertically */
+        .expanded-teachings-container .sub-choices {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .teaching-pill-wrapper {
+            display: block;
+            width: 100%;
+        }
+        .pill-action-row {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+        }
+        /* Custom Free-Form Input Section Style */
+        .custom-sin-group {
+            margin-top: 1.25rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed #ccc;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .custom-sin-group label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #444;
+        }
+        .custom-sin-input-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .custom-sin-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,8 +63,9 @@
 
     <main>
         <section class="intro-box">
-            <p><em>“Examine yourselves, to see whether you are holding to your faith.”</em><br><strong>— 2 Corinthians 13:5</strong></p>
-            <p>Check the boxes for sins that apply. Click individual choice pills to turn them on or off. Toggle Mortal/Venial classification as needed (occurrence boxes appear only when set to Mortal).</p>
+            <p>“Examine yourselves, to see whether you are holding to your faith.”<br><strong>— 2 Corinthians 13:5</strong></p>
+            <p>Check the boxes for sins that apply. Click individual choice pills to turn them on or off. Toggle Mortal/Venial classification as needed (occurrence boxes appear only when set to Mortal). Click "Process Examen" once finished to process the examination of conscience into a confession script.</p>
+            <p style="margin-top: 1rem;">Once you complete your confession, click on Reset All Selections to delete your choices. No data is saved on any device.</p>
         </section>
 
         <!-- Conditions for Mortal Sin Section -->
@@ -82,13 +129,12 @@
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                     
                     <div class="expanded-teachings-container">
-                        <p class="expand-prompt-text"><em>Click pills to toggle "Yes" and review the teaching definitions:</em></p>
+                        <p class="expand-prompt-text"><em>Click chips below to toggle and review specific teaching definitions:</em></p>
                         <div class="sub-choices" data-base="deliberately rejected or denied the teaching regarding {choice}" data-venial-base="I deliberately rejected or denied the teaching regarding {choice}">
                             
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="the Real Presence in the Eucharist">1. The Real Presence in the Eucharist</span>
-                                    <span class="status-indicator">Select "Yes" to view details</span>
                                 </div>
                                 <div class="teaching-expand-box">
                                     <p><strong>The Teaching:</strong> The bread and wine consecrated at Mass truly and substantially become the actual Body, Blood, Soul, and Divinity of Jesus Christ (Transubstantiation), rather than remaining merely symbolic representations.</p>
@@ -98,7 +144,6 @@
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="artificial birth control">2. Artificial Birth Control (Contraception)</span>
-                                    <span class="status-indicator">Select "Yes" to view details</span>
                                 </div>
                                 <div class="teaching-expand-box">
                                     <p><strong>The Teaching:</strong> As affirmed in <em>Humanae Vitae</em>, every marital act must remain open to the transmission of life, and the intentional use of artificial contraceptives is intrinsically disordered.</p>
@@ -108,7 +153,6 @@
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="the moral inadmissibility of abortion">3. Inadmissibility of Abortion</span>
-                                    <span class="status-indicator">Select "Yes" to view details</span>
                                 </div>
                                 <div class="teaching-expand-box">
                                     <p><strong>The Teaching:</strong> Human life must be respected and protected absolutely from the moment of conception. Direct abortion is a grave moral evil, and formal cooperation incurs automatic excommunication.</p>
@@ -118,7 +162,6 @@
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="the male-only priesthood">4. Male-Only Priesthood</span>
-                                    <span class="status-indicator">Select "Yes" to view details</span>
                                 </div>
                                 <div class="teaching-expand-box">
                                     <p><strong>The Teaching:</strong> By divine constitution, the sacrament of Holy Orders can only be validly conferred upon baptized males, as affirmed definitively by Pope John Paul II in <em>Ordinatio Sacerdotalis</em>.</p>
@@ -128,7 +171,6 @@
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="the exclusivity of Holy Communion">5. Exclusivity of Holy Communion</span>
-                                    <span class="status-indicator">Select "Yes" to view details</span>
                                 </div>
                                 <div class="teaching-expand-box">
                                     <p><strong>The Teaching:</strong> Receiving the Eucharist is a sign of full communion in faith, morals, and church discipline. Therefore, non-Catholics, Catholics in irregular unions, and those conscious of unconfessed mortal sin may not receive.</p>
@@ -138,7 +180,6 @@
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="teachings on same-sex sexual activity and marriage">6. Moral Imperative on Same-Sex Activity & Marriage</span>
-                                    <span class="status-indicator">Select "Yes" to view details</span>
                                 </div>
                                 <div class="teaching-expand-box">
                                     <p><strong>The Teaching:</strong> Homosexual inclinations are not inherently sinful, but homosexual acts are intrinsically disordered, and marriage can only be validly contracted between one man and one woman.</p>
@@ -148,7 +189,6 @@
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="papal infallibility and authority">7. Infallibility and Authority of the Papacy</span>
-                                    <span class="status-indicator">Select "Yes" to view details</span>
                                 </div>
                                 <div class="teaching-expand-box">
                                     <p><strong>The Teaching:</strong> The Pope, when speaking <em>ex cathedra</em> on matters of faith and morals, possesses the charism of infallibility, and Catholics owe religious submission of intellect and will to the ordinary magisterium.</p>
@@ -158,7 +198,6 @@
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="the requirement of sacramental confession">8. Sacramental Confession Requirement</span>
-                                    <span class="status-indicator">Select "Yes" to view details</span>
                                 </div>
                                 <div class="teaching-expand-box">
                                     <p><strong>The Teaching:</strong> Mortal sins must be confessed to a priest in the Sacrament of Reconciliation before receiving the Eucharist, as Christ gave the Apostles the specific authority to forgive and retain sins.</p>
@@ -168,7 +207,6 @@
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="the indissolubility of valid marriage">9. Indissolubility of Valid Marriage & Annulments</span>
-                                    <span class="status-indicator">Select "Yes" to view details</span>
                                 </div>
                                 <div class="teaching-expand-box">
                                     <p><strong>The Teaching:</strong> A valid, consummated sacramental marriage cannot be dissolved by any human power or for any reason other than death. Divorce separates civil status, but does not end the spiritual bond.</p>
@@ -178,7 +216,6 @@
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="the necessity of the Church for salvation">10. Necessity of the Church for Salvation</span>
-                                    <span class="status-indicator">Select "Yes" to view details</span>
                                 </div>
                                 <div class="teaching-expand-box">
                                     <p><strong>The Teaching:</strong> While God can save those outside visible boundaries through invincible ignorance, the Catholic Church is the ordinary instrument of salvation established by Christ ("Outside the Church there is no salvation").</p>
@@ -250,6 +287,16 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
+
+                <!-- Free-Form Custom Sin Field for Section 1 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-1" data-default-type="venial">
+                    <label for="custom-sin-1">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-1" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
             </article>
 
             <!-- 2. Love of God: Prayer, Worship, and Gratitude -->
@@ -311,6 +358,16 @@
                     <label><input type="checkbox" name="sin" data-statement="acted as though I were self-made rather than recognizing God's gifts" data-venial-statement="I acted as though I were self-made rather than recognizing God's gifts"> Acted as though I were self-made rather than recognizing God's gifts</label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 2 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-2" data-default-type="venial">
+                    <label for="custom-sin-2">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-2" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
                 </div>
             </article>
 
@@ -422,6 +479,16 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
+
+                <!-- Free-Form Custom Sin Field for Section 3 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-3" data-default-type="venial">
+                    <label for="custom-sin-3">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-3" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
             </article>
 
             <!-- 4. Speech, Truthfulness, and the Use of Media -->
@@ -443,7 +510,7 @@
                 </div>
                 <div class="sin-item-row venial-item" data-default-type="venial">
                     <label><input type="checkbox" name="sin"> 
-                        <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
+                        <span class="sub-choices" data-base="{choice}" data-venial-base="I have {choice}">
                             <span class="choice-pill" data-value="gossiped">gossiped</span>
                             <span class="choice-pill" data-value="revealed another person’s confidential information">revealed confidential info</span>
                             <span class="choice-pill" data-value="damaged someone’s reputation">damaged someone’s reputation</span>
@@ -499,6 +566,16 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
+
+                <!-- Free-Form Custom Sin Field for Section 4 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-4" data-default-type="venial">
+                    <label for="custom-sin-4">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-4" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
             </article>
 
             <!-- 5. Purity, Chastity, and Reverence for the Body -->
@@ -551,6 +628,16 @@
                     </label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 5 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-5" data-default-type="venial">
+                    <label for="custom-sin-5">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-5" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
                 </div>
             </article>
 
@@ -616,6 +703,16 @@
                     </label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 6 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-6" data-default-type="venial">
+                    <label for="custom-sin-6">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-6" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
                 </div>
             </article>
 
@@ -689,6 +786,16 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
+
+                <!-- Free-Form Custom Sin Field for Section 7 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-7" data-default-type="venial">
+                    <label for="custom-sin-7">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-7" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
             </article>
 
             <!-- 8. Anger, Peace, and Self-Control -->
@@ -742,6 +849,16 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
+
+                <!-- Free-Form Custom Sin Field for Section 8 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-8" data-default-type="venial">
+                    <label for="custom-sin-8">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-8" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
             </article>
 
             <!-- 9. Life, Dignity, and Responsibility for Others -->
@@ -783,6 +900,16 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
+
+                <!-- Free-Form Custom Sin Field for Section 9 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-9" data-default-type="venial">
+                    <label for="custom-sin-9">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-9" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
             </article>
 
             <!-- 10. Humility, Community, and the Life of the Church -->
@@ -823,11 +950,21 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
+
+                <!-- Free-Form Custom Sin Field for Section 10 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-10" data-default-type="venial">
+                    <label for="custom-sin-10">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-10" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
             </article>
         </form>
 
         <section style="text-align: center; margin-top: 2rem;">
-            <button id="generate-btn" class="secondary-btn" style="background: var(--accent-color); color: white; padding: 1rem 2rem; font-size: 1.1rem; cursor: pointer;">Process Confession</button>
+            <button id="generate-btn" class="secondary-btn" style="background: var(--accent-color); color: white; padding: 1rem 2rem; font-size: 1.1rem; cursor: pointer;">Process Examen</button>
         </section>
 
         <section id="script-container">
@@ -842,22 +979,19 @@
 
     <!-- Script to handle toggle, pill selections, and script generation -->
     <script>
-        // Toggle choice pills on/off
+        // Toggle choice pills on/off and handle expandable teaching drawers
         document.querySelectorAll('.choice-pill').forEach(pill => {
             pill.addEventListener('click', (e) => {
                 e.preventDefault();
                 pill.classList.toggle('active');
                 
-                // Toggle expansion box only when toggled to Yes (active)
+                // Toggle expansion box for teaching accordion items
                 const wrapper = pill.closest('.teaching-pill-wrapper');
                 if (wrapper) {
-                    const indicator = wrapper.querySelector('.status-indicator');
                     if (pill.classList.contains('active')) {
                         wrapper.classList.add('expanded');
-                        if (indicator) indicator.textContent = 'Selected (Yes)';
                     } else {
                         wrapper.classList.remove('expanded');
-                        if (indicator) indicator.textContent = 'Select "Yes" to view details';
                     }
                 }
             });
@@ -906,10 +1040,11 @@
 
         // Generate Script Button Logic
         document.getElementById('generate-btn').addEventListener('click', () => {
-            const rows = document.querySelectorAll('.sin-item-row');
             let mortalList = [];
             let venialList = [];
 
+            // 1. Process regular checkbox selections
+            const rows = document.querySelectorAll('.sin-item-row:not(.custom-sin-group)');
             rows.forEach(row => {
                 const checkbox = row.querySelector('input[type="checkbox"]');
                 if (checkbox && checkbox.checked) {
@@ -940,12 +1075,30 @@
 
                     if (isMortal) {
                         const count = occInput ? (occInput.value || 1) : 1;
-                        mortalList.push(`On ${count} occasion${count > 1 ? 's' : ''}, I ${statement}.`);
+                        mortalList.push(`• On ${count} occasion${count > 1 ? 's' : ''}, I ${statement}.`);
                     } else {
-                        venialList.push(venialStatement);
+                        venialList.push(`• ${venialStatement}.`);
                     }
                 }
             });
+
+            // 2. Process custom free-form input fields with their individual Mortal/Venial type settings
+            for (let i = 1; i <= 10; i++) {
+                const customInput = document.getElementById(`custom-sin-${i}`);
+                if (customInput && customInput.value.trim() !== '') {
+                    const row = document.getElementById(`custom-row-${i}`);
+                    const isMortal = row.classList.contains('is-mortal');
+                    const occInput = row.querySelector('.custom-occ-input');
+                    const textValue = customInput.value.trim();
+
+                    if (isMortal) {
+                        const count = occInput ? (occInput.value || 1) : 1;
+                        mortalList.push(`• On ${count} occasion${count > 1 ? 's' : ''}, I ${textValue}.`);
+                    } else {
+                        venialList.push(`• I ${textValue}.`);
+                    }
+                }
+            }
 
             let scriptText = `PREPARATORY PRAYER:\n"Come, Holy Spirit, enlighten my mind and move my heart. Help me to see my life truthfully: to recognize my sins without excuses, to repent without despair, and to receive the mercy won for me by Jesus Christ. Give me a sincere desire to love God and neighbor more faithfully. Amen."\n\n`;
 
@@ -956,7 +1109,7 @@
             }
 
             if (venialList.length > 0) {
-                scriptText += `VENIAL SINS:\nI am working to avoid and change my behavior regarding: ` + formatList(venialList) + `.\n\n`;
+                scriptText += `VENIAL SINS:\n` + venialList.join('\n') + `\n\n`;
             }
 
             if (mortalList.length === 0 && venialList.length === 0) {
@@ -983,8 +1136,6 @@
             document.querySelectorAll('.choice-pill').forEach(pill => pill.classList.remove('active'));
             document.querySelectorAll('.teaching-pill-wrapper').forEach(w => {
                 w.classList.remove('expanded');
-                const indicator = w.querySelector('.status-indicator');
-                if (indicator) indicator.textContent = 'Select "Yes" to view details';
             });
             document.querySelectorAll('.sin-item-row').forEach(row => {
                 row.classList.remove('mortal-active', 'venial-active', 'is-mortal');
@@ -998,14 +1149,5 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
-                .then((reg) => console.log('Service Worker registered successfully:', reg.scope))
-                .catch((err) => console.log('Service Worker registration failed:', err));
-        });
-    }
-</script>
 </body>
 </html>
