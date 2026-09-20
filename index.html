@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examination of Conscience & Confession Script</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2c3e50">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <style>
+        /* CSS to stack the teaching pill wrappers vertically */
+        .expanded-teachings-container .sub-choices {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .teaching-pill-wrapper {
+            display: block;
+            width: 100%;
+        }
+        .pill-action-row {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+        }
+        /* Custom Free-Form Input Section Style */
+        .custom-sin-group {
+            margin-top: 1.25rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed #ccc;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .custom-sin-group label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #444;
+        }
+        .custom-sin-input-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .custom-sin-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Examination of Conscience</h1>
+        <p class="subtitle">Confession Script Generator</p>
+    </header>
+
+    <main>
+        <section class="intro-box">
+            <p>“Examine yourselves, to see whether you are holding to your faith.”<br><strong>— 2 Corinthians 13:5</strong></p>
+            <p>Check the boxes for sins that apply. Click individual choice pills to turn them on or off. Toggle Mortal/Venial classification as needed (occurrence boxes appear only when set to Mortal). Click "Process Examen" once finished to process the examination of conscience into a confession script.</p>
+            <p style="margin-top: 1rem;">Once you complete your confession, click on Reset All Selections to delete your choices. No data is saved on any device.</p>
+        </section>
+
+        <!-- Conditions for Mortal Sin Section -->
+        <section class="prayer-box" style="border-left-color: #c62828;">
+            <h2>Conditions for Mortal Sin</h2>
+            <p>For a sin to be classified as mortal, <strong>three conditions must simultaneously be met</strong>:</p>
+            <ul>
+                <li><strong>Grave Matter:</strong> The act itself must be serious, violating God's law or the commandments.</li>
+                <li><strong>Full Knowledge:</strong> The person must know that the action is sinful and contrary to God’s law.</li>
+                <li><strong>Deliberate Consent:</strong> The person must freely and willingly choose to commit the act, giving full consent of the will.</li>
+            </ul>
+            <p style="margin-bottom: 0; font-size: 0.95rem; color: #555;"><em>If any one of these conditions is missing, the sin is considered venial. Mortal sins destroy charity in the heart and require sacramental confession before receiving Holy Communion.</em></p>
+        </section>
+
+        <section class="prayer-box">
+            <h2>Preparatory Prayer</h2>
+            <p>Come, Holy Spirit, enlighten my mind and move my heart. Help me to see my life truthfully: to recognize my sins without excuses, to repent without despair, and to receive the mercy won for me by Jesus Christ. Give me a sincere desire to love God and neighbor more faithfully. Amen.</p>
+        </section>
+
+        <form id="confession-form">
+            <!-- 1. Faith in God and Fidelity to Christ -->
+            <article class="examination-section">
+                <h2>1. Faith in God and Fidelity to Christ</h2>
+                <p class="scripture"><em>“Hold fast to the pattern of sound teaching.”</em> — <strong>2 Timothy 1:13</strong></p>
+                
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Placed anything before God: 
+                        <span class="sub-choices" data-base="placed {choice} before God" data-venial-base="I placed {choice} before God">
+                            <span class="choice-pill" data-value="money">money</span>
+                            <span class="choice-pill" data-value="success">success</span>
+                            <span class="choice-pill" data-value="pleasure">pleasure</span>
+                            <span class="choice-pill" data-value="approval">approval</span>
+                            <span class="choice-pill" data-value="politics">politics</span>
+                            <span class="choice-pill" data-value="comfort">comfort</span>
+                            <span class="choice-pill" data-value="my own will">my own will</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Doubted God’s: 
+                        <span class="sub-choices" data-base="doubted God’s {choice}" data-venial-base="I doubted God's {choice}">
+                            <span class="choice-pill" data-value="goodness">goodness</span>
+                            <span class="choice-pill" data-value="providence">providence</span>
+                            <span class="choice-pill" data-value="mercy">mercy</span>
+                            <span class="choice-pill" data-value="care for me">care for me</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Expanded Teaching Section for Catholic Faith Denials -->
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="deliberately rejected or denied a teaching of the Catholic faith" data-venial-statement="I deliberately rejected or denied a teaching of the Catholic faith"> Deliberately rejected or denied a teaching of the Catholic faith</label>
+                    </div>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container">
+                        <p class="expand-prompt-text"><em>Click chips below to toggle and review specific teaching definitions:</em></p>
+                        <div class="sub-choices" data-base="deliberately rejected or denied the teaching regarding {choice}" data-venial-base="I deliberately rejected or denied the teaching regarding {choice}">
+                            
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="the Real Presence in the Eucharist">1. The Real Presence in the Eucharist</span>
+                                </div>
+                                <div class="teaching-expand-box">
+                                    <p><strong>The Teaching:</strong> The bread and wine consecrated at Mass truly and substantially become the actual Body, Blood, Soul, and Divinity of Jesus Christ (Transubstantiation), rather than remaining merely symbolic representations.</p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="artificial birth control">2. Artificial Birth Control (Contraception)</span>
+                                </div>
+                                <div class="teaching-expand-box">
+                                    <p><strong>The Teaching:</strong> As affirmed in <em>Humanae Vitae</em>, every marital act must remain open to the transmission of life, and the intentional use of artificial contraceptives is intrinsically disordered.</p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="the moral inadmissibility of abortion">3. Inadmissibility of Abortion</span>
+                                </div>
+                                <div class="teaching-expand-box">
+                                    <p><strong>The Teaching:</strong> Human life must be respected and protected absolutely from the moment of conception. Direct abortion is a grave moral evil, and formal cooperation incurs automatic excommunication.</p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="the male-only priesthood">4. Male-Only Priesthood</span>
+                                </div>
+                                <div class="teaching-expand-box">
+                                    <p><strong>The Teaching:</strong> By divine constitution, the sacrament of Holy Orders can only be validly conferred upon baptized males, as affirmed definitively by Pope John Paul II in <em>Ordinatio Sacerdotalis</em>.</p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="the exclusivity of Holy Communion">5. Exclusivity of Holy Communion</span>
+                                </div>
+                                <div class="teaching-expand-box">
+                                    <p><strong>The Teaching:</strong> Receiving the Eucharist is a sign of full communion in faith, morals, and church discipline. Therefore, non-Catholics, Catholics in irregular unions, and those conscious of unconfessed mortal sin may not receive.</p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="teachings on same-sex sexual activity and marriage">6. Moral Imperative on Same-Sex Activity & Marriage</span>
+                                </div>
+                                <div class="teaching-expand-box">
+                                    <p><strong>The Teaching:</strong> Homosexual inclinations are not inherently sinful, but homosexual acts are intrinsically disordered, and marriage can only be validly contracted between one man and one woman.</p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="papal infallibility and authority">7. Infallibility and Authority of the Papacy</span>
+                                </div>
+                                <div class="teaching-expand-box">
+                                    <p><strong>The Teaching:</strong> The Pope, when speaking <em>ex cathedra</em> on matters of faith and morals, possesses the charism of infallibility, and Catholics owe religious submission of intellect and will to the ordinary magisterium.</p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="the requirement of sacramental confession">8. Sacramental Confession Requirement</span>
+                                </div>
+                                <div class="teaching-expand-box">
+                                    <p><strong>The Teaching:</strong> Mortal sins must be confessed to a priest in the Sacrament of Reconciliation before receiving the Eucharist, as Christ gave the Apostles the specific authority to forgive and retain sins.</p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="the indissolubility of valid marriage">9. Indissolubility of Valid Marriage & Annulments</span>
+                                </div>
+                                <div class="teaching-expand-box">
+                                    <p><strong>The Teaching:</strong> A valid, consummated sacramental marriage cannot be dissolved by any human power or for any reason other than death. Divorce separates civil status, but does not end the spiritual bond.</p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="the necessity of the Church for salvation">10. Necessity of the Church for Salvation</span>
+                                </div>
+                                <div class="teaching-expand-box">
+                                    <p><strong>The Teaching:</strong> While God can save those outside visible boundaries through invincible ignorance, the Catholic Church is the ordinary instrument of salvation established by Christ ("Outside the Church there is no salvation").</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Neglected through indifference or laziness: 
+                        <span class="sub-choices" data-base="neglected {choice} through indifference or laziness" data-venial-base="I neglected {choice} through indifference or laziness">
+                            <span class="choice-pill" data-value="prayer">prayer</span>
+                            <span class="choice-pill" data-value="Scripture">Scripture</span>
+                            <span class="choice-pill" data-value="Mass">Mass</span>
+                            <span class="choice-pill" data-value="the sacraments">the sacraments</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="received Holy Communion knowingly in a state of mortal sin" data-venial-statement="I received Holy Communion knowingly in a state of mortal sin"> Received Holy Communion knowingly in a state of mortal sin</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Used God’s name: 
+                        <span class="sub-choices" data-base="used God’s name {choice}" data-venial-base="I used God's name {choice}">
+                            <span class="choice-pill" data-value="irreverently">irreverently</span>
+                            <span class="choice-pill" data-value="carelessly">carelessly</span>
+                            <span class="choice-pill" data-value="in anger">in anger</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Taken part in: 
+                        <span class="sub-choices" data-base="taken part in {choice}" data-venial-base="I took part in {choice}">
+                            <span class="choice-pill" data-value="superstition">superstition</span>
+                            <span class="choice-pill" data-value="occult practices">occult practices</span>
+                            <span class="choice-pill" data-value="fortune-telling">fortune-telling</span>
+                            <span class="choice-pill" data-value="horoscopes">horoscopes</span>
+                            <span class="choice-pill" data-value="mediums">mediums</span>
+                            <span class="choice-pill" data-value="practices contrary to trust in God">practices contrary to trust in God</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="been ashamed of Christ or failed to witness to the faith when charity and duty called for it" data-venial-statement="I was ashamed of Christ or failed to witness to the faith when charity and duty called for it"> Been ashamed of Christ or failed to witness to the faith when charity and duty called for it</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="presumed upon God’s mercy while intending to continue in sin" data-venial-statement="I presumed upon God's mercy while intending to continue in sin"> Presumed upon God’s mercy while intending to continue in sin</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="fallen into discouragement or despair, as though my sins were greater than God’s mercy" data-venial-statement="I fell into discouragement or despair, as though my sins were greater than God's mercy"> Fallen into discouragement or despair, as though my sins were greater than God’s mercy</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 1 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-1" data-default-type="venial">
+                    <label for="custom-sin-1">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-1" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2. Love of God: Prayer, Worship, and Gratitude -->
+            <article class="examination-section">
+                <h2>2. Love of God: Prayer, Worship, and Gratitude</h2>
+                <p class="scripture"><em>“Pray without ceasing; give thanks in all circumstances.”</em> — <strong>1 Thessalonians 5:17–18</strong></p>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="failed to give God regular time in prayer" data-venial-statement="I failed to give God regular time in prayer"> Failed to give God regular time in prayer</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance" data-venial-statement="I prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance"> Prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="been distracted in prayer through my own unwillingness to focus" data-venial-statement="I was distracted in prayer through my own unwillingness to focus"> Been distracted in prayer through my own unwillingness to focus</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="neglected Sunday Mass or a holy day of obligation without a serious reason" data-venial-statement="I neglected Sunday Mass or a holy day of obligation without a serious reason"> Neglected Sunday Mass or a holy day of obligation without a serious reason</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Arrived / left Mass early/late: 
+                        <span class="sub-choices" data-base="arrived {choice} Mass or left early through my own fault" data-venial-base="I arrived {choice} Mass or left early through my own fault">
+                            <span class="choice-pill" data-value="late for">late for</span>
+                            <span class="choice-pill" data-value="early from">early from</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="participated at Mass casually rather than with reverence" data-venial-statement="I participated at Mass casually rather than with reverence"> Participated at Mass casually rather than with reverence</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Received the Eucharist without proper: 
+                        <span class="sub-choices" data-base="received the Eucharist without proper {choice}" data-venial-base="I received the Eucharist without proper {choice}">
+                            <span class="choice-pill" data-value="preparation">preparation</span>
+                            <span class="choice-pill" data-value="fasting">fasting</span>
+                            <span class="choice-pill" data-value="reverence">reverence</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="complained habitually rather than giving thanks" data-venial-statement="I complained habitually rather than giving thanks"> Complained habitually rather than giving thanks</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="acted as though I were self-made rather than recognizing God's gifts" data-venial-statement="I acted as though I were self-made rather than recognizing God's gifts"> Acted as though I were self-made rather than recognizing God's gifts</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 2 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-2" data-default-type="venial">
+                    <label for="custom-sin-2">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-2" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3. Love of Neighbor: Charity, Mercy, and Forgiveness -->
+            <article class="examination-section">
+                <h2>3. Love of Neighbor: Charity, Mercy, and Forgiveness</h2>
+                <p class="scripture"><em>“Let all that you do be done in love.”</em> — <strong>1 Corinthians 16:14</strong></p>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="failed to love others patiently and concretely" data-venial-statement="I failed to love others patiently and concretely"> Failed to love others patiently and concretely</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Held: 
+                        <span class="sub-choices" data-base="held {choice}" data-venial-base="I held {choice}">
+                            <span class="choice-pill" data-value="resentment">resentment</span>
+                            <span class="choice-pill" data-value="bitterness">bitterness</span>
+                            <span class="choice-pill" data-value="hatred">hatred</span>
+                            <span class="choice-pill" data-value="a desire for revenge">a desire for revenge</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Refused: 
+                        <span class="sub-choices" data-base="refused {choice}" data-venial-base="I refused {choice}">
+                            <span class="choice-pill" data-value="to forgive someone">to forgive someone</span>
+                            <span class="choice-pill" data-value="reasonable efforts toward reconciliation">reasonable efforts toward reconciliation</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Rejoiced at another person’s: 
+                        <span class="sub-choices" data-base="rejoiced at another person’s {choice}" data-venial-base="I rejoiced at another person’s {choice}">
+                            <span class="choice-pill" data-value="failure">failure</span>
+                            <span class="choice-pill" data-value="embarrassment">embarrassment</span>
+                            <span class="choice-pill" data-value="suffering">suffering</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Been: 
+                        <span class="sub-choices" data-base="been {choice} of another’s gifts" data-venial-base="I was {choice} of another’s gifts">
+                            <span class="choice-pill" data-value="jealous">jealous</span>
+                            <span class="choice-pill" data-value="envious">envious</span>
+                            <span class="choice-pill" data-value="possessive">possessive</span>
+                            <span class="choice-pill" data-value="resentful">resentful</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Judged others: 
+                        <span class="sub-choices" data-base="judged others {choice}" data-venial-base="I judged others {choice}">
+                            <span class="choice-pill" data-value="harshly">harshly</span>
+                            <span class="choice-pill" data-value="assuming bad motives">assuming bad motives</span>
+                            <span class="choice-pill" data-value="speaking contemptuously about them">speaking contemptuously about them</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="ignored someone in need when I could reasonably have helped" data-venial-statement="I ignored someone in need when I could reasonably have helped"> Ignored someone in need when I could reasonably have helped</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Been selfish with my: 
+                        <span class="sub-choices" data-base="been selfish with my {choice}" data-venial-base="I was selfish with my {choice}">
+                            <span class="choice-pill" data-value="time">time</span>
+                            <span class="choice-pill" data-value="money">money</span>
+                            <span class="choice-pill" data-value="abilities">abilities</span>
+                            <span class="choice-pill" data-value="attention">attention</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Treated with impatience or indifference: 
+                        <span class="sub-choices" data-base="treated {choice} with impatience or indifference" data-venial-base="I treated {choice} with impatience or indifference">
+                            <span class="choice-pill" data-value="elderly persons">elderly persons</span>
+                            <span class="choice-pill" data-value="children">children</span>
+                            <span class="choice-pill" data-value="the sick">the sick</span>
+                            <span class="choice-pill" data-value="the poor">the poor</span>
+                            <span class="choice-pill" data-value="immigrants">immigrants</span>
+                            <span class="choice-pill" data-value="the vulnerable">the vulnerable</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Caused or encouraged division in my: 
+                        <span class="sub-choices" data-base="caused or encouraged division in my {choice}" data-venial-base="I caused or encouraged division in my {choice}">
+                            <span class="choice-pill" data-value="family">family</span>
+                            <span class="choice-pill" data-value="parish">parish</span>
+                            <span class="choice-pill" data-value="workplace">workplace</span>
+                            <span class="choice-pill" data-value="community">community</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 3 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-3" data-default-type="venial">
+                    <label for="custom-sin-3">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-3" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4. Speech, Truthfulness, and the Use of Media -->
+            <article class="examination-section">
+                <h2>4. Speech, Truthfulness, and the Use of Media</h2>
+                <p class="scripture"><em>“Let no evil talk come out of your mouths...”</em> — <strong>Ephesians 4:29</strong></p>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Unjustly: 
+                        <span class="sub-choices" data-base="unjustly {choice}" data-venial-base="I unjustly {choice}">
+                            <span class="choice-pill" data-value="lied">lied</span>
+                            <span class="choice-pill" data-value="deceived">deceived</span>
+                            <span class="choice-pill" data-value="exaggerated">exaggerated</span>
+                            <span class="choice-pill" data-value="manipulated">manipulated</span>
+                            <span class="choice-pill" data-value="concealed the truth">concealed the truth</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> 
+                        <span class="sub-choices" data-base="{choice}" data-venial-base="I have {choice}">
+                            <span class="choice-pill" data-value="gossiped">gossiped</span>
+                            <span class="choice-pill" data-value="revealed another person’s confidential information">revealed confidential info</span>
+                            <span class="choice-pill" data-value="damaged someone’s reputation">damaged someone’s reputation</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="slandered someone by saying what I knew or suspected to be false" data-venial-statement="I slandered someone by saying what I knew or suspected to be false"> Slandered someone by saying what I knew or suspected to be false</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> 
+                        <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
+                            <span class="choice-pill" data-value="mocked">mocked</span>
+                            <span class="choice-pill" data-value="insulted">insulted</span>
+                            <span class="choice-pill" data-value="ridiculed">ridiculed</span>
+                            <span class="choice-pill" data-value="bullied">bullied</span>
+                            <span class="choice-pill" data-value="used cruel humor">used cruel humor</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Used: 
+                        <span class="sub-choices" data-base="used {choice}" data-venial-base="I used {choice}">
+                            <span class="choice-pill" data-value="profanity">profanity</span>
+                            <span class="choice-pill" data-value="vulgar speech">vulgar speech</span>
+                            <span class="choice-pill" data-value="speech that degraded others">speech that degraded others</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="spoken in anger without seeking to control myself" data-venial-statement="I spoke in anger without seeking to control myself"> Spoken in anger without seeking to control myself</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Used social media / online comments to spread: 
+                        <span class="sub-choices" data-base="used social media or online comments to spread {choice}" data-venial-base="I used social media or online comments to spread {choice}">
+                            <span class="choice-pill" data-value="hostility">hostility</span>
+                            <span class="choice-pill" data-value="gossip">gossip</span>
+                            <span class="choice-pill" data-value="falsehood">falsehood</span>
+                            <span class="choice-pill" data-value="impurity">impurity</span>
+                            <span class="choice-pill" data-value="division">division</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 4 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-4" data-default-type="venial">
+                    <label for="custom-sin-4">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-4" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 5. Purity, Chastity, and Reverence for the Body -->
+            <article class="examination-section">
+                <h2>5. Purity, Chastity, and Reverence for the Body</h2>
+                <p class="scripture"><em>“Your body is a temple...”</em> — <strong>1 Corinthians 6:19</strong></p>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="entertained lustful thoughts willingly or deliberately" data-venial-statement="I entertained lustful thoughts willingly or deliberately"> Entertained lustful thoughts willingly or deliberately</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="looked at pornography or sought sexually explicit material" data-venial-statement="I looked at pornography or sought sexually explicit material"> Looked at pornography or sought sexually explicit material</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="masturbated" data-venial-statement="I masturbated"> Masturbated</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="used another person, in thought or action, as an object for my own pleasure" data-venial-statement="I used another person, in thought or action, as an object for my own pleasure"> Used another person, in thought or action, as an object for my own pleasure</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="engaged in sexual activity outside a valid marriage" data-venial-statement="I engaged in sexual activity outside a valid marriage"> Engaged in sexual activity outside a valid marriage</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Been unfaithful in marriage through: 
+                        <span class="sub-choices" data-base="been unfaithful in marriage through {choice}" data-venial-base="I was unfaithful in marriage through {choice}">
+                            <span class="choice-pill" data-value="action">action</span>
+                            <span class="choice-pill" data-value="intention">intention</span>
+                            <span class="choice-pill" data-value="emotional attachment">emotional attachment</span>
+                            <span class="choice-pill" data-value="online conduct">online conduct</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> 
+                        <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
+                            <span class="choice-pill" data-value="used contraception">used contraception</span>
+                            <span class="choice-pill" data-value="sought sterilization">sought sterilization</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 5 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-5" data-default-type="venial">
+                    <label for="custom-sin-5">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-5" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 6. Family Life, Vocation, and Daily Duties -->
+            <article class="examination-section">
+                <h2>6. Family Life, Vocation, and Daily Duties</h2>
+                <p class="scripture"><em>“Honor your father and mother.”</em> — <strong>Ephesians 6:2</strong></p>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Failed in love, respect, patience, or gratitude toward: 
+                        <span class="sub-choices" data-base="failed in love, respect, patience, or gratitude toward {choice}" data-venial-base="I failed in love, respect, patience, or gratitude toward {choice}">
+                            <span class="choice-pill" data-value="my parents">my parents</span>
+                            <span class="choice-pill" data-value="my guardians">my guardians</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Neglected: 
+                        <span class="sub-choices" data-base="neglected {choice}" data-venial-base="I neglected {choice}">
+                            <span class="choice-pill" data-value="my spouse">my spouse</span>
+                            <span class="choice-pill" data-value="my children">my children</span>
+                            <span class="choice-pill" data-value="relatives">relatives</span>
+                            <span class="choice-pill" data-value="those entrusted to my care">those entrusted to my care</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Been in family life: 
+                        <span class="sub-choices" data-base="been {choice} in family life" data-venial-base="I was {choice} in family life">
+                            <span class="choice-pill" data-value="harsh">harsh</span>
+                            <span class="choice-pill" data-value="controlling">controlling</span>
+                            <span class="choice-pill" data-value="irresponsible">irresponsible</span>
+                            <span class="choice-pill" data-value="unfaithful">unfaithful</span>
+                            <span class="choice-pill" data-value="emotionally neglectful">emotionally neglectful</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Failed to fulfill my duties at: 
+                        <span class="sub-choices" data-base="failed to fulfill my duties at {choice}" data-venial-base="I failed to fulfill my duties at {choice}">
+                            <span class="choice-pill" data-value="work">work</span>
+                            <span class="choice-pill" data-value="school">school</span>
+                            <span class="choice-pill" data-value="home">home</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Been: 
+                        <span class="sub-choices" data-base="been {choice}" data-venial-base="I was {choice}">
+                            <span class="choice-pill" data-value="lazy">lazy</span>
+                            <span class="choice-pill" data-value="dishonest">dishonest</span>
+                            <span class="choice-pill" data-value="chronically late">chronically late</span>
+                            <span class="choice-pill" data-value="careless">careless</span>
+                            <span class="choice-pill" data-value="wasteful">wasteful</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 6 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-6" data-default-type="venial">
+                    <label for="custom-sin-6">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-6" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 7. Justice, Money, and Care for Those in Need -->
+            <article class="examination-section">
+                <h2>7. Justice, Money, and Care for Those in Need</h2>
+                <p class="scripture"><em>“Let the thief no longer steal...”</em> — <strong>Ephesians 4:28</strong></p>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> 
+                        <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
+                            <span class="choice-pill" data-value="stolen">stolen</span>
+                            <span class="choice-pill" data-value="cheated">cheated</span>
+                            <span class="choice-pill" data-value="pirated">pirated</span>
+                            <span class="choice-pill" data-value="vandalized">vandalized</span>
+                            <span class="choice-pill" data-value="kept what did not belong to me">kept what did not belong to me</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Failed to: 
+                        <span class="sub-choices" data-base="failed to {choice}" data-venial-base="I failed to {choice}">
+                            <span class="choice-pill" data-value="repay debts">repay debts</span>
+                            <span class="choice-pill" data-value="return borrowed goods">return borrowed goods</span>
+                            <span class="choice-pill" data-value="make restitution when I could">make restitution when I could</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Been dishonest in: 
+                        <span class="sub-choices" data-base="been dishonest in {choice}" data-venial-base="I was dishonest in {choice}">
+                            <span class="choice-pill" data-value="business">business</span>
+                            <span class="choice-pill" data-value="taxes">taxes</span>
+                            <span class="choice-pill" data-value="contracts">contracts</span>
+                            <span class="choice-pill" data-value="expenses">expenses</span>
+                            <span class="choice-pill" data-value="wages">wages</span>
+                            <span class="choice-pill" data-value="work hours">work hours</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Exploited another person’s: 
+                        <span class="sub-choices" data-base="exploited another person’s {choice} for personal gain" data-venial-base="I exploited another person’s {choice} for personal gain">
+                            <span class="choice-pill" data-value="weakness">weakness</span>
+                            <span class="choice-pill" data-value="need">need</span>
+                            <span class="choice-pill" data-value="labor">labor</span>
+                            <span class="choice-pill" data-value="trust">trust</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Been: 
+                        <span class="sub-choices" data-base="been {choice}" data-venial-base="I was {choice}">
+                            <span class="choice-pill" data-value="greedy">greedy</span>
+                            <span class="choice-pill" data-value="wasteful">wasteful</span>
+                            <span class="choice-pill" data-value="excessively attached to possessions">excessively attached to possessions</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" data-statement="neglected the poor or refused reasonable generosity" data-venial-statement="I neglected the poor or refused reasonable generosity"> Neglected the poor or refused reasonable generosity</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 7 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-7" data-default-type="venial">
+                    <label for="custom-sin-7">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-7" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 8. Anger, Peace, and Self-Control -->
+            <article class="examination-section">
+                <h2>8. Anger, Peace, and Self-Control</h2>
+                <p class="scripture"><em>“Be angry but do not sin...”</em> — <strong>Ephesians 4:26</strong></p>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Given way to: 
+                        <span class="sub-choices" data-base="given way to {choice}" data-venial-base="I gave way to {choice}">
+                            <span class="choice-pill" data-value="rage">rage</span>
+                            <span class="choice-pill" data-value="resentment">resentment</span>
+                            <span class="choice-pill" data-value="impatience">impatience</span>
+                            <span class="choice-pill" data-value="hatred">hatred</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> 
+                        <span class="sub-choices" data-base="{choice} another person" data-venial-base="I {choice} another person">
+                            <span class="choice-pill" data-value="insulted">insulted</span>
+                            <span class="choice-pill" data-value="threatened">threatened</span>
+                            <span class="choice-pill" data-value="intimidated">intimidated</span>
+                            <span class="choice-pill" data-value="harmed">harmed</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> 
+                        <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
+                            <span class="choice-pill" data-value="been physically violent">been physically violent</span>
+                            <span class="choice-pill" data-value="been reckless with another’s safety">been reckless with another’s safety</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Abused: 
+                        <span class="sub-choices" data-base="abused {choice}" data-venial-base="I abused {choice}">
+                            <span class="choice-pill" data-value="alcohol">alcohol</span>
+                            <span class="choice-pill" data-value="drugs">drugs</span>
+                            <span class="choice-pill" data-value="gambling">gambling</span>
+                            <span class="choice-pill" data-value="food">food</span>
+                            <span class="choice-pill" data-value="entertainment">entertainment</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 8 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-8" data-default-type="venial">
+                    <label for="custom-sin-8">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-8" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 9. Life, Dignity, and Responsibility for Others -->
+            <article class="examination-section">
+                <h2>9. Life, Dignity, and Responsibility for Others</h2>
+                <p class="scripture"><em>“Love does no wrong to a neighbor.”</em> — <strong>Romans 13:10</strong></p>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Harmed another person: 
+                        <span class="sub-choices" data-base="harmed another person {choice}" data-venial-base="I harmed another person {choice}">
+                            <span class="choice-pill" data-value="physically">physically</span>
+                            <span class="choice-pill" data-value="emotionally">emotionally</span>
+                            <span class="choice-pill" data-value="spiritually">spiritually</span>
+                            <span class="choice-pill" data-value="through serious neglect">through serious neglect</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Encouraged, supported, or cooperated in: 
+                        <span class="sub-choices" data-base="encouraged, supported, or cooperated in {choice}" data-venial-base="I encouraged, supported, or cooperated in {choice}">
+                            <span class="choice-pill" data-value="abortion">abortion</span>
+                            <span class="choice-pill" data-value="euthanasia">euthanasia</span>
+                            <span class="choice-pill" data-value="suicide">suicide</span>
+                            <span class="choice-pill" data-value="violence">violence</span>
+                            <span class="choice-pill" data-value="other attacks on human life">other attacks on human life</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> 
+                        <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
+                            <span class="choice-pill" data-value="driven recklessly">driven recklessly</span>
+                            <span class="choice-pill" data-value="acted carelessly with the safety of others">acted carelessly with safety</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 9 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-9" data-default-type="venial">
+                    <label for="custom-sin-9">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-9" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 10. Humility, Community, and the Life of the Church -->
+            <article class="examination-section">
+                <h2>10. Humility, Community, and the Life of the Church</h2>
+                <p class="scripture"><em>“Do nothing from selfishness or conceit...”</em> — <strong>Philippians 2:3</strong></p>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Been: 
+                        <span class="sub-choices" data-base="been {choice}" data-venial-base="I was {choice}">
+                            <span class="choice-pill" data-value="proud">proud</span>
+                            <span class="choice-pill" data-value="self-righteous">self-righteous</span>
+                            <span class="choice-pill" data-value="vain">vain</span>
+                            <span class="choice-pill" data-value="unwilling to admit fault">unwilling to admit fault</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> 
+                        <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
+                            <span class="choice-pill" data-value="refused correction">refused correction</span>
+                            <span class="choice-pill" data-value="rejected good advice out of pride">rejected good advice out of pride</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+                <div class="sin-item-row venial-item" data-default-type="venial">
+                    <label><input type="checkbox" name="sin"> Caused division in the: 
+                        <span class="sub-choices" data-base="caused division in the {choice}" data-venial-base="I caused division in the {choice}">
+                            <span class="choice-pill" data-value="Church">Church</span>
+                            <span class="choice-pill" data-value="parish">parish</span>
+                            <span class="choice-pill" data-value="family">family</span>
+                            <span class="choice-pill" data-value="community">community</span>
+                        </span>
+                    </label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Free-Form Custom Sin Field for Section 10 -->
+                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-10" data-default-type="venial">
+                    <label for="custom-sin-10">Other unrepresented sin(s) in this category:</label>
+                    <div class="custom-sin-input-row">
+                        <input type="text" id="custom-sin-10" class="custom-sin-input" placeholder="Type any other sin here...">
+                        <button type="button" class="type-toggle-btn venial">Venial</button>
+                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    </div>
+                </div>
+            </article>
+        </form>
+
+        <section style="text-align: center; margin-top: 2rem;">
+            <button id="generate-btn" class="secondary-btn" style="background: var(--accent-color); color: white; padding: 1rem 2rem; font-size: 1.1rem; cursor: pointer;">Process Examen</button>
+        </section>
+
+        <section id="script-container">
+            <h2>Your Generated Confession Script</h2>
+            <div id="script-output" class="confession-script-output"></div>
+        </section>
+    </main>
+
+    <footer>
+        <button id="reset-btn" class="secondary-btn">Reset All Selections</button>
+    </footer>
+
+    <!-- Script to handle toggle, pill selections, and script generation -->
+    <script>
+        // Toggle choice pills on/off and handle expandable teaching drawers
+        document.querySelectorAll('.choice-pill').forEach(pill => {
+            pill.addEventListener('click', (e) => {
+                e.preventDefault();
+                pill.classList.toggle('active');
+                
+                // Toggle expansion box for teaching accordion items
+                const wrapper = pill.closest('.teaching-pill-wrapper');
+                if (wrapper) {
+                    if (pill.classList.contains('active')) {
+                        wrapper.classList.add('expanded');
+                    } else {
+                        wrapper.classList.remove('expanded');
+                    }
+                }
+            });
+        });
+
+        // Toggle button handler for Mortal/Venial
+        document.querySelectorAll('.type-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const row = e.target.closest('.sin-item-row');
+                if (e.target.classList.contains('venial')) {
+                    e.target.classList.remove('venial');
+                    e.target.classList.add('mortal');
+                    e.target.innerText = 'Mortal';
+                    row.classList.remove('venial-active');
+                    row.classList.add('mortal-active', 'is-mortal');
+                } else {
+                    e.target.classList.remove('mortal');
+                    e.target.classList.add('venial');
+                    e.target.innerText = 'Venial';
+                    row.classList.remove('mortal-active', 'is-mortal');
+                    row.classList.add('venial-active');
+                }
+            });
+        });
+
+        // Highlight row when checkbox is checked
+        document.querySelectorAll('input[type="checkbox"]').forEach(box => {
+            box.addEventListener('change', (e) => {
+                const row = e.target.closest('.sin-item-row');
+                const isMortal = row.classList.contains('is-mortal');
+                if (e.target.checked) {
+                    row.classList.add(isMortal ? 'mortal-active' : 'venial-active');
+                } else {
+                    row.classList.remove('mortal-active', 'venial-active');
+                }
+            });
+        });
+
+        // Helper function to format combined choices naturally with commas and "or"/"and"
+        function formatList(items) {
+            if (items.length === 0) return '';
+            if (items.length === 1) return items[0];
+            if (items.length === 2) return items[0] + ' and ' + items[1];
+            return items.slice(0, -1).join(', ') + ', and ' + items[items.length - 1];
+        }
+
+        // Generate Script Button Logic
+        document.getElementById('generate-btn').addEventListener('click', () => {
+            let mortalList = [];
+            let venialList = [];
+
+            // 1. Process regular checkbox selections
+            const rows = document.querySelectorAll('.sin-item-row:not(.custom-sin-group)');
+            rows.forEach(row => {
+                const checkbox = row.querySelector('input[type="checkbox"]');
+                if (checkbox && checkbox.checked) {
+                    const isMortal = row.classList.contains('is-mortal');
+                    const occInput = row.querySelector('.occ-input');
+                    const subContainer = row.querySelector('.sub-choices');
+                    
+                    let statement = '';
+                    let venialStatement = '';
+
+                    if (subContainer) {
+                        const baseTemplate = subContainer.getAttribute('data-base');
+                        const venialBaseTemplate = subContainer.getAttribute('data-venial-base') || baseTemplate;
+                        const activePills = Array.from(subContainer.querySelectorAll('.choice-pill.active'))
+                                                 .map(p => p.getAttribute('data-value'));
+                        
+                        if (activePills.length > 0) {
+                            const formattedChoices = formatList(activePills);
+                            statement = baseTemplate.replace('{choice}', formattedChoices);
+                            venialStatement = venialBaseTemplate.replace('{choice}', formattedChoices);
+                        } else {
+                            return; // Skip if main box is checked but no sub-choices are toggled on
+                        }
+                    } else {
+                        statement = checkbox.getAttribute('data-statement');
+                        venialStatement = checkbox.getAttribute('data-venial-statement') || statement;
+                    }
+
+                    if (isMortal) {
+                        const count = occInput ? (occInput.value || 1) : 1;
+                        mortalList.push(`• On ${count} occasion${count > 1 ? 's' : ''}, I ${statement}.`);
+                    } else {
+                        venialList.push(`• ${venialStatement}.`);
+                    }
+                }
+            });
+
+            // 2. Process custom free-form input fields with their individual Mortal/Venial type settings
+            for (let i = 1; i <= 10; i++) {
+                const customInput = document.getElementById(`custom-sin-${i}`);
+                if (customInput && customInput.value.trim() !== '') {
+                    const row = document.getElementById(`custom-row-${i}`);
+                    const isMortal = row.classList.contains('is-mortal');
+                    const occInput = row.querySelector('.custom-occ-input');
+                    const textValue = customInput.value.trim();
+
+                    if (isMortal) {
+                        const count = occInput ? (occInput.value || 1) : 1;
+                        mortalList.push(`• On ${count} occasion${count > 1 ? 's' : ''}, I ${textValue}.`);
+                    } else {
+                        venialList.push(`• I ${textValue}.`);
+                    }
+                }
+            }
+
+            let scriptText = `PREPARATORY PRAYER:\n"Come, Holy Spirit, enlighten my mind and move my heart. Help me to see my life truthfully: to recognize my sins without excuses, to repent without despair, and to receive the mercy won for me by Jesus Christ. Give me a sincere desire to love God and neighbor more faithfully. Amen."\n\n`;
+
+            scriptText += `IN THE CONFESSIONAL:\n(Bless me, Father, for I have sinned. It has been [insert time] since my last confession. These are my sins:)\n\n`;
+
+            if (mortalList.length > 0) {
+                scriptText += `MORTAL SINS:\n` + mortalList.join('\n') + `\n\n`;
+            }
+
+            if (venialList.length > 0) {
+                scriptText += `VENIAL SINS:\n` + venialList.join('\n') + `\n\n`;
+            }
+
+            if (mortalList.length === 0 && venialList.length === 0) {
+                scriptText += `(No sins selected. Please select items and specific choices from the examination above.)\n\n`;
+            }
+
+            scriptText += `CLOSING STATEMENT:\n"For these and all my sins, and for the sins I cannot remember, I am truly sorry."\n\n`;
+
+            scriptText += `ACT OF CONTRITION:\n"Lord Jesus Christ, Son of the living God, have mercy on me, a sinner. I am sorry for all the sins I have committed, for the good I have failed to do, and for the ways I have failed to love You and my neighbor. By Your grace, I firmly resolve to avoid sin, to make restitution where I can, to forgive those who have wronged me, and to amend my life. Amen."\n\n`;
+
+            scriptText += `POST-PENANCE PRAYER:\n"He who began a good work in you will bring it to completion. (Philippians 1:6) Lord, thank you for your mercy and healing grace. Give me the strength to fulfill my penance and walk faithfully in your light."`;
+
+            const outputDiv = document.getElementById('script-output');
+            const containerDiv = document.getElementById('script-container');
+
+            outputDiv.textContent = scriptText;
+            containerDiv.style.display = 'block';
+            containerDiv.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Reset Button
+        document.getElementById('reset-btn').addEventListener('click', () => {
+            document.getElementById('confession-form').reset();
+            document.querySelectorAll('.choice-pill').forEach(pill => pill.classList.remove('active'));
+            document.querySelectorAll('.teaching-pill-wrapper').forEach(w => {
+                w.classList.remove('expanded');
+            });
+            document.querySelectorAll('.sin-item-row').forEach(row => {
+                row.classList.remove('mortal-active', 'venial-active', 'is-mortal');
+                const btn = row.querySelector('.type-toggle-btn');
+                if (btn) {
+                    btn.className = 'type-toggle-btn venial';
+                    btn.innerText = 'Venial';
+                }
+            });
+            document.getElementById('script-container').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
