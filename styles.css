@@ -85,7 +85,11 @@ h2 {
     cursor: pointer;
     font-size: 0.95rem;
 }
-
+/* insert here */
+.expanded-teachings-container {
+    flex: 0 0 100%;
+    width: 100%;
+}
 /* Choice Pills Styling */
 .sub-choices {
     display: inline-flex;
