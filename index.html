@@ -524,14 +524,14 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> 
-                        <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
-                            <span class="choice-pill" data-value="mocked">mocked</span>
-                            <span class="choice-pill" data-value="insulted">insulted</span>
-                            <span class="choice-pill" data-value="ridiculed">ridiculed</span>
-                            <span class="choice-pill" data-value="bullied">bullied</span>
-                            <span class="choice-pill" data-value="used cruel humor">used cruel humor</span>
+                <div class="sin-item-row venial-item" data-default-type="venial" id="mock-insult-row">
+                    <label><input type="checkbox" name="sin" id="mock-insult-checkbox"> 
+                        <span class="sub-choices" id="mock-insult-choices">
+                            <span class="choice-pill mock-pill" data-value="mocked">mocked</span>
+                            <span class="choice-pill mock-pill" data-value="insulted">insulted</span>
+                            <span class="choice-pill mock-pill" data-value="ridiculed">ridiculed</span>
+                            <span class="choice-pill mock-pill" data-value="bullied">bullied</span>
+                            <span class="choice-pill mock-pill" data-value="used cruel humor">used cruel humor</span>
                         </span>
                     </label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
@@ -645,11 +645,18 @@
             <article class="examination-section">
                 <h2>6. Family Life, Vocation, and Daily Duties</h2>
                 <p class="scripture"><em>“Honor your father and mother.”</em> — <strong>Ephesians 6:2</strong></p>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Failed in love, respect, patience, or gratitude toward: 
-                        <span class="sub-choices" data-base="failed in love, respect, patience, or gratitude toward {choice}" data-venial-base="I failed in love, respect, patience, or gratitude toward {choice}">
-                            <span class="choice-pill" data-value="my parents">my parents</span>
-                            <span class="choice-pill" data-value="my guardians">my guardians</span>
+                <div class="sin-item-row venial-item" id="parents-guardians-row" data-default-type="venial">
+                    <label><input type="checkbox" name="sin" id="parents-guardians-checkbox"> Failure to: 
+                        <span class="sub-choices" id="parents-guardians-choices">
+                            <span class="choice-pill parents-pill" data-value="love">love</span>
+                            <span class="choice-pill parents-pill" data-value="respect">respect</span>
+                            <span class="choice-pill parents-pill" data-value="have patience with">have patience with</span>
+                            <span class="choice-pill parents-pill" data-value="show gratitude toward">show gratitude toward</span>
+                        </span>
+                        <span style="font-size: 0.9rem; margin-left: 0.25rem;">toward:</span>
+                        <span class="sub-choices" id="parents-targets-choices" style="margin-left: 0.25rem;">
+                            <span class="choice-pill target-pill" data-value="my parents">my parents</span>
+                            <span class="choice-pill target-pill" data-value="my guardian(s)">my guardian(s)</span>
                         </span>
                     </label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
@@ -717,17 +724,17 @@
             </article>
 
             <!-- 7. Justice, Money, and Care for Those in Need -->
-            <article class="examination-section">
+            <article class="examination-section" id="justice-section">
                 <h2>7. Justice, Money, and Care for Those in Need</h2>
                 <p class="scripture"><em>“Let the thief no longer steal...”</em> — <strong>Ephesians 4:28</strong></p>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> 
+                <div class="sin-item-row venial-item" data-default-type="venial" id="justice-property-row">
+                    <label><input type="checkbox" name="sin" id="justice-property-checkbox"> 
                         <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
-                            <span class="choice-pill" data-value="stolen">stolen</span>
-                            <span class="choice-pill" data-value="cheated">cheated</span>
-                            <span class="choice-pill" data-value="pirated">pirated</span>
-                            <span class="choice-pill" data-value="vandalized">vandalized</span>
-                            <span class="choice-pill" data-value="kept what did not belong to me">kept what did not belong to me</span>
+                            <span class="choice-pill justice-pill" data-value="stolen">stolen</span>
+                            <span class="choice-pill justice-pill" data-value="cheated">cheated</span>
+                            <span class="choice-pill justice-pill" data-value="pirated">pirated</span>
+                            <span class="choice-pill justice-pill" data-value="vandalized">vandalized</span>
+                            <span class="choice-pill justice-pill" data-value="kept what did not belong to me">kept what did not belong to me</span>
                         </span>
                     </label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
@@ -826,11 +833,11 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> 
-                        <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
-                            <span class="choice-pill" data-value="been physically violent">been physically violent</span>
-                            <span class="choice-pill" data-value="been reckless with another’s safety">been reckless with another’s safety</span>
+                <div class="sin-item-row venial-item" data-default-type="venial" id="violence-row">
+                    <label><input type="checkbox" name="sin" id="violence-checkbox"> 
+                        <span class="sub-choices" id="violence-choices">
+                            <span class="choice-pill violence-pill" data-value="been physically violent">been physically violent</span>
+                            <span class="choice-pill violence-pill" data-value="been reckless with another’s safety">been reckless with another’s safety</span>
                         </span>
                     </label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
@@ -890,11 +897,11 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> 
-                        <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
-                            <span class="choice-pill" data-value="driven recklessly">driven recklessly</span>
-                            <span class="choice-pill" data-value="acted carelessly with the safety of others">acted carelessly with safety</span>
+                <div class="sin-item-row venial-item" data-default-type="venial" id="driving-row">
+                    <label><input type="checkbox" name="sin" id="driving-checkbox"> 
+                        <span class="sub-choices" id="driving-choices">
+                            <span class="choice-pill driving-pill" data-value="driven recklessly">driven recklessly</span>
+                            <span class="choice-pill driving-pill" data-value="acted carelessly with the safety of others">acted carelessly with the safety of others</span>
                         </span>
                     </label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
@@ -1055,18 +1062,171 @@
                     let statement = '';
                     let venialStatement = '';
 
-                    if (subContainer) {
+                    // Special handling for Section 4: mock/insult row
+                    if (row.id === 'mock-insult-row') {
+                        const activePills = Array.from(document.querySelectorAll('#mock-insult-choices .choice-pill.active'))
+                                                 .map(p => p.getAttribute('data-value'));
+
+                        if (activePills.length > 0) {
+                            const hasCruelHumor = activePills.includes('used cruel humor');
+                            const standardPills = activePills.filter(p => p !== 'used cruel humor');
+
+                            let parts = [];
+                            if (standardPills.length > 0) {
+                                parts.push(formatList(standardPills) + ' someone');
+                            }
+                            if (hasCruelHumor) {
+                                parts.push('used cruel humor when referring to them');
+                            }
+
+                            const combinedActionText = formatList(parts);
+                            statement = combinedActionText;
+                            venialStatement = 'I ' + combinedActionText;
+                        } else {
+                            return;
+                        }
+                    }
+                    // Special handling for Section 8: violence row
+                    else if (row.id === 'violence-row') {
+                        const activePills = Array.from(document.querySelectorAll('#violence-choices .choice-pill.active'))
+                                                 .map(p => p.getAttribute('data-value'));
+
+                        if (activePills.length > 0) {
+                            let actionPhrases = activePills.map(action => {
+                                if (action === 'been physically violent') return 'was physically violent';
+                                if (action === 'been reckless with another’s safety') return 'reckless with another’s safety';
+                                return action;
+                            });
+
+                            const formattedActions = formatList(actionPhrases);
+                            // If both are selected, "was physically violent and reckless with another's safety" flows naturally
+                            statement = actionPhrases.length > 1 && actionPhrases[1] === 'reckless with another’s safety' ? 
+                                `was physically violent and reckless with another’s safety` : 
+                                formattedActions;
+                            
+                            venialStatement = actionPhrases.length > 1 && actionPhrases[1] === 'reckless with another’s safety' ? 
+                                `I was physically violent and reckless with another’s safety` : 
+                                'I ' + formattedActions;
+                        } else {
+                            return;
+                        }
+                    }
+                    // Special handling for Section 9: driving row
+                    else if (row.id === 'driving-row') {
+                        const activePills = Array.from(document.querySelectorAll('#driving-choices .choice-pill.active'))
+                                                 .map(p => p.getAttribute('data-value'));
+
+                        if (activePills.length > 0) {
+                            let actionPhrases = activePills.map(action => {
+                                if (action === 'driven recklessly') return 'drove recklessly';
+                                return action;
+                            });
+
+                            const formattedActions = formatList(actionPhrases);
+                            statement = formattedActions;
+                            venialStatement = 'I ' + formattedActions;
+                        } else {
+                            return;
+                        }
+                    }
+                    // Special handling for Section 6: parents/guardians row
+                    else if (row.id === 'parents-guardians-row') {
+                        const activeActions = Array.from(document.querySelectorAll('#parents-guardians-choices .choice-pill.active'))
+                                                   .map(p => p.getAttribute('data-value'));
+                        const activeTargets = Array.from(document.querySelectorAll('#parents-targets-choices .choice-pill.active'))
+                                                   .map(p => p.getAttribute('data-value'));
+
+                        if (activeActions.length > 0 && activeTargets.length > 0) {
+                            let actionPhrases = activeActions.map(action => {
+                                if (action === 'love') return 'love';
+                                if (action === 'respect') return 'respect';
+                                if (action === 'have patience with') return 'have patience with';
+                                if (action === 'show gratitude toward') return 'show gratitude toward';
+                                return action;
+                            });
+
+                            const formattedActions = formatList(actionPhrases);
+                            const formattedTargets = formatList(activeTargets);
+
+                            statement = `failed to ${formattedActions} ${formattedTargets}`;
+                            venialStatement = `I failed to ${formattedActions} ${formattedTargets}`;
+                        } else {
+                            return; 
+                        }
+                    } 
+                    // Special handling for Rule 5: Section 7 property/justice row
+                    else if (row.id === 'justice-property-row') {
+                        const activePills = Array.from(subContainer.querySelectorAll('.choice-pill.active'))
+                                                 .map(p => p.getAttribute('data-value'));
+                        
+                        if (activePills.length > 0) {
+                            if (activePills.length === 1 && activePills[0] === 'cheated') {
+                                statement = 'cheated someone';
+                                venialStatement = 'I have cheated someone';
+                            } else {
+                                const propertyItems = activePills.filter(p => ['stolen', 'pirated', 'vandalized'].includes(p));
+                                const otherItems = activePills.filter(p => !['stolen', 'pirated', 'vandalized'].includes(p));
+
+                                let formattedParts = [];
+                                if (propertyItems.length > 0) {
+                                    const formattedProp = formatList(propertyItems);
+                                    formattedParts.push(`${formattedProp} something owned by another`);
+                                }
+                                otherItems.forEach(item => {
+                                    if (item === 'cheated') formattedParts.push('cheated someone');
+                                    else if (item === 'kept what did not belong to me') formattedParts.push('kept what did not belong to me');
+                                    else formattedParts.push(item);
+                                });
+
+                                const combinedText = formatList(formattedParts);
+                                statement = combinedText;
+                                venialStatement = 'I have ' + combinedText;
+                            }
+                        } else {
+                            return;
+                        }
+                    } else if (subContainer) {
                         const baseTemplate = subContainer.getAttribute('data-base');
                         const venialBaseTemplate = subContainer.getAttribute('data-venial-base') || baseTemplate;
                         const activePills = Array.from(subContainer.querySelectorAll('.choice-pill.active'))
                                                  .map(p => p.getAttribute('data-value'));
                         
                         if (activePills.length > 0) {
-                            const formattedChoices = formatList(activePills);
-                            statement = baseTemplate.replace('{choice}', formattedChoices);
-                            venialStatement = venialBaseTemplate.replace('{choice}', formattedChoices);
+                            // Check for Rule 4: gossiped alone
+                            if (activePills.length === 1 && activePills[0] === 'gossiped') {
+                                statement = 'gossiped about someone';
+                                venialStatement = 'I have gossiped about someone';
+                            } else {
+                                let processedPills = activePills.map(pill => {
+                                    if (pill === 'used cruel humor') {
+                                        return 'used cruel humor when referring to someone';
+                                    }
+                                    return pill;
+                                });
+
+                                const formattedChoices = formatList(processedPills);
+                                statement = baseTemplate.replace('{choice}', formattedChoices);
+                                venialStatement = venialBaseTemplate.replace('{choice}', formattedChoices);
+
+                                // Rule 1: fix "been jealous" -> "I was jealous"
+                                if (venialStatement.includes('been jealous')) {
+                                    venialStatement = venialStatement.replace('I was been jealous', 'I was jealous').replace('I have been been jealous', 'I was jealous');
+                                    if (venialStatement.startsWith('I was been')) {
+                                        venialStatement = venialStatement.replace('I was been', 'I was');
+                                    } else if (venialStatement.startsWith('I have been')) {
+                                        venialStatement = venialStatement.replace('I have been', 'I was');
+                                    } else {
+                                        venialStatement = 'I was ' + formattedChoices;
+                                    }
+                                }
+
+                                // Rule 2: "speaking contemptuously about them" -> "I spoke contemptuously..."
+                                if (venialStatement.includes('speaking contemptuously about them')) {
+                                    venialStatement = venialStatement.replace('I judged others speaking contemptuously about them', 'I judged others and spoke contemptuously about them');
+                                }
+                            }
                         } else {
-                            return; // Skip if main box is checked but no sub-choices are toggled on
+                            return; 
                         }
                     } else {
                         statement = checkbox.getAttribute('data-statement');
@@ -1077,7 +1237,11 @@
                         const count = occInput ? (occInput.value || 1) : 1;
                         mortalList.push(`• On ${count} occasion${count > 1 ? 's' : ''}, I ${statement}.`);
                     } else {
-                        venialList.push(`• ${venialStatement}.`);
+                        let finalVenialLine = venialStatement;
+                        if (!finalVenialLine.startsWith('I ')) {
+                            finalVenialLine = 'I ' + finalVenialLine;
+                        }
+                        venialList.push(`• ${finalVenialLine}.`);
                     }
                 }
             });
