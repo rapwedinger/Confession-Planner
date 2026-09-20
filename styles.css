@@ -85,11 +85,7 @@ h2 {
     cursor: pointer;
     font-size: 0.95rem;
 }
-/* insert here */
-.expanded-teachings-container {
-    flex: 0 0 100%;
-    width: 100%;
-}
+
 /* Choice Pills Styling */
 .sub-choices {
     display: inline-flex;
@@ -175,21 +171,6 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 4px;
     text-align: center;
-}
-/* Hide teaching details by default */
-.teaching-expand-box {
-    display: none;
-    margin-top: 0.5rem;
-    padding: 0.75rem;
-    background: #f8f9fa;
-    border-left: 3px solid var(--accent-color);
-    font-size: 0.95rem;
-    color: #333;
-}
-
-/* Show details when the wrapper has the 'expanded' class */
-.teaching-pill-wrapper.expanded .teaching-expand-box {
-    display: block;
 }
 
 /* Script Output Container */
