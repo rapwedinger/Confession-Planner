@@ -979,22 +979,23 @@
 
     <!-- Script to handle toggle, pill selections, and script generation -->
     <script>
-      <script>
-    // Toggle choice pills and expandable teaching drawers
-    document.querySelectorAll('.choice-pill').forEach(pill => {
-        pill.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-
-            const isActive = pill.classList.toggle('active');
-            const wrapper = pill.closest('.teaching-pill-wrapper');
-
-            if (wrapper) {
-                wrapper.classList.toggle('expanded', isActive);
-            }
+        // Toggle choice pills on/off and handle expandable teaching drawers
+        document.querySelectorAll('.choice-pill').forEach(pill => {
+            pill.addEventListener('click', (e) => {
+                e.preventDefault();
+                pill.classList.toggle('active');
+                
+                // Toggle expansion box for teaching accordion items
+                const wrapper = pill.closest('.teaching-pill-wrapper');
+                if (wrapper) {
+                    if (pill.classList.contains('active')) {
+                        wrapper.classList.add('expanded');
+                    } else {
+                        wrapper.classList.remove('expanded');
+                    }
+                }
+            });
         });
-    });
-</script>
 
         // Toggle button handler for Mortal/Venial
         document.querySelectorAll('.type-toggle-btn').forEach(btn => {
