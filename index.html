@@ -226,9 +226,14 @@
                     </div>
                 </div>
 
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Neglected through indifference or laziness: 
-                        <span class="sub-choices" data-base="neglected {choice} through indifference or laziness" data-venial-base="I neglected {choice} through indifference or laziness">
+                <div class="sin-item-row venial-item" data-default-type="venial" id="neglected-row">
+                    <label><input type="checkbox" name="sin" id="neglected-checkbox"> Neglected through 
+                        <span class="sub-choices" id="neglected-choices">
+                            <span class="choice-pill neglected-pill" data-value="indifference">indifference</span>
+                            <span class="choice-pill neglected-pill" data-value="laziness">laziness</span>
+                        </span>
+                        <span>:</span>
+                        <span class="sub-choices" id="neglected-targets-choices" style="margin-left: 0.25rem;">
                             <span class="choice-pill" data-value="prayer">prayer</span>
                             <span class="choice-pill" data-value="Scripture">Scripture</span>
                             <span class="choice-pill" data-value="Mass">Mass</span>
@@ -1062,8 +1067,25 @@
                     let statement = '';
                     let venialStatement = '';
 
+                    // Special handling for Section 1: neglected row
+                    if (row.id === 'neglected-row') {
+                        const activeReasons = Array.from(document.querySelectorAll('#neglected-choices .choice-pill.active'))
+                                                   .map(p => p.getAttribute('data-value'));
+                        const activeTargets = Array.from(document.querySelectorAll('#neglected-targets-choices .choice-pill.active'))
+                                                   .map(p => p.getAttribute('data-value'));
+
+                        if (activeReasons.length > 0 && activeTargets.length > 0) {
+                            const formattedReasons = formatList(activeReasons);
+                            const formattedTargets = formatList(activeTargets);
+
+                            statement = `neglected ${formattedTargets} through ${formattedReasons}`;
+                            venialStatement = `I neglected ${formattedTargets} through ${formattedReasons}`;
+                        } else {
+                            return;
+                        }
+                    }
                     // Special handling for Section 4: mock/insult row
-                    if (row.id === 'mock-insult-row') {
+                    else if (row.id === 'mock-insult-row') {
                         const activePills = Array.from(document.querySelectorAll('#mock-insult-choices .choice-pill.active'))
                                                  .map(p => p.getAttribute('data-value'));
 
@@ -1098,15 +1120,13 @@
                                 return action;
                             });
 
-                            const formattedActions = formatList(actionPhrases);
-                            // If both are selected, "was physically violent and reckless with another's safety" flows naturally
                             statement = actionPhrases.length > 1 && actionPhrases[1] === 'reckless with another’s safety' ? 
                                 `was physically violent and reckless with another’s safety` : 
-                                formattedActions;
+                                formatList(actionPhrases);
                             
                             venialStatement = actionPhrases.length > 1 && actionPhrases[1] === 'reckless with another’s safety' ? 
                                 `I was physically violent and reckless with another’s safety` : 
-                                'I ' + formattedActions;
+                                'I ' + formatList(actionPhrases);
                         } else {
                             return;
                         }
