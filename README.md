@@ -48,3 +48,18 @@ For many Catholics, preparing for confession can sometimes feel overwhelming, di
 4. Click the **"Process Examination"** button at the bottom of the page.
 5. Review your cleanly formatted, step-by-step confession script to guide you through your time in the confessional.
 6. Click **"Reset All Selections"** when finished to instantly clear all data from the browser.
+
+---
+
+## App Licensing, Author, and Contact Information
+
+Copyright (c) 2026 RJE Consulting, LLC
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Rich Edinger
+RJE Consulting, LLC
+1930 Federal COurt
+Lawrenceville, GA 30044
+
+rapwedinger@gmail.com
