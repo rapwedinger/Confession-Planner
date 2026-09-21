@@ -59,7 +59,7 @@ This program is free software: you can redistribute it and/or modify it under th
 
 Rich Edinger
 RJE Consulting, LLC
-1930 Federal COurt
+1930 Federal Court
 Lawrenceville, GA 30044
 
 rapwedinger@gmail.com
