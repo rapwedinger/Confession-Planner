@@ -227,6 +227,16 @@ main {
     display: block;
 }
 
+/* Concrete Love Accordion Drawer Control */
+#concrete-love-accordion .teaching-expand-box {
+    display: none;
+}
+
+.sin-item-row.mortal-active #concrete-love-accordion .teaching-expand-box,
+.sin-item-row.venial-active #concrete-love-accordion .teaching-expand-box {
+    display: block;
+}
+
 .teaching-pill-wrapper .choice-pill {
     cursor: pointer;
     transition: all 0.2s ease;

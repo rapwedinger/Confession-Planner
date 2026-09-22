@@ -502,10 +502,23 @@
             <article class="examination-section">
                 <h2>3. Love of Neighbor: Charity, Mercy, and Forgiveness</h2>
                 <p class="scripture"><em>“Let all that you do be done in love.”</em> — <strong>1 Corinthians 16:14</strong></p>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="failed to love others patiently and concretely" data-venial-statement="I failed to love others patiently and concretely"> Failed to love others patiently and concretely</label>
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="failed to love others patiently and concretely" data-venial-statement="I failed to love others patiently and concretely"> Failed to love others patiently and concretely</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-pill-wrapper" id="concrete-love-accordion">
+                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                    <strong>What is concrete love?</strong> To love someone concretely means moving love out of the realm of abstract feelings, good intentions, or polite sentiments and rooting it in tangible, real-world action.<br><br>
+                                    In both theological and practical terms, concrete love refuses to stay theoretical. It takes flesh, time, and effort. As the biblical phrase puts it, it is a love demonstrated <em>"in deed and in truth"</em> rather than just <em>"in word or speech"</em> (1 John 3:18).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="sin-item-row venial-item" data-default-type="venial">
                     <label><input type="checkbox" name="sin"> Held: 
@@ -1109,7 +1122,7 @@
 
     <footer>
         <button id="reset-btn" class="secondary-btn">Reset All Selections</button>
-        <p class="copyright-text">Copyright (c) 2026 RJEConsulting, LLC
+        <p class="copyright-text">Copyright (c) 2026 RJE Consulting, LLC
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
     </footer>
@@ -1204,7 +1217,7 @@ This program is free software: you can redistribute it and/or modify it under th
             });
         });
 
-        // Highlight row when checkbox is checked
+     // Highlight row when checkbox is checked & handle accordion visibility
         document.querySelectorAll('input[type="checkbox"]').forEach(box => {
             box.addEventListener('change', (e) => {
                 const row = e.target.closest('.sin-item-row');
@@ -1213,6 +1226,16 @@ This program is free software: you can redistribute it and/or modify it under th
                     row.classList.add(isMortal ? 'mortal-active' : 'venial-active');
                 } else {
                     row.classList.remove('mortal-active', 'venial-active');
+                }
+
+                // Handle specific accordion toggle for concrete love
+                const accordionBox = row.querySelector('#concrete-love-accordion .teaching-expand-box');
+                if (accordionBox) {
+                    if (e.target.checked) {
+                        accordionBox.style.display = 'block';
+                    } else {
+                        accordionBox.style.display = 'none';
+                    }
                 }
             });
         });
@@ -1489,13 +1512,17 @@ This program is free software: you can redistribute it and/or modify it under th
             containerDiv.scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Reset Button
+      // Reset Button
         document.getElementById('reset-btn').addEventListener('click', () => {
             document.getElementById('confession-form').reset();
             document.querySelectorAll('.choice-pill').forEach(pill => pill.classList.remove('active'));
-            document.querySelectorAll('.teaching-pill-wrapper').forEach(w => {
-                w.classList.remove('expanded');
-            });
+            
+            document.querySelectorAll('.teaching-pill-wrapper').forEach(w => w.classList.remove('expanded'));
+            
+            // Hide the concrete love accordion box on reset
+            const concreteBox = document.querySelector('#concrete-love-accordion .teaching-expand-box');
+            if (concreteBox) concreteBox.style.display = 'none';
+
             document.querySelectorAll('.sin-item-row').forEach(row => {
                 row.classList.remove('mortal-active', 'venial-active', 'is-mortal');
                 const btn = row.querySelector('.type-toggle-btn');
