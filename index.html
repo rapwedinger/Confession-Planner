@@ -372,16 +372,54 @@
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
 
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Used God’s name: 
-                        <span class="sub-choices" data-base="used God’s name {choice}" data-venial-base="I used God's name {choice}">
-                            <span class="choice-pill" data-value="irreverently">irreverently</span>
-                            <span class="choice-pill" data-value="carelessly">carelessly</span>
-                            <span class="choice-pill" data-value="in anger">in anger</span>
-                        </span>
-                    </label>
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin"> Used God’s name:</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="sub-choices" data-base="used God’s name {choice}" data-venial-base="I used God's name {choice}" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            
+                            <!-- Irreverently Chip & Accordion -->
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="irreverently">irreverently</span>
+                                </div>
+                                <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                        <strong>Speech Shapes the Inner Heart:</strong> Human words are not neutral; they shape how we think and feel. When we use God’s name carelessly, it breeds a subtle irreverence within our own souls. It dulls our sense of awe and reverence, making it easier to view God not as a living, holy Creator with whom we are in relationship, but as an abstract concept or a convenient exclamation point. Conversely, guarding our speech helps cultivate an inner posture of respect and humility.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Carelessly Chip & Accordion -->
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="carelessly">carelessly</span>
+                                </div>
+                                <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                        <strong>It Contradicts the Reality of Who God Is:</strong> God is the source of all life, goodness, truth, and holiness. To invoke His name carelessly—such as shouting it out of temper, impatience, or vulgarity—links the holy name of God with human anger, profanity, or emptiness. It is a misalignment of reality: using the name of the One who brings order and peace to express chaos, malice, or thoughtlessness.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- In Anger Chip & Accordion -->
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="in anger">in anger</span>
+                                </div>
+                                <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                        <strong>Names Carry Identity, Dignity, and Presence:</strong> In ancient and biblical contexts, a person’s name was not just a label; it represented their entire identity, character, reputation, and presence. To use someone’s name is to invoke them. When you use God’s name, you are invoking the Creator of the universe. Treating that name as a casual filler word, a swear word, or an exclamation of frustration strips the ultimate Reality of His dignity and treats the sacred as common.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
                 <div class="sin-item-row venial-item" data-default-type="venial">
@@ -430,16 +468,49 @@
             <article class="examination-section">
                 <h2>2. Love of God: Prayer, Worship, and Gratitude</h2>
                 <p class="scripture"><em>“Pray without ceasing; give thanks in all circumstances.”</em> — <strong>1 Thessalonians 5:17–18</strong></p>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="failed to give God regular time in prayer" data-venial-statement="I failed to give God regular time in prayer"> Failed to give God regular time in prayer</label>
+                
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="failed to give God regular time in prayer" data-venial-statement="I failed to give God regular time in prayer"> Failed to give God regular time in prayer</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-pill-wrapper" id="prayer-time-accordion">
+                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
+                                    <strong>Relationships Require Communication to Survive:</strong> At its core, religion is not merely a set of rules; it is a relationship with the living God. No human relationship—whether a marriage, a close friendship, or a family bond—can survive, let alone flourish, without regular, intentional communication. If you went weeks or months without speaking to your spouse or a close friend, the relationship would grow cold, distant, and eventually wither. Daily prayer keeps the lines of communication open, turning your heart toward God so that the relationship stays vibrant rather than theoretical.
+                                </p>
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                    <strong>Prayer Realigns the Human Will:</strong> As discussed earlier, putting our own will ahead of God’s is the root of moral failure and selfishness. Human nature naturally drifts toward self-preservation, comfort, and control. Daily prayer acts as a spiritual anchor or a compass recalibration. Taking time each day to step back, acknowledge God’s sovereignty, and listen to His voice helps quiet the noise of ego and temptation, making it easier to choose love, patience, and goodness when daily pressures mount.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance" data-venial-statement="I prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance"> Prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance</label>
+
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance" data-venial-statement="I prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance"> Prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-pill-wrapper" id="prayed-only-accordion">
+                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
+                                    <strong>Treating God purely as a cosmic problem-solver distorts the nature of Love</strong>
+                                </p>
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                    In any healthy human relationship—such as a marriage or a deep friendship—if one person only spoke to the other to demand help or ask for favors, while never expressing appreciation, affection, or acknowledging their own faults when they hurt the other person, the relationship would feel hollow and exploitative. Love requires mutuality, presence, and appreciation for the person themselves, not just what they can do for us.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="sin-item-row venial-item" data-default-type="venial">
                     <label><input type="checkbox" name="sin" data-statement="been distracted in prayer through my own unwillingness to focus" data-venial-statement="I was distracted in prayer through my own unwillingness to focus"> Been distracted in prayer through my own unwillingness to focus</label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
@@ -1190,8 +1261,12 @@ This program is free software: you can redistribute it and/or modify it under th
                 if (wrapper) {
                     if (pill.classList.contains('active')) {
                         wrapper.classList.add('expanded');
+                        const box = wrapper.querySelector('.teaching-expand-box');
+                        if (box) box.style.display = 'block';
                     } else {
                         wrapper.classList.remove('expanded');
+                        const box = wrapper.querySelector('.teaching-expand-box');
+                        if (box) box.style.display = 'none';
                     }
                 }
             });
@@ -1235,6 +1310,26 @@ This program is free software: you can redistribute it and/or modify it under th
                         accordionBox.style.display = 'block';
                     } else {
                         accordionBox.style.display = 'none';
+                    }
+                }
+
+                // Handle specific accordion toggle for prayer time
+                const prayerAccordionBox = row.querySelector('#prayer-time-accordion .teaching-expand-box');
+                if (prayerAccordionBox) {
+                    if (e.target.checked) {
+                        prayerAccordionBox.style.display = 'block';
+                    } else {
+                        prayerAccordionBox.style.display = 'none';
+                    }
+                }
+
+                // Handle specific accordion toggle for prayed-only
+                const prayedOnlyAccordionBox = row.querySelector('#prayed-only-accordion .teaching-expand-box');
+                if (prayedOnlyAccordionBox) {
+                    if (e.target.checked) {
+                        prayedOnlyAccordionBox.style.display = 'block';
+                    } else {
+                        prayedOnlyAccordionBox.style.display = 'none';
                     }
                 }
             });
@@ -1517,11 +1612,23 @@ This program is free software: you can redistribute it and/or modify it under th
             document.getElementById('confession-form').reset();
             document.querySelectorAll('.choice-pill').forEach(pill => pill.classList.remove('active'));
             
-            document.querySelectorAll('.teaching-pill-wrapper').forEach(w => w.classList.remove('expanded'));
+            document.querySelectorAll('.teaching-pill-wrapper').forEach(w => {
+                w.classList.remove('expanded');
+                const box = w.querySelector('.teaching-expand-box');
+                if (box) box.style.display = 'none';
+            });
             
             // Hide the concrete love accordion box on reset
             const concreteBox = document.querySelector('#concrete-love-accordion .teaching-expand-box');
             if (concreteBox) concreteBox.style.display = 'none';
+
+            // Hide the prayer time accordion box on reset
+            const prayerBox = document.querySelector('#prayer-time-accordion .teaching-expand-box');
+            if (prayerBox) prayerBox.style.display = 'none';
+
+            // Hide the prayed-only accordion box on reset
+            const prayedOnlyBox = document.querySelector('#prayed-only-accordion .teaching-expand-box');
+            if (prayedOnlyBox) prayedOnlyBox.style.display = 'none';
 
             document.querySelectorAll('.sin-item-row').forEach(row => {
                 row.classList.remove('mortal-active', 'venial-active', 'is-mortal');
