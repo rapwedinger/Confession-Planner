@@ -21,6 +21,23 @@
     --script-text: #f1f5f9;
 }
 
+/* --- ADD THESE RULES TO FORCE CARDS & SCRIPT BOX DARK IN DARK MODE --- */
+[data-theme="dark"] header, 
+[data-theme="dark"] .intro-box, 
+[data-theme="dark"] .prayer-box, 
+[data-theme="dark"] .examination-section, 
+[data-theme="dark"] #script-container, 
+[data-theme="dark"] footer {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .confession-script-output {
+    background-color: var(--script-bg) !important;
+    color: var(--script-text) !important;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
