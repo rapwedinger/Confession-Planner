@@ -1,4 +1,4 @@
-const CACHE_NAME = 'confession-app-v4';
+const CACHE_NAME = 'confession-app-v5';
 const ASSETS_TO_CACHE = [
     './index.html',
     './styles.css',
