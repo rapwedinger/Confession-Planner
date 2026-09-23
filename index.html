@@ -23,6 +23,8 @@
             --chip-bg: #e9ecef;
             --chip-text: #333333;
             --chip-hover-bg: #dee2e6;
+            --accordion-dark-bg: #1e2631; /* Lightened shade of gray for dark mode accordions */
+            --accordion-dark-text: #cbd5e1; /* Lighter gray letters for dark mode accordions */
         }
 
         [data-theme="dark"] {
@@ -39,6 +41,8 @@
             --chip-bg: #2d3748;
             --chip-text: #cbd5e1;
             --chip-hover-bg: #374151;
+            --accordion-dark-bg: #283342; /* Slightly brighter shade of gray in dark mode */
+            --accordion-dark-text: #e2e8f0; /* Lighter gray letters */
         }
 
         body {
@@ -52,6 +56,21 @@
             color: var(--text-color) !important;
             border-color: var(--border-color) !important;
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Dark mode styling override for all accordion expand boxes */
+        [data-theme="dark"] .teaching-expand-box {
+            background-color: var(--accordion-dark-bg) !important;
+            color: var(--accordion-dark-text) !important;
+            border-color: var(--border-color);
+        }
+
+        /* Default styling for expand boxes in light mode */
+        .teaching-expand-box {
+            background-color: #f8f9fa;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
         }
 
         /* Choice Pills / Chips Theming */
@@ -229,17 +248,29 @@
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
 
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Doubted God’s: 
-                        <span class="sub-choices" data-base="doubted God’s {choice}" data-venial-base="I doubted God's {choice}">
-                            <span class="choice-pill" data-value="goodness">goodness</span>
-                            <span class="choice-pill" data-value="providence">providence</span>
-                            <span class="choice-pill" data-value="mercy">mercy</span>
-                            <span class="choice-pill" data-value="care for me">care for me</span>
-                        </span>
-                    </label>
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin"> Doubted God’s: 
+                            <span class="sub-choices" data-base="doubted God’s {choice}" data-venial-base="I doubted God's {choice}">
+                                <span class="choice-pill" data-value="goodness">goodness</span>
+                                <span class="choice-pill" data-value="providence">providence</span>
+                                <span class="choice-pill" data-value="mercy">mercy</span>
+                                <span class="choice-pill" data-value="care for me">care for me</span>
+                            </span>
+                        </label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-pill-wrapper" id="doubt-accordion">
+                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                    When persistent doubt takes root regarding God's fundamental goodness, providence, mercy, and care, it triggers profound spiritual, emotional, and relational shifts. Individuals often experience spiritual isolation as hesitation replaces intimacy in prayer, while a loss of trust in divine provision forces an exhausting reliance on self-control, leading to chronic stress and burnout. Furthermore, doubting God's care during hardships can transform pain into bitterness and resentment, just as questioning His mercy traps people in cycles of shame and despair by stripping away hope and resilience. Ultimately, while wrestling with these questions is a deeply human experience, letting skepticism sever one's relationship with the divine dampens emotional well-being and distorts one's perspective on life's challenges.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Expanded Teaching Section for Catholic Faith Denials -->
@@ -442,11 +473,31 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="presumed upon God’s mercy while intending to continue in sin" data-venial-statement="I presumed upon God's mercy while intending to continue in sin"> Presumed upon God’s mercy while intending to continue in sin</label>
+                
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="presumed upon God’s mercy while intending to continue in sin" data-venial-statement="I presumed upon God's mercy while intending to continue in sin"> Presumed upon God’s mercy while intending to continue in sin</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-pill-wrapper" id="presumption-accordion">
+                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
+                                    <strong>God has promised forgiveness to the penitent, but He has not promised tomorrow to the procrastinator.</strong>
+                                </p>
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
+                                    St. Francis de Sales warns against the grave danger of presumption—the act of relying on God's mercy while deliberately intending to continue in sin. This mindset fundamentally distorts the divine nature by separating God’s mercy from His justice, treating His infinite patience as a license for disobedience. Rather than recognizing divine generosity as an invitation to conversion, the presumptuous soul attempts to manipulate God's goodness, mocking His patience and inviting spiritual hardening.
+                                </p>
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                    Persisting in this illusion inflicts profound damage on the interior life, leading to spiritual blindness, a hardened conscience, and the arrogant belief that one can control the hour of their own repentance. Ultimately, this gamble with eternal salvation risks final impenitence. True Christian confidence contrasts sharply with this attitude: whereas presumption uses God's goodness as an excuse for license, true hope inspires the sinner to abandon wrongdoing and genuinely seek holiness through daily conversion.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="sin-item-row venial-item" data-default-type="venial">
                     <label><input type="checkbox" name="sin" data-statement="fallen into discouragement or despair, as though my sins were greater than God’s mercy" data-venial-statement="I fell into discouragement or despair, as though my sins were greater than God's mercy"> Fallen into discouragement or despair, as though my sins were greater than God’s mercy</label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
@@ -516,11 +567,28 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="neglected Sunday Mass or a holy day of obligation without a serious reason" data-venial-statement="I neglected Sunday Mass or a holy day of obligation without a serious reason"> Neglected Sunday Mass or a holy day of obligation without a serious reason</label>
+                
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="neglected Sunday Mass or a holy day of obligation without a serious reason" data-venial-statement="I neglected Sunday Mass or a holy day of obligation without a serious reason"> Neglected Sunday Mass or a holy day of obligation without a serious reason</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-pill-wrapper" id="mass-obligation-accordion">
+                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
+                                    St. Francis de Sales views the Holy Sacrifice of the Mass not as a burdensome chore, but as the "sun of all spiritual exercises" and the very heart of devotion where God pours out His divine charity. Because he considers the liturgy the supreme source of spiritual strength and unmatched communal worship, voluntarily skipping it out of laziness cuts a soul off from vital grace, leading to spiritual self-destruction.
+                                </p>
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                    Furthermore, he teaches that a generous heart striving for holiness cannot take delight in displeasing God, meaning that missing Mass deliberately reveals a lukewarm preference for worldly comforts over the Creator. Ultimately, treating the obligation carelessly wounds divine love, whereas embracing the Church's public service provides far greater spiritual comfort and benefit than private devotions alone.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="sin-item-row venial-item" data-default-type="venial">
                     <label><input type="checkbox" name="sin"> Arrived / left Mass early/late: 
                         <span class="sub-choices" data-base="arrived {choice} Mass or left early through my own fault" data-venial-base="I arrived {choice} Mass or left early through my own fault">
@@ -1332,6 +1400,36 @@ This program is free software: you can redistribute it and/or modify it under th
                         prayedOnlyAccordionBox.style.display = 'none';
                     }
                 }
+
+                // Handle specific accordion toggle for doubt accordion
+                const doubtAccordionBox = row.querySelector('#doubt-accordion .teaching-expand-box');
+                if (doubtAccordionBox) {
+                    if (e.target.checked) {
+                        doubtAccordionBox.style.display = 'block';
+                    } else {
+                        doubtAccordionBox.style.display = 'none';
+                    }
+                }
+
+                // Handle specific accordion toggle for mass obligation accordion
+                const massAccordionBox = row.querySelector('#mass-obligation-accordion .teaching-expand-box');
+                if (massAccordionBox) {
+                    if (e.target.checked) {
+                        massAccordionBox.style.display = 'block';
+                    } else {
+                        massAccordionBox.style.display = 'none';
+                    }
+                }
+
+                // Handle specific accordion toggle for presumption accordion
+                const presumptionAccordionBox = row.querySelector('#presumption-accordion .teaching-expand-box');
+                if (presumptionAccordionBox) {
+                    if (e.target.checked) {
+                        presumptionAccordionBox.style.display = 'block';
+                    } else {
+                        presumptionAccordionBox.style.display = 'none';
+                    }
+                }
             });
         });
 
@@ -1629,6 +1727,18 @@ This program is free software: you can redistribute it and/or modify it under th
             // Hide the prayed-only accordion box on reset
             const prayedOnlyBox = document.querySelector('#prayed-only-accordion .teaching-expand-box');
             if (prayedOnlyBox) prayedOnlyBox.style.display = 'none';
+
+            // Hide the doubt accordion box on reset
+            const doubtBox = document.querySelector('#doubt-accordion .teaching-expand-box');
+            if (doubtBox) doubtBox.style.display = 'none';
+
+            // Hide the mass obligation accordion box on reset
+            const massBox = document.querySelector('#mass-obligation-accordion .teaching-expand-box');
+            if (massBox) massBox.style.display = 'none';
+
+            // Hide the presumption accordion box on reset
+            const presumptionBox = document.querySelector('#presumption-accordion .teaching-expand-box');
+            if (presumptionBox) presumptionBox.style.display = 'none';
 
             document.querySelectorAll('.sin-item-row').forEach(row => {
                 row.classList.remove('mortal-active', 'venial-active', 'is-mortal');
