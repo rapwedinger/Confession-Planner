@@ -85,7 +85,7 @@
             background-color: var(--chip-hover-bg) !important;
         }
 
-        /* Sticky Top Bar Container for Settings / Theme Toggle */
+        /* Sticky Top Bar Container for Hamburger Menu / Theme Toggle */
         .top-bar {
             position: sticky;
             top: 0;
@@ -109,7 +109,7 @@
             pointer-events: auto; /* Re-enables clicks specifically on the settings menu wrapper */
         }
 
-        /* Settings Icon & Dropdown Menu */
+        /* Hamburger Menu Icon & Dropdown Menu */
         .settings-container {
             position: relative;
         }
@@ -124,14 +124,38 @@
             cursor: pointer;
             font-size: 1.1rem;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             transition: background-color 0.2s ease, border-color 0.2s ease;
         }
 
         .settings-icon-btn:hover {
             opacity: 0.85;
+        }
+
+        /* Hamburger Bar Lines and Animated X Transformation */
+        .hamburger-line {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background-color: var(--text-color);
+            border-radius: 2px;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .settings-icon-btn.open .line-1 {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .settings-icon-btn.open .line-2 {
+            opacity: 0;
+        }
+
+        .settings-icon-btn.open .line-3 {
+            transform: translateY(-7px) rotate(-45deg);
         }
 
         .settings-dropdown {
@@ -277,12 +301,14 @@
     <div class="top-bar">
         <div class="top-bar-right">
             <div class="settings-container">
-                <button id="settings-toggle-btn" class="settings-icon-btn" aria-label="Settings">
-                    ⚙️
+                <button id="settings-toggle-btn" class="settings-icon-btn" aria-label="Menu">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
                 </button>
                 <div id="settings-dropdown-menu" class="settings-dropdown">
                     <div class="settings-item">
-                        <a href="#script-container" class="settings-link">Confession Script</a>
+                        <a href="#script-container" id="confession-script-link" class="settings-link">Confession Script</a>
                     </div>
                     <div class="settings-item">
                         <a href="#script-container" class="settings-link">End Notes</a>
@@ -292,34 +318,34 @@
                     </div>
                     <div class="settings-item" style="font-weight: bold; font-size: 0.85rem; color: var(--text-muted); padding-top: 0.4rem; padding-bottom: 0.2rem; border-bottom: none;">Jump to Section:</div>
                     <div class="settings-item">
-                        <a href="#section-1" class="settings-link">1. Faith & Fidelity</a>
+                        <a href="#section-1" class="settings-link" id="section-1-link">1. Faith & Fidelity</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-2" class="settings-link">2. Love of God & Prayer</a>
+                        <a href="#section-2" class="settings-link" id="section-2-link">2. Love of God & Prayer</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-3" class="settings-link">3. Love of Neighbor</a>
+                        <a href="#section-3" class="settings-link" id="section-3-link">3. Love of Neighbor</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-4" class="settings-link">4. Speech & Media</a>
+                        <a href="#section-4" class="settings-link" id="section-4-link">4. Speech & Media</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-5" class="settings-link">5. Purity & Chastity</a>
+                        <a href="#section-5" class="settings-link" id="section-5-link">5. Purity & Chastity</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-6" class="settings-link">6. Family & Vocation</a>
+                        <a href="#section-6" class="settings-link" id="section-6-link">6. Family & Vocation</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-7" class="settings-link">7. Justice & Money</a>
+                        <a href="#section-7" class="settings-link" id="section-7-link">7. Justice & Money</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-8" class="settings-link">8. Anger & Self-Control</a>
+                        <a href="#section-8" class="settings-link" id="section-8-link">8. Anger & Self-Control</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-9" class="settings-link">9. Life & Dignity</a>
+                        <a href="#section-9" class="settings-link" id="section-9-link">9. Life & Dignity</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-10" class="settings-link">10. Humility & Church</a>
+                        <a href="#section-10" class="settings-link" id="section-10-link">10. Humility & Church</a>
                     </div>
                     <div class="settings-item" style="border-top: 1px solid var(--border-color); margin-top: 0.25rem; padding-top: 0.5rem;">
                         <button id="theme-toggle" class="settings-theme-btn" aria-label="Toggle Dark Mode">
@@ -1421,24 +1447,40 @@ This program is free software: you can redistribute it and/or modify it under th
         const themeText = document.getElementById('theme-text');
         const htmlElement = document.documentElement;
 
-        // Settings Dropdown Menu Logic
+        // Settings Dropdown Menu & Hamburger Animation Logic
         const settingsToggleBtn = document.getElementById('settings-toggle-btn');
         const settingsDropdownMenu = document.getElementById('settings-dropdown-menu');
 
         settingsToggleBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             settingsDropdownMenu.classList.toggle('show');
+            settingsToggleBtn.classList.toggle('open');
         });
 
-        // Close dropdown when clicking outside
+        // Close dropdown and reset hamburger icon when clicking outside
         window.addEventListener('click', () => {
             if (settingsDropdownMenu.classList.contains('show')) {
                 settingsDropdownMenu.classList.remove('show');
+                settingsToggleBtn.classList.remove('open');
             }
         });
 
         settingsDropdownMenu.addEventListener('click', (e) => {
             e.stopPropagation();
+        });
+
+        // Dynamic jump behavior for the "Confession Script" dropdown link
+        const confessionScriptLink = document.getElementById('confession-script-link');
+        confessionScriptLink.addEventListener('click', (e) => {
+            const scriptContainer = document.getElementById('script-container');
+            const isProcessed = window.getComputedStyle(scriptContainer).display !== 'none' && scriptContainer.style.display !== '';
+            
+            if (!isProcessed) {
+                e.preventDefault();
+                settingsDropdownMenu.classList.remove('show');
+                settingsToggleBtn.classList.remove('open');
+                document.getElementById('generate-btn').scrollIntoView({ behavior: 'smooth' });
+            }
         });
 
         // Check for saved user preference or system preference
@@ -1452,6 +1494,7 @@ This program is free software: you can redistribute it and/or modify it under th
             e.preventDefault();
             toggleTheme();
             settingsDropdownMenu.classList.remove('show');
+            settingsToggleBtn.classList.remove('open');
         });
 
         function toggleTheme() {
@@ -1837,7 +1880,7 @@ This program is free software: you can redistribute it and/or modify it under th
 
             let scriptText = `PREPARATORY PRAYER:\n"Come, Holy Spirit, enlighten my mind and move my heart. Help me to see my life truthfully: to recognize my sins without excuses, to repent without despair, and to receive the mercy won for me by Jesus Christ. Give me a sincere desire to love God and neighbor more faithfully. Amen."\n\n`;
 
-            scriptText += `IN THE CONFESSIONAL:\n(Bless me, Father, for I have sinned. It has been [insert time] since my last confession. These are my sins:)\n\n`;
+            scriptText += `IN THE CONFESSIONAL:\n***Priest:*** In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n***Penitent:*** Bless me, Father, for I have sinned. It has been [insert time] since my last confession. These are my sins:\n\n`;
 
             if (mortalList.length > 0) {
                 scriptText += `MORTAL SINS:\n` + mortalList.join('\n') + `\n\n`;
@@ -1851,11 +1894,11 @@ This program is free software: you can redistribute it and/or modify it under th
                 scriptText += `(No sins selected. Please select items and specific choices from the examination above.)\n\n`;
             }
 
-            scriptText += `CLOSING STATEMENT:\n"For these and all my sins, and for the sins I cannot remember, I am truly sorry."\n\n`;
+            scriptText += `CLOSING STATEMENT:\n***Penitent:*** "For these and all my sins, and for the sins I cannot remember, I am truly sorry."\n\n`;
 
-            scriptText += `ACT OF CONTRITION:\n"Lord Jesus Christ, Son of the living God, have mercy on me, a sinner. I am sorry for all the sins I have committed, for the good I have failed to do, and for the ways I have failed to love You and my neighbor. By Your grace, I firmly resolve to avoid sin, to make restitution where I can, to forgive those who have wronged me, and to amend my life. Amen."\n\n`;
+            scriptText += `ACT OF CONTRITION:\n***Penitent:*** "Lord Jesus Christ, Son of the living God, have mercy on me, a sinner. I am sorry for all the sins I have committed, for the good I have failed to do, and for the ways I have failed to love You and my neighbor. By Your grace, I firmly resolve to avoid sin, to make restitution where I can, to forgive those who have wronged me, and to amend my life. Amen."\n\n`;
 
-            scriptText += `POST-PENANCE PRAYER:\n"He who began a good work in you will bring it to completion. (Philippians 1:6) Lord, thank you for your mercy and healing grace. Give me the strength to fulfill my penance and walk faithfully in your light."`;
+            scriptText += `POST-CONFESSION PRAYER:\n"He who began a good work in you will bring it to completion. (Philippians 1:6) Lord, thank you for your mercy and healing grace. Give me the strength to fulfill my penance and walk faithfully in your light."`;
 
             const outputDiv = document.getElementById('script-output');
             const containerDiv = document.getElementById('script-container');
