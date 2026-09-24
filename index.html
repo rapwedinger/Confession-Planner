@@ -85,34 +85,118 @@
             background-color: var(--chip-hover-bg) !important;
         }
 
-        /* Top Bar Container for Header and Dark Mode Toggle */
+        /* Sticky Top Bar Container for Settings / Theme Toggle */
         .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             max-width: 900px;
-            margin: 1.5rem auto 0 auto;
-            padding: 0 1rem;
+            margin: 0 auto;
+            padding: 1rem 1rem 0 1rem;
+            background-color: transparent;
+            pointer-events: none; /* Allows clicking "through" the top bar container padding */
         }
 
-        .theme-toggle-btn {
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-direction: column;
+            align-items: flex-end;
+            pointer-events: auto; /* Re-enables clicks specifically on the settings menu wrapper */
+        }
+
+        /* Settings Icon & Dropdown Menu */
+        .settings-container {
+            position: relative;
+        }
+
+        .settings-icon-btn {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             color: var(--text-color);
-            padding: 0.5rem 1rem;
+            width: 38px;
+            height: 38px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             transition: background-color 0.2s ease, border-color 0.2s ease;
         }
 
-        .theme-toggle-btn:hover {
+        .settings-icon-btn:hover {
             opacity: 0.85;
+        }
+
+        .settings-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 46px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            width: 240px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 0.5rem 0;
+            z-index: 1000;
+        }
+
+        .settings-dropdown.show {
+            display: block;
+        }
+
+        .settings-item {
+            padding: 0.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+
+        .settings-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            width: 100%;
+        }
+
+        .settings-link:hover {
+            opacity: 0.75;
+        }
+
+        .settings-theme-btn {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            padding: 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .settings-theme-btn:hover {
+            opacity: 0.75;
         }
 
         /* CSS to stack the teaching pill wrappers vertically */
@@ -191,10 +275,60 @@
 </head>
 <body>
     <div class="top-bar">
-        <div></div>
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
-            <span id="theme-icon">🌙</span> <span id="theme-text">Dark Mode</span>
-        </button>
+        <div class="top-bar-right">
+            <div class="settings-container">
+                <button id="settings-toggle-btn" class="settings-icon-btn" aria-label="Settings">
+                    ⚙️
+                </button>
+                <div id="settings-dropdown-menu" class="settings-dropdown">
+                    <div class="settings-item">
+                        <a href="#script-container" class="settings-link">Confession Script</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#script-container" class="settings-link">End Notes</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#intro-section" class="settings-link">About</a>
+                    </div>
+                    <div class="settings-item" style="font-weight: bold; font-size: 0.85rem; color: var(--text-muted); padding-top: 0.4rem; padding-bottom: 0.2rem; border-bottom: none;">Jump to Section:</div>
+                    <div class="settings-item">
+                        <a href="#section-1" class="settings-link">1. Faith & Fidelity</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#section-2" class="settings-link">2. Love of God & Prayer</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#section-3" class="settings-link">3. Love of Neighbor</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#section-4" class="settings-link">4. Speech & Media</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#section-5" class="settings-link">5. Purity & Chastity</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#section-6" class="settings-link">6. Family & Vocation</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#section-7" class="settings-link">7. Justice & Money</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#section-8" class="settings-link">8. Anger & Self-Control</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#section-9" class="settings-link">9. Life & Dignity</a>
+                    </div>
+                    <div class="settings-item">
+                        <a href="#section-10" class="settings-link">10. Humility & Church</a>
+                    </div>
+                    <div class="settings-item" style="border-top: 1px solid var(--border-color); margin-top: 0.25rem; padding-top: 0.5rem;">
+                        <button id="theme-toggle" class="settings-theme-btn" aria-label="Toggle Dark Mode">
+                            <span id="theme-icon">🌙</span> <span id="theme-text">Dark Mode</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <header>
@@ -203,7 +337,7 @@
     </header>
 
     <main>
-        <section class="intro-box">
+        <section class="intro-box" id="intro-section">
             <p>“Examine yourselves, to see whether you are holding to your faith.”<br><strong>— 2 Corinthians 13:5</strong></p>
             <p>Check the boxes for sins that apply. Click individual choice pills to turn them on or off. Toggle Mortal/Venial classification as needed (occurrence boxes appear only when set to Mortal). Click "Process Examination" once finished to process the examination of conscience into a confession script.</p>
             <p style="margin-top: 1rem;">Once you complete your confession, click on Reset All Selections to delete your choices. No data is saved on any device.</p>
@@ -228,7 +362,7 @@
 
         <form id="confession-form">
             <!-- 1. Faith in God and Fidelity to Christ -->
-            <article class="examination-section">
+            <article class="examination-section" id="section-1">
                 <h2>1. Faith in God and Fidelity to Christ</h2>
                 <p class="scripture"><em>“Hold fast to the pattern of sound teaching.”</em> — <strong>2 Timothy 1:13</strong></p>
                 
@@ -516,7 +650,7 @@
             </article>
 
             <!-- 2. Love of God: Prayer, Worship, and Gratitude -->
-            <article class="examination-section">
+            <article class="examination-section" id="section-2">
                 <h2>2. Love of God: Prayer, Worship, and Gratitude</h2>
                 <p class="scripture"><em>“Pray without ceasing; give thanks in all circumstances.”</em> — <strong>1 Thessalonians 5:17–18</strong></p>
                 
@@ -638,7 +772,7 @@
             </article>
 
             <!-- 3. Love of Neighbor: Charity, Mercy, and Forgiveness -->
-            <article class="examination-section">
+            <article class="examination-section" id="section-3">
                 <h2>3. Love of Neighbor: Charity, Mercy, and Forgiveness</h2>
                 <p class="scripture"><em>“Let all that you do be done in love.”</em> — <strong>1 Corinthians 16:14</strong></p>
                 <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
@@ -771,7 +905,7 @@
             </article>
 
             <!-- 4. Speech, Truthfulness, and the Use of Media -->
-            <article class="examination-section">
+            <article class="examination-section" id="section-4">
                 <h2>4. Speech, Truthfulness, and the Use of Media</h2>
                 <p class="scripture"><em>“Let no evil talk come out of your mouths...”</em> — <strong>Ephesians 4:29</strong></p>
                 <div class="sin-item-row venial-item" data-default-type="venial">
@@ -858,7 +992,7 @@
             </article>
 
             <!-- 5. Purity, Chastity, and Reverence for the Body -->
-            <article class="examination-section">
+            <article class="examination-section" id="section-5">
                 <h2>5. Purity, Chastity, and Reverence for the Body</h2>
                 <p class="scripture"><em>“Your body is a temple...”</em> — <strong>1 Corinthians 6:19</strong></p>
                 <div class="sin-item-row venial-item" data-default-type="venial">
@@ -921,7 +1055,7 @@
             </article>
 
             <!-- 6. Family Life, Vocation, and Daily Duties -->
-            <article class="examination-section">
+            <article class="examination-section" id="section-6">
                 <h2>6. Family Life, Vocation, and Daily Duties</h2>
                 <p class="scripture"><em>“Honor your father and mother.”</em> — <strong>Ephesians 6:2</strong></p>
                 <div class="sin-item-row venial-item" id="parents-guardians-row" data-default-type="venial">
@@ -1003,7 +1137,7 @@
             </article>
 
             <!-- 7. Justice, Money, and Care for Those in Need -->
-            <article class="examination-section" id="justice-section">
+            <article class="examination-section" id="section-7">
                 <h2>7. Justice, Money, and Care for Those in Need</h2>
                 <p class="scripture"><em>“Let the thief no longer steal...”</em> — <strong>Ephesians 4:28</strong></p>
                 <div class="sin-item-row venial-item" data-default-type="venial" id="justice-property-row">
@@ -1085,7 +1219,7 @@
             </article>
 
             <!-- 8. Anger, Peace, and Self-Control -->
-            <article class="examination-section">
+            <article class="examination-section" id="section-8">
                 <h2>8. Anger, Peace, and Self-Control</h2>
                 <p class="scripture"><em>“Be angry but do not sin...”</em> — <strong>Ephesians 4:26</strong></p>
                 <div class="sin-item-row venial-item" data-default-type="venial">
@@ -1148,7 +1282,7 @@
             </article>
 
             <!-- 9. Life, Dignity, and Responsibility for Others -->
-            <article class="examination-section">
+            <article class="examination-section" id="section-9">
                 <h2>9. Life, Dignity, and Responsibility for Others</h2>
                 <p class="scripture"><em>“Love does no wrong to a neighbor.”</em> — <strong>Romans 13:10</strong></p>
                 <div class="sin-item-row venial-item" data-default-type="venial">
@@ -1199,7 +1333,7 @@
             </article>
 
             <!-- 10. Humility, Community, and the Life of the Church -->
-            <article class="examination-section">
+            <article class="examination-section" id="section-10">
                 <h2>10. Humility, Community, and the Life of the Church</h2>
                 <p class="scripture"><em>“Do nothing from selfishness or conceit...”</em> — <strong>Philippians 2:3</strong></p>
                 <div class="sin-item-row venial-item" data-default-type="venial">
@@ -1281,11 +1415,31 @@ This program is free software: you can redistribute it and/or modify it under th
         To contact the author, write to Rich Edinger, RJE Consulting, LLC, 1930 Federal Ct, Lawrenceville, GA 30044 or email us at rapwedinger@gmail.com. God Bless.
         */
 
-        // Dark Mode Toggle Logic
+        // Dark Mode Toggle Logic inside Settings
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const themeText = document.getElementById('theme-text');
         const htmlElement = document.documentElement;
+
+        // Settings Dropdown Menu Logic
+        const settingsToggleBtn = document.getElementById('settings-toggle-btn');
+        const settingsDropdownMenu = document.getElementById('settings-dropdown-menu');
+
+        settingsToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            settingsDropdownMenu.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', () => {
+            if (settingsDropdownMenu.classList.contains('show')) {
+                settingsDropdownMenu.classList.remove('show');
+            }
+        });
+
+        settingsDropdownMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
 
         // Check for saved user preference or system preference
         const savedTheme = localStorage.getItem('theme');
@@ -1294,7 +1448,13 @@ This program is free software: you can redistribute it and/or modify it under th
             updateThemeButton(savedTheme);
         }
 
-        themeToggleBtn.addEventListener('click', () => {
+        themeToggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleTheme();
+            settingsDropdownMenu.classList.remove('show');
+        });
+
+        function toggleTheme() {
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
@@ -1306,7 +1466,7 @@ This program is free software: you can redistribute it and/or modify it under th
                 localStorage.setItem('theme', 'light');
             }
             updateThemeButton(newTheme);
-        });
+        }
 
         function updateThemeButton(theme) {
             if (theme === 'dark') {
