@@ -23,8 +23,8 @@
             --chip-bg: #e9ecef;
             --chip-text: #333333;
             --chip-hover-bg: #dee2e6;
-            --accordion-dark-bg: #1e2631; /* Lightened shade of gray for dark mode accordions */
-            --accordion-dark-text: #cbd5e1; /* Lighter gray letters for dark mode accordions */
+            --accordion-dark-bg: #1e2631;
+            --accordion-dark-text: #cbd5e1;
         }
 
         [data-theme="dark"] {
@@ -41,8 +41,8 @@
             --chip-bg: #2d3748;
             --chip-text: #cbd5e1;
             --chip-hover-bg: #374151;
-            --accordion-dark-bg: #283342; /* Slightly brighter shade of gray in dark mode */
-            --accordion-dark-text: #e2e8f0; /* Lighter gray letters */
+            --accordion-dark-bg: #283342;
+            --accordion-dark-text: #e2e8f0;
         }
 
         body {
@@ -58,14 +58,12 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        /* Dark mode styling override for all accordion expand boxes */
         [data-theme="dark"] .teaching-expand-box {
             background-color: var(--accordion-dark-bg) !important;
             color: var(--accordion-dark-text) !important;
             border-color: var(--border-color);
         }
 
-        /* Default styling for expand boxes in light mode */
         .teaching-expand-box {
             background-color: #f8f9fa;
             padding: 0.75rem;
@@ -73,19 +71,28 @@
             border: 1px solid var(--border-color);
         }
 
-        /* Choice Pills / Chips Theming */
         .choice-pill {
             background-color: var(--chip-bg) !important;
             color: var(--chip-text) !important;
             border: 1px solid var(--border-color);
             transition: background-color 0.2s ease, color 0.2s ease;
+            cursor: pointer;
         }
 
         .choice-pill:hover {
             background-color: var(--chip-hover-bg) !important;
         }
 
-        /* Sticky Top Bar Container for Hamburger Menu / Theme Toggle */
+        .choice-pill.active {
+            background-color: var(--accent-color) !important;
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .choice-pill.active {
+            background-color: var(--accent-color) !important;
+            color: #ffffff !important;
+        }
+
         .top-bar {
             position: sticky;
             top: 0;
@@ -97,7 +104,7 @@
             margin: 0 auto;
             padding: 1rem 1rem 0 1rem;
             background-color: transparent;
-            pointer-events: none; /* Allows clicking "through" the top bar container padding */
+            pointer-events: none;
         }
 
         .top-bar-right {
@@ -106,10 +113,9 @@
             gap: 0.75rem;
             flex-direction: column;
             align-items: flex-end;
-            pointer-events: auto; /* Re-enables clicks specifically on the settings menu wrapper */
+            pointer-events: auto;
         }
 
-        /* Hamburger Menu Icon & Dropdown Menu */
         .settings-container {
             position: relative;
         }
@@ -136,7 +142,6 @@
             opacity: 0.85;
         }
 
-        /* Hamburger Bar Lines and Animated X Transformation */
         .hamburger-line {
             display: block;
             width: 18px;
@@ -223,7 +228,6 @@
             opacity: 0.75;
         }
 
-        /* CSS to stack the teaching pill wrappers vertically */
         .expanded-teachings-container .sub-choices {
             display: flex;
             flex-direction: column;
@@ -239,7 +243,6 @@
             align-items: flex-start;
             gap: 0.25rem;
         }
-        /* Custom Free-Form Input Section Style */
         .custom-sin-group {
             margin-top: 1.25rem;
             padding-top: 0.75rem;
@@ -269,7 +272,6 @@
             border-radius: 4px;
             font-size: 0.95rem;
         }
-        /* Footer styling for copyright text */
         footer {
             text-align: center;
             padding: 2.5rem 1rem;
@@ -291,7 +293,6 @@
             white-space: pre-line;
         }
         
-        /* Overrides for text readability in dark mode */
         p, li, label, h1, h2, h3 {
             color: inherit;
         }
@@ -311,41 +312,41 @@
                         <a href="#script-container" id="confession-script-link" class="settings-link">Confession Script</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#script-container" class="settings-link">End Notes</a>
+                        <a href="endnote.html" class="settings-link">End Notes</a>
                     </div>
                     <div class="settings-item">
                         <a href="#intro-section" class="settings-link">About</a>
                     </div>
                     <div class="settings-item" style="font-weight: bold; font-size: 0.85rem; color: var(--text-muted); padding-top: 0.4rem; padding-bottom: 0.2rem; border-bottom: none;">Jump to Section:</div>
                     <div class="settings-item">
-                        <a href="#section-1" class="settings-link" id="section-1-link">1. Faith & Fidelity</a>
+                        <a href="#section-1" class="settings-link">1. Faith & Fidelity</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-2" class="settings-link" id="section-2-link">2. Love of God & Prayer</a>
+                        <a href="#section-2" class="settings-link">2. Love of God & Prayer</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-3" class="settings-link" id="section-3-link">3. Love of Neighbor</a>
+                        <a href="#section-3" class="settings-link">3. Love of Neighbor</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-4" class="settings-link" id="section-4-link">4. Speech & Media</a>
+                        <a href="#section-4" class="settings-link">4. Speech & Media</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-5" class="settings-link" id="section-5-link">5. Purity & Chastity</a>
+                        <a href="#section-5" class="settings-link">5. Purity & Chastity</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-6" class="settings-link" id="section-6-link">6. Family & Vocation</a>
+                        <a href="#section-6" class="settings-link">6. Family & Vocation</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-7" class="settings-link" id="section-7-link">7. Justice & Money</a>
+                        <a href="#section-7" class="settings-link">7. Justice & Money</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-8" class="settings-link" id="section-8-link">8. Anger & Self-Control</a>
+                        <a href="#section-8" class="settings-link">8. Anger & Self-Control</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-9" class="settings-link" id="section-9-link">9. Life & Dignity</a>
+                        <a href="#section-9" class="settings-link">9. Life & Dignity</a>
                     </div>
                     <div class="settings-item">
-                        <a href="#section-10" class="settings-link" id="section-10-link">10. Humility & Church</a>
+                        <a href="#section-10" class="settings-link">10. Humility & Church</a>
                     </div>
                     <div class="settings-item" style="border-top: 1px solid var(--border-color); margin-top: 0.25rem; padding-top: 0.5rem;">
                         <button id="theme-toggle" class="settings-theme-btn" aria-label="Toggle Dark Mode">
@@ -359,13 +360,14 @@
 
     <header>
         <h1>Examination of Conscience</h1>
-        <p class="subtitle">Confession Script Generator</p>
+        <p class="subtitle">with the Saints And Popes &amp; Confession Script Generator</p>
+        <p style="font-style: italic; font-size: 0.95rem; margin-top: 0.5rem;">&ldquo;God never tires of forgiving: His tenderness restores our joy and helps us start anew.&rdquo; &mdash; Pope Francis</p>
     </header>
 
     <main>
         <section class="intro-box" id="intro-section">
-            <p>“Examine yourselves, to see whether you are holding to your faith.”<br><strong>— 2 Corinthians 13:5</strong></p>
-            <p>Check the boxes for sins that apply. Click individual choice pills to turn them on or off. Toggle Mortal/Venial classification as needed (occurrence boxes appear only when set to Mortal). Click "Process Examination" once finished to process the examination of conscience into a confession script.</p>
+            <p>&ldquo;Examine yourselves, to see whether you are holding to your faith.&rdquo;<br><strong>&mdash; 2 Corinthians 13:5</strong></p>
+            <p>Check the boxes for sins that apply. Click individual choice pills to turn them on or off. Toggle Mortal/Venial classification as needed (occurrence boxes appear only when set to Mortal). Click &quot;Process Examination&quot; once finished to process the examination of conscience into a confession script.</p>
             <p style="margin-top: 1rem;">Once you complete your confession, click on Reset All Selections to delete your choices. No data is saved on any device.</p>
         </section>
 
@@ -390,27 +392,36 @@
             <!-- 1. Faith in God and Fidelity to Christ -->
             <article class="examination-section" id="section-1">
                 <h2>1. Faith in God and Fidelity to Christ</h2>
-                <p class="scripture"><em>“Hold fast to the pattern of sound teaching.”</em> — <strong>2 Timothy 1:13</strong></p>
                 
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Placed anything before God: 
-                        <span class="sub-choices" data-base="placed {choice} before God" data-venial-base="I placed {choice} before God">
-                            <span class="choice-pill" data-value="money">money</span>
-                            <span class="choice-pill" data-value="success">success</span>
-                            <span class="choice-pill" data-value="pleasure">pleasure</span>
-                            <span class="choice-pill" data-value="approval">approval</span>
-                            <span class="choice-pill" data-value="politics">politics</span>
-                            <span class="choice-pill" data-value="comfort">comfort</span>
-                            <span class="choice-pill" data-value="my own will">my own will</span>
-                        </span>
-                    </label>
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="faith-placed-before-god">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin"> Placed anything before God:
+                            <span class="sub-choices" data-base="placed {choice} before God" data-venial-base="I placed {choice} before God">
+                                <span class="choice-pill" data-value="money">money</span>
+                                <span class="choice-pill" data-value="success">success</span>
+                                <span class="choice-pill" data-value="pleasure">pleasure</span>
+                                <span class="choice-pill" data-value="approval">approval</span>
+                                <span class="choice-pill" data-value="politics">politics</span>
+                                <span class="choice-pill" data-value="comfort">comfort</span>
+                                <span class="choice-pill" data-value="my own will">my own will</span>
+                            </span>
+                        </label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                When created goods take God's place, the heart's affections become disordered: we seek from wealth, success, pleasure, comfort, control, politics, or human approval the security and happiness that only God can give. As St. Francis de Sales teaches, such attachments gradually diminish spiritual freedom, disturb peace of heart, and make us slaves to the very things we were meant to use rightly. The result may be anxiety, pride, resentment, and a weakened conscience, as we begin to love others and created things according to our own self-interest rather than according to God's will. True freedom comes through holy detachment: receiving earthly goods with gratitude, but loving God above them all and remaining ready to follow Him whether He gives or takes away. <a href="endnote.html#note-1" id="ref-1"><sup>1</sup></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="faith-doubted-god">
                     <div class="main-question-block">
-                        <label><input type="checkbox" name="sin"> Doubted God’s: 
+                        <label><input type="checkbox" name="sin"> Doubted God’s:
                             <span class="sub-choices" data-base="doubted God’s {choice}" data-venial-base="I doubted God's {choice}">
                                 <span class="choice-pill" data-value="goodness">goodness</span>
                                 <span class="choice-pill" data-value="providence">providence</span>
@@ -423,20 +434,21 @@
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                     
                     <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
-                        <div class="teaching-pill-wrapper" id="doubt-accordion">
-                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
-                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                    When persistent doubt takes root regarding God's fundamental goodness, providence, mercy, and care, it triggers profound spiritual, emotional, and relational shifts. Individuals often experience spiritual isolation as hesitation replaces intimacy in prayer, while a loss of trust in divine provision forces an exhausting reliance on self-control, leading to chronic stress and burnout. Furthermore, doubting God's care during hardships can transform pain into bitterness and resentment, just as questioning His mercy traps people in cycles of shame and despair by stripping away hope and resilience. Ultimately, while wrestling with these questions is a deeply human experience, letting skepticism sever one's relationship with the divine dampens emotional well-being and distorts one's perspective on life's challenges.
-                                </p>
-                            </div>
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
+                                Pope Benedict XVI taught that when individuals and societies push God aside or doubt His active providence, they fall into a trap of radical self-reliance that ultimately breeds emptiness and despair. Confronted with suffering, the temptation to question divine care leads to a crisis of hope. Benedict emphasized, however, that demanding instant material proof or viewing pain as proof of divine indifference misunderstands God's nature. True healing requires accepting our human limitations, resisting cynicism, and trusting that the universe is governed by a personal God whose ultimate essence is love and justice.
+                            </p>
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                To bridge the gap between human weakness and divine mercy, Benedict placed a profound emphasis on the sacrament of Reconciliation. He taught that the sacrament is not an arbitrary burden, but a concrete gift expressing God's goodness. Because sin creates both a vertical breach with God and a horizontal fracture within the human community, confession provides the &quot;almost physical&quot; certainty of pardon. For Benedict, returning to the confessional breaks the cycles of isolation and shame, forcing radical self-honesty, fostering humility, and allowing believers to continually pass from the side of destruction to the side of Christ's saving love. <a href="endnote.html#note-2" id="ref-2"><sup>2</sup></a>
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Expanded Teaching Section for Catholic Faith Denials -->
-                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="faith-rejected-teaching">
                     <div class="main-question-block">
-                        <label><input type="checkbox" name="sin" data-statement="deliberately rejected or denied a teaching of the Catholic faith" data-venial-statement="I deliberately rejected or denied a teaching of the Catholic faith"> Deliberately rejected or denied a teaching of the Catholic faith</label>
+                        <label><input type="checkbox" name="sin" data-statement="deliberately rejected or denied a teaching of the Catholic faith" data-venial-statement="I deliberately rejected or denied a teaching of the Catholic faith"> Deliberately rejected or denied a teaching of the Catholic faith:</label>
                     </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
@@ -447,91 +459,91 @@
                             
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
-                                    <span class="choice-pill" data-value="the Real Presence in the Eucharist">1. The Real Presence in the Eucharist</span>
+                                    <span class="choice-pill" data-value="the Real Presence in the Eucharist">the Real Presence in the Eucharist</span>
                                 </div>
                                 <div class="teaching-expand-box">
-                                    <p><strong>The Teaching:</strong> The bread and wine consecrated at Mass truly and substantially become the actual Body, Blood, Soul, and Divinity of Jesus Christ (Transubstantiation), rather than remaining merely symbolic representations.</p>
+                                    <p><strong>Teaching:</strong> The bread and wine consecrated at Mass truly and substantially become the actual Body, Blood, Soul, and Divinity of Jesus Christ (Transubstantiation), rather than remaining merely symbolic representations.</p>
                                 </div>
                             </div>
 
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
-                                    <span class="choice-pill" data-value="artificial birth control">2. Artificial Birth Control (Contraception)</span>
+                                    <span class="choice-pill" data-value="artificial birth control">artificial birth control</span>
                                 </div>
                                 <div class="teaching-expand-box">
-                                    <p><strong>The Teaching:</strong> As affirmed in <em>Humanae Vitae</em>, every marital act must remain open to the transmission of life, and the intentional use of artificial contraceptives is intrinsically disordered.</p>
+                                    <p><strong>Teaching:</strong> As affirmed in <em>Humanae Vitae</em>, every marital act must remain open to the transmission of life, and the intentional use of artificial contraceptives is intrinsically disordered.</p>
                                 </div>
                             </div>
 
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
-                                    <span class="choice-pill" data-value="the moral inadmissibility of abortion">3. Inadmissibility of Abortion</span>
+                                    <span class="choice-pill" data-value="the moral inadmissibility of abortion">the moral inadmissibility of abortion</span>
                                 </div>
                                 <div class="teaching-expand-box">
-                                    <p><strong>The Teaching:</strong> Human life must be respected and protected absolutely from the moment of conception. Direct abortion is a grave moral evil, and formal cooperation incurs automatic excommunication.</p>
+                                    <p><strong>Teaching:</strong> Human life must be respected and protected absolutely from the moment of conception. Direct abortion is a grave moral evil, and formal cooperation incurs automatic excommunication.</p>
                                 </div>
                             </div>
 
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
-                                    <span class="choice-pill" data-value="the male-only priesthood">4. Male-Only Priesthood</span>
+                                    <span class="choice-pill" data-value="the male-only priesthood">the male-only priesthood</span>
                                 </div>
                                 <div class="teaching-expand-box">
-                                    <p><strong>The Teaching:</strong> By divine constitution, the sacrament of Holy Orders can only be validly conferred upon baptized males, as affirmed definitively by Pope John Paul II in <em>Ordinatio Sacerdotalis</em>.</p>
+                                    <p><strong>Teaching:</strong> By divine constitution, the sacrament of Holy Orders can only be validly conferred upon baptized males, as affirmed definitively by Pope John Paul II in <em>Ordinatio Sacerdotalis</em>.</p>
                                 </div>
                             </div>
 
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
-                                    <span class="choice-pill" data-value="the exclusivity of Holy Communion">5. Exclusivity of Holy Communion</span>
+                                    <span class="choice-pill" data-value="the exclusivity of Holy Communion">the exclusivity of Holy Communion</span>
                                 </div>
                                 <div class="teaching-expand-box">
-                                    <p><strong>The Teaching:</strong> Receiving the Eucharist is a sign of full communion in faith, morals, and church discipline. Therefore, non-Catholics, Catholics in irregular unions, and those conscious of unconfessed mortal sin may not receive.</p>
+                                    <p><strong>Teaching:</strong> Receiving the Eucharist is a sign of full communion in faith, morals, and church discipline. Therefore, non-Catholics, Catholics in irregular unions, and those conscious of unconfessed mortal sin may not receive.</p>
                                 </div>
                             </div>
 
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
-                                    <span class="choice-pill" data-value="teachings on same-sex sexual activity and marriage">6. Moral Imperative on Same-Sex Activity & Marriage</span>
+                                    <span class="choice-pill" data-value="teachings on same-sex sexual activity and marriage">teachings on same-sex sexual activity and marriage</span>
                                 </div>
                                 <div class="teaching-expand-box">
-                                    <p><strong>The Teaching:</strong> Homosexual inclinations are not inherently sinful, but homosexual acts are intrinsically disordered, and marriage can only be validly contracted between one man and one woman.</p>
+                                    <p><strong>Teaching:</strong> Homosexual inclinations are not inherently sinful, but homosexual acts are intrinsically disordered, and marriage can only be validly contracted between one man and one woman.</p>
                                 </div>
                             </div>
 
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
-                                    <span class="choice-pill" data-value="papal infallibility and authority">7. Infallibility and Authority of the Papacy</span>
+                                    <span class="choice-pill" data-value="papal infallibility and authority">papal infallibility and authority</span>
                                 </div>
                                 <div class="teaching-expand-box">
-                                    <p><strong>The Teaching:</strong> The Pope, when speaking <em>ex cathedra</em> on matters of faith and morals, possesses the charism of infallibility, and Catholics owe religious submission of intellect and will to the ordinary magisterium.</p>
+                                    <p><strong>Teaching:</strong> The Pope, when speaking <em>ex cathedra</em> on matters of faith and morals, possesses the charism of infallibility, and Catholics owe religious submission of intellect and will to the ordinary magisterium.</p>
                                 </div>
                             </div>
 
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
-                                    <span class="choice-pill" data-value="the requirement of sacramental confession">8. Sacramental Confession Requirement</span>
+                                    <span class="choice-pill" data-value="the requirement of sacramental confession">the requirement of sacramental confession</span>
                                 </div>
                                 <div class="teaching-expand-box">
-                                    <p><strong>The Teaching:</strong> Mortal sins must be confessed to a priest in the Sacrament of Reconciliation before receiving the Eucharist, as Christ gave the Apostles the specific authority to forgive and retain sins.</p>
+                                    <p><strong>Teaching:</strong> Mortal sins must be confessed to a priest in the Sacrament of Reconciliation before receiving the Eucharist, as Christ gave the Apostles the specific authority to forgive and retain sins.</p>
                                 </div>
                             </div>
 
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
-                                    <span class="choice-pill" data-value="the indissolubility of valid marriage">9. Indissolubility of Valid Marriage & Annulments</span>
+                                    <span class="choice-pill" data-value="the indissolubility of valid marriage">the indissolubility of valid marriage</span>
                                 </div>
                                 <div class="teaching-expand-box">
-                                    <p><strong>The Teaching:</strong> A valid, consummated sacramental marriage cannot be dissolved by any human power or for any reason other than death. Divorce separates civil status, but does not end the spiritual bond.</p>
+                                    <p><strong>Teaching:</strong> A valid, consummated sacramental marriage cannot be dissolved by any human power or for any reason other than death. Divorce separates civil status, but does not end the spiritual bond.</p>
                                 </div>
                             </div>
 
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
-                                    <span class="choice-pill" data-value="the necessity of the Church for salvation">10. Necessity of the Church for Salvation</span>
+                                    <span class="choice-pill" data-value="the necessity of the Church for salvation">the necessity of the Church for salvation</span>
                                 </div>
                                 <div class="teaching-expand-box">
-                                    <p><strong>The Teaching:</strong> While God can save those outside visible boundaries through invincible ignorance, the Catholic Church is the ordinary instrument of salvation established by Christ ("Outside the Church there is no salvation").</p>
+                                    <p><strong>Teaching:</strong> While God can save those outside visible boundaries through invincible ignorance, the Catholic Church is the ordinary instrument of salvation established by Christ (&quot;Outside the Church there is no salvation&quot;).</p>
                                 </div>
                             </div>
 
@@ -539,31 +551,54 @@
                     </div>
                 </div>
 
-                <div class="sin-item-row venial-item" data-default-type="venial" id="neglected-row">
-                    <label><input type="checkbox" name="sin" id="neglected-checkbox"> Neglected through 
-                        <span class="sub-choices" id="neglected-choices">
-                            <span class="choice-pill neglected-pill" data-value="indifference">indifference</span>
-                            <span class="choice-pill neglected-pill" data-value="laziness">laziness</span>
-                        </span>
-                        <span>:</span>
-                        <span class="sub-choices" id="neglected-targets-choices" style="margin-left: 0.25rem;">
-                            <span class="choice-pill" data-value="prayer">prayer</span>
-                            <span class="choice-pill" data-value="Scripture">Scripture</span>
-                            <span class="choice-pill" data-value="Mass">Mass</span>
-                            <span class="choice-pill" data-value="the sacraments">the sacraments</span>
-                        </span>
-                    </label>
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" id="neglected-row" data-row-id="faith-neglected">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" id="neglected-checkbox"> Neglected through
+                            <span class="sub-choices" id="neglected-choices">
+                                <span class="choice-pill neglected-pill" data-value="indifference">indifference</span>
+                                <span class="choice-pill neglected-pill" data-value="laziness">laziness</span>
+                            </span>
+                            <span>:</span>
+                            <span class="sub-choices" id="neglected-targets-choices" style="margin-left: 0.25rem;">
+                                <span class="choice-pill" data-value="prayer">prayer</span>
+                                <span class="choice-pill" data-value="Scripture">Scripture</span>
+                                <span class="choice-pill" data-value="Mass">Mass</span>
+                                <span class="choice-pill" data-value="the sacraments">the sacraments</span>
+                            </span>
+                        </label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
+                                St. Thomas Aquinas provides a systematic analysis of this spiritual laziness under the heading of acedia, identifying it as a capital vice and a form of sorrow about spiritual good. In his Summa Theologiae, Aquinas explains that acedia induces a heaviness of mind that makes a person sluggish and disgusted regarding divine things. Because spiritual goods require effort and oppose the flesh, the soul affected by acedia shrinks back from them as burdensome. This vice specifically attacks the soul's communion with God by making prayer feel tedious, long, and overly demanding, leading individuals to neglect or truncate their daily dialogue with the Creator.
+                            </p>
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                Finally, Aquinas connects this capital vice directly to the neglect of Scripture, Holy Mass, and the sacraments. When a person is overcome by acedia, they lose their appetite for divine wisdom found in Sacred Scripture, finding holy words dry and unappealing. This internal aversion ultimately manifests in external omission or careless compliance regarding the Mass and the sacraments, as the slothful person dreads the spiritual joy and transformation that divine worship demands, preferring instead worldly distractions or empty ease. <a href="endnote.html#note-3" id="ref-3"><sup>3</sup></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="received Holy Communion knowingly in a state of mortal sin" data-venial-statement="I received Holy Communion knowingly in a state of mortal sin"> Received Holy Communion knowingly in a state of mortal sin</label>
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="faith-communion-state-of-sin">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="received Holy Communion knowingly in a state of mortal sin" data-venial-statement="I received Holy Communion knowingly in a state of mortal sin"> Received Holy Communion knowingly in a state of mortal sin</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                Receiving Holy Communion knowingly in a state of mortal sin is a grave sacrilege, strictly prohibiting participation until the soul is cleansed through the Sacrament of Reconciliation. Beyond avoiding mortal sin, true preparation requires examining one's intentions, cultivating profound humility, and stripping the heart of even deliberate attachments to venial sins. While he passionately advocates for frequent and even daily communion to nourish spiritual growth, St. Francis de Sales emphasizes that approaching the Eucharist worthily demands rigorous interior preparation before receiving and a dedicated period of quiet thanksgiving afterward. <a href="endnote.html#note-4" id="ref-4"><sup>4</sup></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="faith-gods-name">
                     <div class="main-question-block">
                         <label><input type="checkbox" name="sin"> Used God’s name:</label>
                     </div>
@@ -573,38 +608,35 @@
                     <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
                         <div class="sub-choices" data-base="used God’s name {choice}" data-venial-base="I used God's name {choice}" style="display: flex; flex-direction: column; gap: 0.75rem;">
                             
-                            <!-- Irreverently Chip & Accordion -->
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="irreverently">irreverently</span>
                                 </div>
                                 <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
                                     <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                        <strong>Speech Shapes the Inner Heart:</strong> Human words are not neutral; they shape how we think and feel. When we use God’s name carelessly, it breeds a subtle irreverence within our own souls. It dulls our sense of awe and reverence, making it easier to view God not as a living, holy Creator with whom we are in relationship, but as an abstract concept or a convenient exclamation point. Conversely, guarding our speech helps cultivate an inner posture of respect and humility.
+                                        <strong>Speech Shapes the Inner Heart:</strong> Human words are not neutral; they shape how we think and feel. When we use God’s name carelessly, it breeds a subtle irreverence within our own souls, dulling our sense of awe and reverence.
                                     </p>
                                 </div>
                             </div>
 
-                            <!-- Carelessly Chip & Accordion -->
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="carelessly">carelessly</span>
                                 </div>
                                 <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
                                     <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                        <strong>It Contradicts the Reality of Who God Is:</strong> God is the source of all life, goodness, truth, and holiness. To invoke His name carelessly—such as shouting it out of temper, impatience, or vulgarity—links the holy name of God with human anger, profanity, or emptiness. It is a misalignment of reality: using the name of the One who brings order and peace to express chaos, malice, or thoughtlessness.
+                                        <strong>It Contradicts the Reality of Who God Is:</strong> God is the source of all life, goodness, truth, and holiness. To invoke His name carelessly links the holy name of God with human anger, profanity, or emptiness.
                                     </p>
                                 </div>
                             </div>
 
-                            <!-- In Anger Chip & Accordion -->
                             <div class="teaching-pill-wrapper">
                                 <div class="pill-action-row">
                                     <span class="choice-pill" data-value="in anger">in anger</span>
                                 </div>
                                 <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
                                     <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                        <strong>Names Carry Identity, Dignity, and Presence:</strong> In ancient and biblical contexts, a person’s name was not just a label; it represented their entire identity, character, reputation, and presence. To use someone’s name is to invoke them. When you use God’s name, you are invoking the Creator of the universe. Treating that name as a casual filler word, a swear word, or an exclamation of frustration strips the ultimate Reality of His dignity and treats the sacred as common.
+                                        <strong>Names Carry Identity, Dignity, and Presence:</strong> In ancient and biblical contexts, a person’s name represented their entire identity, character, and presence. Treating that name as a casual filler word strips the ultimate Reality of His dignity.
                                     </p>
                                 </div>
                             </div>
@@ -613,8 +645,8 @@
                     </div>
                 </div>
 
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Taken part in: 
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="faith-superstition">
+                    <label><input type="checkbox" name="sin"> Taken part in:
                         <span class="sub-choices" data-base="taken part in {choice}" data-venial-base="I took part in {choice}">
                             <span class="choice-pill" data-value="superstition">superstition</span>
                             <span class="choice-pill" data-value="occult practices">occult practices</span>
@@ -628,13 +660,13 @@
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
 
-                <div class="sin-item-row venial-item" data-default-type="venial">
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="faith-ashamed-christ">
                     <label><input type="checkbox" name="sin" data-statement="been ashamed of Christ or failed to witness to the faith when charity and duty called for it" data-venial-statement="I was ashamed of Christ or failed to witness to the faith when charity and duty called for it"> Been ashamed of Christ or failed to witness to the faith when charity and duty called for it</label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
                 
-                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="faith-presumption">
                     <div class="main-question-block">
                         <label><input type="checkbox" name="sin" data-statement="presumed upon God’s mercy while intending to continue in sin" data-venial-statement="I presumed upon God's mercy while intending to continue in sin"> Presumed upon God’s mercy while intending to continue in sin</label>
                     </div>
@@ -642,35 +674,30 @@
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                     
                     <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
-                        <div class="teaching-pill-wrapper" id="presumption-accordion">
-                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
-                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
-                                    <strong>God has promised forgiveness to the penitent, but He has not promised tomorrow to the procrastinator.</strong>
-                                </p>
-                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
-                                    St. Francis de Sales warns against the grave danger of presumption—the act of relying on God's mercy while deliberately intending to continue in sin. This mindset fundamentally distorts the divine nature by separating God’s mercy from His justice, treating His infinite patience as a license for disobedience. Rather than recognizing divine generosity as an invitation to conversion, the presumptuous soul attempts to manipulate God's goodness, mocking His patience and inviting spiritual hardening.
-                                </p>
-                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                    Persisting in this illusion inflicts profound damage on the interior life, leading to spiritual blindness, a hardened conscience, and the arrogant belief that one can control the hour of their own repentance. Ultimately, this gamble with eternal salvation risks final impenitence. True Christian confidence contrasts sharply with this attitude: whereas presumption uses God's goodness as an excuse for license, true hope inspires the sinner to abandon wrongdoing and genuinely seek holiness through daily conversion.
-                                </p>
-                            </div>
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                God has promised forgiveness to the penitent, but He has not promised tomorrow to the procrastinator. St. Francis de Sales warns against the grave danger of presumption&mdash;the act of relying on God's mercy while deliberately intending to continue in sin. This mindset fundamentally distorts the divine nature by separating God's mercy from His justice, treating His infinite patience as a license for disobedience. Ultimately, this gamble with eternal salvation risks final impenitence. <a href="endnote.html#note-5" id="ref-5"><sup>5</sup></a>
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="fallen into discouragement or despair, as though my sins were greater than God’s mercy" data-venial-statement="I fell into discouragement or despair, as though my sins were greater than God's mercy"> Fallen into discouragement or despair, as though my sins were greater than God’s mercy</label>
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="faith-despair">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="fallen into discouragement or despair, as though my sins were greater than God’s mercy" data-venial-statement="I fell into discouragement or despair, as though my sins were greater than God's mercy"> Fallen into discouragement or despair, as though my sins were greater than God’s mercy</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
-                </div>
 
-                <!-- Free-Form Custom Sin Field for Section 1 -->
-                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-1" data-default-type="venial">
-                    <label for="custom-sin-1">Other unrepresented sin(s) in this category:</label>
-                    <div class="custom-sin-input-row">
-                        <input type="text" id="custom-sin-1" class="custom-sin-input" placeholder="Type any other sin here...">
-                        <button type="button" class="type-toggle-btn venial">Venial</button>
-                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
+                                <strong>Overcoming Despair: The Spiritual Necessity of Trust and Confession.</strong> Falling into despair or excessive discouragement is a serious spiritual hazard because it implicitly measures human sinfulness as greater than God's infinite mercy. This state of mind amounts to a hidden form of pride and a direct offense against God's supreme goodness, as it falsely accuses Him of being unable or unwilling to forgive. Furthermore, this discouragement paralyzes the soul with restless anxiety and false shame, driving the seeker away from prayer and halting all progress toward holiness.
+                            </p>
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                Consequently, these interior burdens of distrust and despair must be brought to the Sacrament of Reconciliation. Confession breaks the isolating echo chamber of self-accusation, realigns the will, and provides the objective, external assurance of divine absolution needed to heal the soul. By bringing these struggles to a confessor, the penitent replaces anxious self-reliance with peaceful confidence in God, learning to practice holy patience and abandon themselves entirely to His mercy.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -678,9 +705,8 @@
             <!-- 2. Love of God: Prayer, Worship, and Gratitude -->
             <article class="examination-section" id="section-2">
                 <h2>2. Love of God: Prayer, Worship, and Gratitude</h2>
-                <p class="scripture"><em>“Pray without ceasing; give thanks in all circumstances.”</em> — <strong>1 Thessalonians 5:17–18</strong></p>
                 
-                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="god-regular-prayer">
                     <div class="main-question-block">
                         <label><input type="checkbox" name="sin" data-statement="failed to give God regular time in prayer" data-venial-statement="I failed to give God regular time in prayer"> Failed to give God regular time in prayer</label>
                     </div>
@@ -688,20 +714,15 @@
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                     
                     <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
-                        <div class="teaching-pill-wrapper" id="prayer-time-accordion">
-                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
-                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
-                                    <strong>Relationships Require Communication to Survive:</strong> At its core, religion is not merely a set of rules; it is a relationship with the living God. No human relationship—whether a marriage, a close friendship, or a family bond—can survive, let alone flourish, without regular, intentional communication. If you went weeks or months without speaking to your spouse or a close friend, the relationship would grow cold, distant, and eventually wither. Daily prayer keeps the lines of communication open, turning your heart toward God so that the relationship stays vibrant rather than theoretical.
-                                </p>
-                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                    <strong>Prayer Realigns the Human Will:</strong> As discussed earlier, putting our own will ahead of God’s is the root of moral failure and selfishness. Human nature naturally drifts toward self-preservation, comfort, and control. Daily prayer acts as a spiritual anchor or a compass recalibration. Taking time each day to step back, acknowledge God’s sovereignty, and listen to His voice helps quiet the noise of ego and temptation, making it easier to choose love, patience, and goodness when daily pressures mount.
-                                </p>
-                            </div>
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                <strong>Relationships Require Communication to Survive:</strong> At its core, religion is a relationship with the living God. No human relationship can survive without regular, intentional communication. Daily prayer keeps the lines of communication open, turning your heart toward God so that the relationship stays vibrant rather than theoretical.
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="god-prayed-only-wants">
                     <div class="main-question-block">
                         <label><input type="checkbox" name="sin" data-statement="prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance" data-venial-statement="I prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance"> Prayed only when I wanted something, while neglecting adoration, thanksgiving, and repentance</label>
                     </div>
@@ -709,26 +730,31 @@
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                     
                     <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
-                        <div class="teaching-pill-wrapper" id="prayed-only-accordion">
-                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
-                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
-                                    <strong>Treating God purely as a cosmic problem-solver distorts the nature of Love</strong>
-                                </p>
-                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                    In any healthy human relationship—such as a marriage or a deep friendship—if one person only spoke to the other to demand help or ask for favors, while never expressing appreciation, affection, or acknowledging their own faults when they hurt the other person, the relationship would feel hollow and exploitative. Love requires mutuality, presence, and appreciation for the person themselves, not just what they can do for us.
-                                </p>
-                            </div>
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                Treating God purely as a cosmic problem-solver distorts the nature of Love. In any healthy human relationship, if one person only spoke to the other to demand help or ask for favors while never expressing appreciation, the relationship would feel hollow and exploitative.
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="been distracted in prayer through my own unwillingness to focus" data-venial-statement="I was distracted in prayer through my own unwillingness to focus"> Been distracted in prayer through my own unwillingness to focus</label>
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="god-distracted-prayer">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="been distracted in prayer through my own unwillingness to focus" data-venial-statement="I was distracted in prayer through my own unwillingness to focus"> Been distracted in prayer through my own unwillingness to focus</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                From the perspective of St. Francis de Sales in Introduction to the Devout Life, willful distraction in prayer is a form of spiritual coldness that treats our conversation with God with casual indifference, much like turning away while a dear friend is speaking. While involuntary wandering thoughts&mdash;the restless fluttering of the imagination&mdash;are merely natural human trials and not sins, deliberately dwelling on distractions out of laziness or boredom is a fault that starves the soul of divine grace and devotion. When this habitual carelessness damages our interior life, the Sacrament of Reconciliation serves as a vital remedy, cleansing the soul of spiritual lethargy, restoring sanctifying grace, and imparting specific actual graces to heal the will and strengthen our focus. St. Francis counsels us to combat our daily distractions not with scrupulosity, but with gentle, persistent vigilance; whenever the mind drifts, we are simply to bring it back quietly to the presence of God, trusting that even a prayer spent entirely in this patient, repeated return is time well offered. <a href="endnote.html#note-6" id="ref-6"><sup>6</sup></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="god-neglected-mass">
                     <div class="main-question-block">
                         <label><input type="checkbox" name="sin" data-statement="neglected Sunday Mass or a holy day of obligation without a serious reason" data-venial-statement="I neglected Sunday Mass or a holy day of obligation without a serious reason"> Neglected Sunday Mass or a holy day of obligation without a serious reason</label>
                     </div>
@@ -736,72 +762,97 @@
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                     
                     <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
-                        <div class="teaching-pill-wrapper" id="mass-obligation-accordion">
-                            <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
-                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem;">
-                                    St. Francis de Sales views the Holy Sacrifice of the Mass not as a burdensome chore, but as the "sun of all spiritual exercises" and the very heart of devotion where God pours out His divine charity. Because he considers the liturgy the supreme source of spiritual strength and unmatched communal worship, voluntarily skipping it out of laziness cuts a soul off from vital grace, leading to spiritual self-destruction.
-                                </p>
-                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                    Furthermore, he teaches that a generous heart striving for holiness cannot take delight in displeasing God, meaning that missing Mass deliberately reveals a lukewarm preference for worldly comforts over the Creator. Ultimately, treating the obligation carelessly wounds divine love, whereas embracing the Church's public service provides far greater spiritual comfort and benefit than private devotions alone.
-                                </p>
-                            </div>
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                The Holy Sacrifice of the Mass is the &quot;sun of all spiritual exercises&quot; and the very heart of devotion where God pours out His divine charity. Voluntarily skipping it out of laziness cuts a soul off from vital grace, leading to spiritual self-destruction. <a href="endnote.html#note-8" id="ref-8"><sup>8</sup></a>
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Arrived / left Mass early/late: 
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="god-mass-timing">
+                    <label><input type="checkbox" name="sin"> Arrived / left Mass early/late:
                         <span class="sub-choices" data-base="arrived {choice} Mass or left early through my own fault" data-venial-base="I arrived {choice} Mass or left early through my own fault">
-                            <span class="choice-pill" data-value="late for">late for</span>
-                            <span class="choice-pill" data-value="early from">early from</span>
+                            <span class="choice-pill" data-value="late for">arrived late for</span>
+                            <span class="choice-pill" data-value="early from">left early from</span>
                         </span>
                     </label>
-                    <button type="button" class="type-toggle-btn venial">Venial</button>
-                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
-                </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="participated at Mass casually rather than with reverence" data-venial-statement="I participated at Mass casually rather than with reverence"> Participated at Mass casually rather than with reverence</label>
-                    <button type="button" class="type-toggle-btn venial">Venial</button>
-                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
-                </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Received the Eucharist without proper: 
-                        <span class="sub-choices" data-base="received the Eucharist without proper {choice}" data-venial-base="I received the Eucharist without proper {choice}">
-                            <span class="choice-pill" data-value="preparation">preparation</span>
-                            <span class="choice-pill" data-value="fasting">fasting</span>
-                            <span class="choice-pill" data-value="reverence">reverence</span>
-                        </span>
-                    </label>
-                    <button type="button" class="type-toggle-btn venial">Venial</button>
-                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
-                </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="complained habitually rather than giving thanks" data-venial-statement="I complained habitually rather than giving thanks"> Complained habitually rather than giving thanks</label>
-                    <button type="button" class="type-toggle-btn venial">Venial</button>
-                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
-                </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="acted as though I were self-made rather than recognizing God's gifts" data-venial-statement="I acted as though I were self-made rather than recognizing God's gifts"> Acted as though I were self-made rather than recognizing God's gifts</label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
 
-                <!-- Free-Form Custom Sin Field for Section 2 -->
-                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-2" data-default-type="venial">
-                    <label for="custom-sin-2">Other unrepresented sin(s) in this category:</label>
-                    <div class="custom-sin-input-row">
-                        <input type="text" id="custom-sin-2" class="custom-sin-input" placeholder="Type any other sin here...">
-                        <button type="button" class="type-toggle-btn venial">Venial</button>
-                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="god-casual-mass">
+                    <label><input type="checkbox" name="sin" data-statement="participated at Mass casually rather than with reverence" data-venial-statement="I participated at Mass casually rather than with reverence"> Participated at Mass casually rather than with reverence</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <!-- Expanded Teaching Section for Eucharist Preparation / Reverence -->
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="god-eucharist-preparation">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin"> Received the Eucharist without proper:</label>
                     </div>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="sub-choices" data-base="received the Eucharist without proper {choice}" data-venial-base="I received the Eucharist without proper {choice}" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="preparation">preparation</span>
+                                </div>
+                                <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                        St. Thomas Aquinas teaches that approaching the Holy Eucharist requires a soul properly disposed by grace, as receiving the sacrament while conscious of unrepented mortal sin constitutes a grave spiritual offense against the body and blood of Christ. He emphasizes that just as physical food requires a healthy, living organism to assimilate it, the spiritual food of the Eucharist demands a soul quickened by charity and free from willful rebellion against God. True preparation involves examining one's conscience and seeking sacramental absolution through penance beforehand, ensuring that the soul is a fitting dwelling place for the divine. <a href="endnote.html#note-9" id="ref-9"><sup>9</sup></a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="fasting">fasting</span>
+                                </div>
+                                <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                        Fasting prepares the body and soul to receive Our Lord, turning our physical hunger into a spiritual longing for the Bread of Life.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="reverence">reverence</span>
+                                </div>
+                                <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                        St. John Chrysostom emphasizes that approaching the Holy Eucharist demands profound reverence, holy fear, and an interior purity that recognizes the staggering privilege of partaking in the literal Body and Blood of Christ. He frequently rebukes casual participation, viewing the Church as a spiritual hospital where unrepentant souls must first undergo the medicinal healing of genuine penance, tears, and virtue. Reminding the faithful that they receive the very King whom angels gaze upon with trembling awe, he warns that coming forward with a corrupted conscience is a grievous insult. Consequently, he insists that true worthiness is achieved not through mechanical routine or calendar seasons, but through a deep turning away from sin that cleanses the soul so it may approach the altar with holy fear and burning desire. <a href="endnote.html#note-10" id="ref-10"><sup>10</sup></a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="god-habitual-complaining">
+                    <label><input type="checkbox" name="sin" data-statement="complained habitually rather than giving thanks" data-venial-statement="I complained habitually rather than giving thanks"> Complained habitually rather than giving thanks</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                </div>
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="god-self-made">
+                    <label><input type="checkbox" name="sin" data-statement="acted as though I were self-made rather than recognizing God's gifts" data-venial-statement="I acted as though I were self-made rather than recognizing God's gifts"> Acted as though I were self-made rather than recognizing God's gifts</label>
+                    <button type="button" class="type-toggle-btn venial">Venial</button>
+                    <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
             </article>
 
             <!-- 3. Love of Neighbor: Charity, Mercy, and Forgiveness -->
             <article class="examination-section" id="section-3">
                 <h2>3. Love of Neighbor: Charity, Mercy, and Forgiveness</h2>
-                <p class="scripture"><em>“Let all that you do be done in love.”</em> — <strong>1 Corinthians 16:14</strong></p>
-                <div class="sin-item-row venial-item expansive-row" data-default-type="venial">
+                
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="neighbor-patiently-concretely">
                     <div class="main-question-block">
                         <label><input type="checkbox" name="sin" data-statement="failed to love others patiently and concretely" data-venial-statement="I failed to love others patiently and concretely"> Failed to love others patiently and concretely</label>
                     </div>
@@ -812,27 +863,75 @@
                         <div class="teaching-pill-wrapper" id="concrete-love-accordion">
                             <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
                                 <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                    <strong>What is concrete love?</strong> To love someone concretely means moving love out of the realm of abstract feelings, good intentions, or polite sentiments and rooting it in tangible, real-world action.<br><br>
-                                    In both theological and practical terms, concrete love refuses to stay theoretical. It takes flesh, time, and effort. As the biblical phrase puts it, it is a love demonstrated <em>"in deed and in truth"</em> rather than just <em>"in word or speech"</em> (1 John 3:18).
+                                    <strong>What is concrete love?</strong> To love someone concretely means moving love out of the realm of abstract feelings, good intentions, or polite sentiments and rooting it in tangible, real-world action&mdash;demonstrated &quot;in deed and in truth&quot; rather than just &quot;in word or speech&quot; (1 John 3:18).
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Held: 
-                        <span class="sub-choices" data-base="held {choice}" data-venial-base="I held {choice}">
-                            <span class="choice-pill" data-value="resentment">resentment</span>
-                            <span class="choice-pill" data-value="bitterness">bitterness</span>
-                            <span class="choice-pill" data-value="hatred">hatred</span>
-                            <span class="choice-pill" data-value="a desire for revenge">a desire for revenge</span>
-                        </span>
-                    </label>
+
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="neighbor-held">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin"> Held:</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="sub-choices" data-base="held {choice}" data-venial-base="I held {choice}" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="resentment">resentment</span>
+                                </div>
+                                <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                        In the Summa Theologiae, St. Thomas Aquinas treats resentment and hatred as profound disorders of the passions and the will, arising when a person dwells on perceived injuries and allows anger to curdle into lasting malice. Because charity requires us to love our neighbor as ourselves and desire their good, harboring resentment and a desire for revenge directly violates the divine order and ruptures our union with God. Aquinas explains that these vices blind the intellect and lock the human will into a state of opposition against God's law, turning the soul inward upon its own grievances and pride.<br><br>
+                                        The Sacrament of Reconciliation serves as the divine remedy that repairs this fractured relationship and re-establishes caritas in the soul. Through the twin movements of true contrition and sacramental absolution, the penitent's will is realigned with divine mercy, washing away the guilt of malice and breaking the cycle of vengeance. By humbling oneself to confess these bitter thoughts, the believer receives sanctifying grace that heals the wounded passions, restoring right reason and empowering the soul to forgive others and re-enter into loving communion with God. <a href="endnote.html#note-11" id="ref-11"><sup>11</sup></a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="bitterness">bitterness</span>
+                                </div>
+                                <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                        St. Alphonsus Liguori views bitterness and jealousy as corrosive spiritual poisons that deeply afflict the soul, blinding a person to the goodness of God and breeding a destructive discontent with the blessings given to others. In his ascetical and moral writings, he explains that these vices arise from pride and a disordered self-love, which cause the heart to harbor resentment and view a neighbor's prosperity as a personal injury. When a person allows jealousy and bitterness to take root, they isolate themselves from divine charity, willfully rejecting God's providential care and destroying the interior peace that comes from trusting in His goodness.<br><br>
+                                        The Sacrament of Reconciliation serves as a divine tribunal of mercy that breaks this stubbornness and restores the soul to grace. St. Alphonsus teaches that when a penitent humbly brings these bitter and envious thoughts into the open confessional, the sacrament acts as a spiritual healing balm that purifies the heart and corrects the imagination. Through absolution, God not only wipes away the guilt of sin but infuses actual graces that empower the individual to overcome malice, forgive perceived slights, and replace envy with genuine Christian love for their neighbor. <a href="endnote.html#note-12" id="ref-12"><sup>12</sup></a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="hatred">hatred</span>
+                                </div>
+                                <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                        Harboring hatred toward a neighbor is a direct contradiction of divine charity, extinguishing the life of grace in the soul.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="teaching-pill-wrapper">
+                                <div class="pill-action-row">
+                                    <span class="choice-pill" data-value="a desire for revenge">a desire for revenge</span>
+                                </div>
+                                <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                                    <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                        Vengeance belongs to God alone; seeking personal payback usurps divine justice and locks the heart in malice.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Refused: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="neighbor-refused">
+                    <label><input type="checkbox" name="sin"> Refused:
                         <span class="sub-choices" data-base="refused {choice}" data-venial-base="I refused {choice}">
                             <span class="choice-pill" data-value="to forgive someone">to forgive someone</span>
                             <span class="choice-pill" data-value="reasonable efforts toward reconciliation">reasonable efforts toward reconciliation</span>
@@ -841,19 +940,32 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Rejoiced at another person’s: 
-                        <span class="sub-choices" data-base="rejoiced at another person’s {choice}" data-venial-base="I rejoiced at another person’s {choice}">
-                            <span class="choice-pill" data-value="failure">failure</span>
-                            <span class="choice-pill" data-value="embarrassment">embarrassment</span>
-                            <span class="choice-pill" data-value="suffering">suffering</span>
-                        </span>
-                    </label>
+
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="neighbor-rejoiced">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin"> Rejoiced at another person’s:
+                            <span class="sub-choices" data-base="rejoiced at another person’s {choice}" data-venial-base="I rejoiced at another person’s {choice}">
+                                <span class="choice-pill" data-value="failure">failure</span>
+                                <span class="choice-pill" data-value="embarrassment">embarrassment</span>
+                                <span class="choice-pill" data-value="suffering">suffering</span>
+                            </span>
+                        </label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                St. John Vianney taught that taking secret pleasure in the downfalls, embarrassments, or sufferings of others is a grave spiritual wound that poisons charity and corrupts the heart. In his pastoral sermons and catechism instructions, he warned that schadenfreude and malicious gossip stem from deep-seated pride and uncharity, turning a person's focus away from their own spiritual flaws and onto the misfortunes of their neighbors. When an individual harbors joy at another's humiliation, they alienate themselves from the mystical body of Christ, replacing the love of God with a cold, judgmental spirit that breaks the bonds of human brotherhood.<br><br>
+                                The Sacrament of Reconciliation acts as the supreme remedy to heal this spiritual blindness, humbling the soul and restoring it to divine grace. Vianney emphasized that by dragging these ugly, hidden sins of malice and harsh judgment into the light of the confessional, the penitent acknowledges their own profound wretchedness before God. Through sacramental absolution, the soul is washed clean of this callousness, and the penitent receives the healing grace needed to view others with Christ's compassion rather than malicious delight. <a href="endnote.html#note-13" id="ref-13"><sup>13</sup></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Been: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="neighbor-jealous">
+                    <label><input type="checkbox" name="sin"> Been:
                         <span class="sub-choices" data-base="been {choice} of another’s gifts" data-venial-base="I was {choice} of another’s gifts">
                             <span class="choice-pill" data-value="jealous">jealous</span>
                             <span class="choice-pill" data-value="envious">envious</span>
@@ -864,8 +976,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Judged others: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="neighbor-judged">
+                    <label><input type="checkbox" name="sin"> Judged others:
                         <span class="sub-choices" data-base="judged others {choice}" data-venial-base="I judged others {choice}">
                             <span class="choice-pill" data-value="harshly">harshly</span>
                             <span class="choice-pill" data-value="assuming bad motives">assuming bad motives</span>
@@ -875,13 +988,25 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="ignored someone in need when I could reasonably have helped" data-venial-statement="I ignored someone in need when I could reasonably have helped"> Ignored someone in need when I could reasonably have helped</label>
+
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="neighbor-ignored-need">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="ignored someone in need when I could reasonably have helped" data-venial-statement="I ignored someone in need when I could reasonably have helped"> Ignored someone in need when I could reasonably have helped</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                In his apostolic exhortation Dilexi Te (&quot;I Have Loved You&quot;), Pope Leo XIV emphasizes that love for the poor is not an optional add-on to the Christian life, but an essential expression of faith, noting that ignoring the needy is a direct failure to recognize the &quot;flesh of Christ&quot; in others. While the papal text focuses heavily on the societal and spiritual implications of abandoning the vulnerable&mdash;denouncing indifference, self-absorbed comfort, and the false security of wealth&mdash;it frames this conversion of heart as a return to authentic Christian solidarity. The pontiff teaches that encountering the poor acts as a mirror for human presumption, stripping away pride and forcing believers to confront their own spiritual fragility and need for grace. <a href="endnote.html#note-14" id="ref-14"><sup>14</sup></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Been selfish with my: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="neighbor-selfish">
+                    <label><input type="checkbox" name="sin"> Been selfish with my:
                         <span class="sub-choices" data-base="been selfish with my {choice}" data-venial-base="I was selfish with my {choice}">
                             <span class="choice-pill" data-value="time">time</span>
                             <span class="choice-pill" data-value="money">money</span>
@@ -892,8 +1017,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Treated with impatience or indifference: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="neighbor-treated-indiff">
+                    <label><input type="checkbox" name="sin"> Treated with impatience or indifference:
                         <span class="sub-choices" data-base="treated {choice} with impatience or indifference" data-venial-base="I treated {choice} with impatience or indifference">
                             <span class="choice-pill" data-value="elderly persons">elderly persons</span>
                             <span class="choice-pill" data-value="children">children</span>
@@ -906,8 +1032,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Caused or encouraged division in my: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="neighbor-division">
+                    <label><input type="checkbox" name="sin"> Caused or encouraged division in my:
                         <span class="sub-choices" data-base="caused or encouraged division in my {choice}" data-venial-base="I caused or encouraged division in my {choice}">
                             <span class="choice-pill" data-value="family">family</span>
                             <span class="choice-pill" data-value="parish">parish</span>
@@ -918,24 +1045,14 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-
-                <!-- Free-Form Custom Sin Field for Section 3 -->
-                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-3" data-default-type="venial">
-                    <label for="custom-sin-3">Other unrepresented sin(s) in this category:</label>
-                    <div class="custom-sin-input-row">
-                        <input type="text" id="custom-sin-3" class="custom-sin-input" placeholder="Type any other sin here...">
-                        <button type="button" class="type-toggle-btn venial">Venial</button>
-                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
-                    </div>
-                </div>
             </article>
 
             <!-- 4. Speech, Truthfulness, and the Use of Media -->
             <article class="examination-section" id="section-4">
                 <h2>4. Speech, Truthfulness, and the Use of Media</h2>
-                <p class="scripture"><em>“Let no evil talk come out of your mouths...”</em> — <strong>Ephesians 4:29</strong></p>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Unjustly: 
+                
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="speech-unjustly">
+                    <label><input type="checkbox" name="sin"> Unjustly:
                         <span class="sub-choices" data-base="unjustly {choice}" data-venial-base="I unjustly {choice}">
                             <span class="choice-pill" data-value="lied">lied</span>
                             <span class="choice-pill" data-value="deceived">deceived</span>
@@ -947,8 +1064,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="speech-gossiped">
+                    <label><input type="checkbox" name="sin">
                         <span class="sub-choices" data-base="{choice}" data-venial-base="I have {choice}">
                             <span class="choice-pill" data-value="gossiped">gossiped</span>
                             <span class="choice-pill" data-value="revealed another person’s confidential information">revealed confidential info</span>
@@ -958,13 +1076,15 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="speech-slandered">
                     <label><input type="checkbox" name="sin" data-statement="slandered someone by saying what I knew or suspected to be false" data-venial-statement="I slandered someone by saying what I knew or suspected to be false"> Slandered someone by saying what I knew or suspected to be false</label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial" id="mock-insult-row">
-                    <label><input type="checkbox" name="sin" id="mock-insult-checkbox"> 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" id="mock-insult-row" data-row-id="speech-mock-insult">
+                    <label><input type="checkbox" name="sin" id="mock-insult-checkbox">
                         <span class="sub-choices" id="mock-insult-choices">
                             <span class="choice-pill mock-pill" data-value="mocked">mocked</span>
                             <span class="choice-pill mock-pill" data-value="insulted">insulted</span>
@@ -976,8 +1096,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Used: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="speech-profanity">
+                    <label><input type="checkbox" name="sin"> Used:
                         <span class="sub-choices" data-base="used {choice}" data-venial-base="I used {choice}">
                             <span class="choice-pill" data-value="profanity">profanity</span>
                             <span class="choice-pill" data-value="vulgar speech">vulgar speech</span>
@@ -987,13 +1108,15 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="speech-anger">
                     <label><input type="checkbox" name="sin" data-statement="spoken in anger without seeking to control myself" data-venial-statement="I spoke in anger without seeking to control myself"> Spoken in anger without seeking to control myself</label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Used social media / online comments to spread: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="speech-social-media">
+                    <label><input type="checkbox" name="sin"> Used social media / online comments to spread:
                         <span class="sub-choices" data-base="used social media or online comments to spread {choice}" data-venial-base="I used social media or online comments to spread {choice}">
                             <span class="choice-pill" data-value="hostility">hostility</span>
                             <span class="choice-pill" data-value="gossip">gossip</span>
@@ -1005,49 +1128,77 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-
-                <!-- Free-Form Custom Sin Field for Section 4 -->
-                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-4" data-default-type="venial">
-                    <label for="custom-sin-4">Other unrepresented sin(s) in this category:</label>
-                    <div class="custom-sin-input-row">
-                        <input type="text" id="custom-sin-4" class="custom-sin-input" placeholder="Type any other sin here...">
-                        <button type="button" class="type-toggle-btn venial">Venial</button>
-                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
-                    </div>
-                </div>
             </article>
 
             <!-- 5. Purity, Chastity, and Reverence for the Body -->
             <article class="examination-section" id="section-5">
                 <h2>5. Purity, Chastity, and Reverence for the Body</h2>
-                <p class="scripture"><em>“Your body is a temple...”</em> — <strong>1 Corinthians 6:19</strong></p>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="entertained lustful thoughts willingly or deliberately" data-venial-statement="I entertained lustful thoughts willingly or deliberately"> Entertained lustful thoughts willingly or deliberately</label>
+                
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="purity-lustful-thoughts">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="entertained lustful thoughts willingly or deliberately" data-venial-statement="I entertained lustful thoughts willingly or deliberately"> Entertained lustful thoughts willingly or deliberately</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                <strong>To Maintain a Clean Heart, One Must Know How to Fight.</strong> Pope St. John Paul II taught that deliberately entertaining lustful thoughts constitutes the &quot;adultery committed in the heart&quot; referenced by Christ in the Sermon on the Mount, distinguishing sharply between an involuntary passing temptation and a willful, conscious choice to dwell on another person as an object of self-gratification. When an individual chooses to linger on these internal desires, they surrender the inner sanctuary of the heart to concupiscence, fundamentally violating the inherent dignity of the human person and fracturing their own internal integrity. Because this consent is an act of the will, it introduces spiritual disorder into the soul, transforming the mind from a temple of authentic, self-giving love into a theater for selfish appropriation.<br><br>
+                                To heal this inner division and break the cycle of habitual concupiscence, John Paul II championed the Sacrament of Reconciliation as an indispensable encounter with Christ the Merciful Physician. He viewed confession not merely as a legalistic duty, but as a profound restorative bath of divine grace that heals the spiritual wounds of sin, lifts the burden of guilt, and infuses the soul with supernatural strength. By engaging in regular sacramental confession, the penitent receives specific spiritual fortification to purify their intentions, reorder their desires, and steadily cultivate the interior vigilance required to resist future temptations. <a href="endnote.html#note-15" id="ref-15"><sup>15</sup></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="looked at pornography or sought sexually explicit material" data-venial-statement="I looked at pornography or sought sexually explicit material"> Looked at pornography or sought sexually explicit material</label>
+
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="purity-pornography">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="looked at pornography or sought sexually explicit material" data-venial-statement="I looked at pornography or sought sexually explicit material"> Looked at pornography or sought sexually explicit material</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                <strong>The Counterfeit Body: Pornography as an Inversion of Human Dignity.</strong> Pope St. John Paul II taught that viewing pornography radically inverts the theological truth of the human body, which is meant to be a visible expression of the soul's inherent dignity and a medium for authentic self-giving. Instead of recognizing a person as a complete human being made in the image of God, sexually explicit material reduces them to a disembodied commodity, a fragmented pixel, and a mere instrument for internal consumer gratification. This practice strips human sexuality of its sacred unitive and procreative meanings, replacing the reality of mutual communion with a manufactured, solitary fantasy that fundamentally falsifies the truth of love.<br><br>
+                                While rooted in the same internal concupiscence as general lustful thoughts, seeking out pornography differs significantly in its active, premeditated mechanics and structural harm. Unlike a stray temptation that arises internally, pornography requires deliberate, external actions&mdash;such as searching, clicking, and curating explicit media to engineer an artificial environment of temptation. This active consumption feeds a parasitic dynamic that conditions the mind to view others through a lens of permanent objectification, severely eroding a person's natural capacity for real intimacy and authentic relational vulnerability. To break this deeply ingrained cycle, John Paul II championed the Sacrament of Reconciliation as an indispensable path to healing, offering an encounter with Christ the Merciful Physician where the spiritual wounds of objectification are cleansed, guilt is lifted, and the soul receives the specific grace and supernatural strength needed to reorder its desires. <a href="endnote.html#note-16" id="ref-16"><sup>16</sup></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="masturbated" data-venial-statement="I masturbated"> Masturbated</label>
+
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="purity-masturbated">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="masturbated" data-venial-statement="I masturbated"> Masturbated</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                <strong>Looking Inward: Why Self-Pleasure Misses the Mark of True Love.</strong> Pope St. John Paul II taught that human sexuality is inherently designed for a &quot;sincere gift of self,&quot; finding its true fulfillment only in the total, free, faithful, and fruitful communion of persons. In contrast, masturbation turns entirely inward, representing a closed circle where the body is used merely as an isolated instrument for internal pleasure and consumer gratification. This act violates the foundational personalist principle against utilitarianism&mdash;using oneself or one's bodily faculties solely as a means to an end&mdash;and severs sexuality entirely from its intrinsic unitive and procreative dimensions, reducing a sacred language of interpersonal love into a solitary, mechanical technique.<br><br>
+                                Even though the Church teaches that this act is seriously wrong, it maintains a realistic understanding of human weakness, recognizing that things like emotional immaturity, intense anxiety, or deeply rooted habits can greatly reduce a person's personal responsibility. Rather than fostering despair or shame, its teachings direct the struggling soul toward the healing mercy of Christ, emphasizing that through the gradual cultivation of chastity and regular recourse to the Sacrament of Reconciliation, individuals can overcome fragmentation and reorder their desires toward authentic freedom. <a href="endnote.html#note-17" id="ref-17"><sup>17</sup></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="purity-objectified">
                     <label><input type="checkbox" name="sin" data-statement="used another person, in thought or action, as an object for my own pleasure" data-venial-statement="I used another person, in thought or action, as an object for my own pleasure"> Used another person, in thought or action, as an object for my own pleasure</label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="purity-outside-marriage">
                     <label><input type="checkbox" name="sin" data-statement="engaged in sexual activity outside a valid marriage" data-venial-statement="I engaged in sexual activity outside a valid marriage"> Engaged in sexual activity outside a valid marriage</label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Been unfaithful in marriage through: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="purity-unfaithful-marriage">
+                    <label><input type="checkbox" name="sin"> Been unfaithful in marriage through:
                         <span class="sub-choices" data-base="been unfaithful in marriage through {choice}" data-venial-base="I was unfaithful in marriage through {choice}">
                             <span class="choice-pill" data-value="action">action</span>
                             <span class="choice-pill" data-value="intention">intention</span>
@@ -1058,8 +1209,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="purity-contraception">
+                    <label><input type="checkbox" name="sin">
                         <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
                             <span class="choice-pill" data-value="used contraception">used contraception</span>
                             <span class="choice-pill" data-value="sought sterilization">sought sterilization</span>
@@ -1068,41 +1220,32 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-
-                <!-- Free-Form Custom Sin Field for Section 5 -->
-                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-5" data-default-type="venial">
-                    <label for="custom-sin-5">Other unrepresented sin(s) in this category:</label>
-                    <div class="custom-sin-input-row">
-                        <input type="text" id="custom-sin-5" class="custom-sin-input" placeholder="Type any other sin here...">
-                        <button type="button" class="type-toggle-btn venial">Venial</button>
-                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
-                    </div>
-                </div>
             </article>
 
             <!-- 6. Family Life, Vocation, and Daily Duties -->
             <article class="examination-section" id="section-6">
                 <h2>6. Family Life, Vocation, and Daily Duties</h2>
-                <p class="scripture"><em>“Honor your father and mother.”</em> — <strong>Ephesians 6:2</strong></p>
-                <div class="sin-item-row venial-item" id="parents-guardians-row" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" id="parents-guardians-checkbox"> Failure to: 
+                
+                <div class="sin-item-row venial-item" id="parents-guardians-row" data-default-type="venial" data-row-id="family-parents">
+                    <label><input type="checkbox" name="sin" id="parents-guardians-checkbox"> Failure to:
                         <span class="sub-choices" id="parents-guardians-choices">
                             <span class="choice-pill parents-pill" data-value="love">love</span>
                             <span class="choice-pill parents-pill" data-value="respect">respect</span>
-                            <span class="choice-pill parents-pill" data-value="have patience with">have patience with</span>
-                            <span class="choice-pill parents-pill" data-value="show gratitude toward">show gratitude toward</span>
+                            <span class="choice-pill parents-pill" data-value="have patience">have patience</span>
+                            <span class="choice-pill parents-pill" data-value="show gratitude">show gratitude</span>
                         </span>
                         <span style="font-size: 0.9rem; margin-left: 0.25rem;">toward:</span>
                         <span class="sub-choices" id="parents-targets-choices" style="margin-left: 0.25rem;">
-                            <span class="choice-pill target-pill" data-value="my parents">my parents</span>
+                            <span class="choice-pill target-pill" data-value="my parent(s)">my parent(s)</span>
                             <span class="choice-pill target-pill" data-value="my guardian(s)">my guardian(s)</span>
                         </span>
                     </label>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Neglected: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="family-neglected">
+                    <label><input type="checkbox" name="sin"> Neglected:
                         <span class="sub-choices" data-base="neglected {choice}" data-venial-base="I neglected {choice}">
                             <span class="choice-pill" data-value="my spouse">my spouse</span>
                             <span class="choice-pill" data-value="my children">my children</span>
@@ -1113,8 +1256,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Been in family life: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="family-behavior">
+                    <label><input type="checkbox" name="sin"> Been in family life:
                         <span class="sub-choices" data-base="been {choice} in family life" data-venial-base="I was {choice} in family life">
                             <span class="choice-pill" data-value="harsh">harsh</span>
                             <span class="choice-pill" data-value="controlling">controlling</span>
@@ -1126,8 +1270,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Failed to fulfill my duties at: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="family-duties">
+                    <label><input type="checkbox" name="sin"> Failed to fulfill my duties at:
                         <span class="sub-choices" data-base="failed to fulfill my duties at {choice}" data-venial-base="I failed to fulfill my duties at {choice}">
                             <span class="choice-pill" data-value="work">work</span>
                             <span class="choice-pill" data-value="school">school</span>
@@ -1137,8 +1282,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Been: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="family-personal-traits">
+                    <label><input type="checkbox" name="sin"> Been:
                         <span class="sub-choices" data-base="been {choice}" data-venial-base="I was {choice}">
                             <span class="choice-pill" data-value="lazy">lazy</span>
                             <span class="choice-pill" data-value="dishonest">dishonest</span>
@@ -1150,24 +1296,14 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-
-                <!-- Free-Form Custom Sin Field for Section 6 -->
-                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-6" data-default-type="venial">
-                    <label for="custom-sin-6">Other unrepresented sin(s) in this category:</label>
-                    <div class="custom-sin-input-row">
-                        <input type="text" id="custom-sin-6" class="custom-sin-input" placeholder="Type any other sin here...">
-                        <button type="button" class="type-toggle-btn venial">Venial</button>
-                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
-                    </div>
-                </div>
             </article>
 
             <!-- 7. Justice, Money, and Care for Those in Need -->
             <article class="examination-section" id="section-7">
                 <h2>7. Justice, Money, and Care for Those in Need</h2>
-                <p class="scripture"><em>“Let the thief no longer steal...”</em> — <strong>Ephesians 4:28</strong></p>
-                <div class="sin-item-row venial-item" data-default-type="venial" id="justice-property-row">
-                    <label><input type="checkbox" name="sin" id="justice-property-checkbox"> 
+                
+                <div class="sin-item-row venial-item" data-default-type="venial" id="justice-property-row" data-row-id="justice-property">
+                    <label><input type="checkbox" name="sin" id="justice-property-checkbox">
                         <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
                             <span class="choice-pill justice-pill" data-value="stolen">stolen</span>
                             <span class="choice-pill justice-pill" data-value="cheated">cheated</span>
@@ -1179,8 +1315,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Failed to: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="justice-debts">
+                    <label><input type="checkbox" name="sin"> Failed to:
                         <span class="sub-choices" data-base="failed to {choice}" data-venial-base="I failed to {choice}">
                             <span class="choice-pill" data-value="repay debts">repay debts</span>
                             <span class="choice-pill" data-value="return borrowed goods">return borrowed goods</span>
@@ -1190,8 +1327,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Been dishonest in: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="justice-dishonest">
+                    <label><input type="checkbox" name="sin"> Been dishonest in:
                         <span class="sub-choices" data-base="been dishonest in {choice}" data-venial-base="I was dishonest in {choice}">
                             <span class="choice-pill" data-value="business">business</span>
                             <span class="choice-pill" data-value="taxes">taxes</span>
@@ -1204,8 +1342,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Exploited another person’s: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="justice-exploited">
+                    <label><input type="checkbox" name="sin"> Exploited another person’s:
                         <span class="sub-choices" data-base="exploited another person’s {choice} for personal gain" data-venial-base="I exploited another person’s {choice} for personal gain">
                             <span class="choice-pill" data-value="weakness">weakness</span>
                             <span class="choice-pill" data-value="need">need</span>
@@ -1216,8 +1355,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Been: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="justice-greedy">
+                    <label><input type="checkbox" name="sin"> Been:
                         <span class="sub-choices" data-base="been {choice}" data-venial-base="I was {choice}">
                             <span class="choice-pill" data-value="greedy">greedy</span>
                             <span class="choice-pill" data-value="wasteful">wasteful</span>
@@ -1227,19 +1367,20 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin" data-statement="neglected the poor or refused reasonable generosity" data-venial-statement="I neglected the poor or refused reasonable generosity"> Neglected the poor or refused reasonable generosity</label>
+
+                <div class="sin-item-row venial-item expansive-row" data-default-type="venial" data-row-id="justice-poor">
+                    <div class="main-question-block">
+                        <label><input type="checkbox" name="sin" data-statement="neglected the poor or refused reasonable generosity" data-venial-statement="I neglected the poor or refused reasonable generosity"> Neglected the poor or refused reasonable generosity</label>
+                    </div>
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
-                </div>
-
-                <!-- Free-Form Custom Sin Field for Section 7 -->
-                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-7" data-default-type="venial">
-                    <label for="custom-sin-7">Other unrepresented sin(s) in this category:</label>
-                    <div class="custom-sin-input-row">
-                        <input type="text" id="custom-sin-7" class="custom-sin-input" placeholder="Type any other sin here...">
-                        <button type="button" class="type-toggle-btn venial">Venial</button>
-                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
+                    
+                    <div class="expanded-teachings-container" style="margin-top: 0.5rem; width: 100%;">
+                        <div class="teaching-expand-box" style="display: none; margin-top: 0.25rem;">
+                            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                                Mother Teresa taught that routine spiritual practices and regular church involvement are hollow if paired with an indifferent heart toward the needy, viewing the neglect of the poor as a direct, glaring failure to love Jesus in disguise. To bridge that gap, she viewed the Sacrament of Confession not as a mere legal obligation, but as an intimate and humbling encounter with God's mercy that washes away selfishness. For her, seeking this grace was the vital spiritual cleansing required to clear away human pride so one could lovingly and genuinely serve the suffering without hypocrisy. <a href="endnote.html#note-18" id="ref-18"><sup>18</sup></a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -1247,9 +1388,9 @@
             <!-- 8. Anger, Peace, and Self-Control -->
             <article class="examination-section" id="section-8">
                 <h2>8. Anger, Peace, and Self-Control</h2>
-                <p class="scripture"><em>“Be angry but do not sin...”</em> — <strong>Ephesians 4:26</strong></p>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Given way to: 
+                
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="anger-rage">
+                    <label><input type="checkbox" name="sin"> Given way to:
                         <span class="sub-choices" data-base="given way to {choice}" data-venial-base="I gave way to {choice}">
                             <span class="choice-pill" data-value="rage">rage</span>
                             <span class="choice-pill" data-value="resentment">resentment</span>
@@ -1260,8 +1401,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="anger-harm">
+                    <label><input type="checkbox" name="sin">
                         <span class="sub-choices" data-base="{choice} another person" data-venial-base="I {choice} another person">
                             <span class="choice-pill" data-value="insulted">insulted</span>
                             <span class="choice-pill" data-value="threatened">threatened</span>
@@ -1272,8 +1414,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial" id="violence-row">
-                    <label><input type="checkbox" name="sin" id="violence-checkbox"> 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" id="violence-row" data-row-id="anger-violence">
+                    <label><input type="checkbox" name="sin" id="violence-checkbox">
                         <span class="sub-choices" id="violence-choices">
                             <span class="choice-pill violence-pill" data-value="been physically violent">been physically violent</span>
                             <span class="choice-pill violence-pill" data-value="been reckless with another’s safety">been reckless with another’s safety</span>
@@ -1282,8 +1425,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Abused: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="anger-abused">
+                    <label><input type="checkbox" name="sin"> Abused:
                         <span class="sub-choices" data-base="abused {choice}" data-venial-base="I abused {choice}">
                             <span class="choice-pill" data-value="alcohol">alcohol</span>
                             <span class="choice-pill" data-value="drugs">drugs</span>
@@ -1295,24 +1439,14 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-
-                <!-- Free-Form Custom Sin Field for Section 8 -->
-                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-8" data-default-type="venial">
-                    <label for="custom-sin-8">Other unrepresented sin(s) in this category:</label>
-                    <div class="custom-sin-input-row">
-                        <input type="text" id="custom-sin-8" class="custom-sin-input" placeholder="Type any other sin here...">
-                        <button type="button" class="type-toggle-btn venial">Venial</button>
-                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
-                    </div>
-                </div>
             </article>
 
             <!-- 9. Life, Dignity, and Responsibility for Others -->
             <article class="examination-section" id="section-9">
                 <h2>9. Life, Dignity, and Responsibility for Others</h2>
-                <p class="scripture"><em>“Love does no wrong to a neighbor.”</em> — <strong>Romans 13:10</strong></p>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Harmed another person: 
+                
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="life-harmed">
+                    <label><input type="checkbox" name="sin"> Harmed another person:
                         <span class="sub-choices" data-base="harmed another person {choice}" data-venial-base="I harmed another person {choice}">
                             <span class="choice-pill" data-value="physically">physically</span>
                             <span class="choice-pill" data-value="emotionally">emotionally</span>
@@ -1323,8 +1457,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Encouraged, supported, or cooperated in: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="life-cooperated">
+                    <label><input type="checkbox" name="sin"> Encouraged, supported, or cooperated in:
                         <span class="sub-choices" data-base="encouraged, supported, or cooperated in {choice}" data-venial-base="I encouraged, supported, or cooperated in {choice}">
                             <span class="choice-pill" data-value="abortion">abortion</span>
                             <span class="choice-pill" data-value="euthanasia">euthanasia</span>
@@ -1336,8 +1471,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial" id="driving-row">
-                    <label><input type="checkbox" name="sin" id="driving-checkbox"> 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" id="driving-row" data-row-id="life-driving">
+                    <label><input type="checkbox" name="sin" id="driving-checkbox">
                         <span class="sub-choices" id="driving-choices">
                             <span class="choice-pill driving-pill" data-value="driven recklessly">driven recklessly</span>
                             <span class="choice-pill driving-pill" data-value="acted carelessly with the safety of others">acted carelessly with the safety of others</span>
@@ -1346,24 +1482,14 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-
-                <!-- Free-Form Custom Sin Field for Section 9 -->
-                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-9" data-default-type="venial">
-                    <label for="custom-sin-9">Other unrepresented sin(s) in this category:</label>
-                    <div class="custom-sin-input-row">
-                        <input type="text" id="custom-sin-9" class="custom-sin-input" placeholder="Type any other sin here...">
-                        <button type="button" class="type-toggle-btn venial">Venial</button>
-                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
-                    </div>
-                </div>
             </article>
 
             <!-- 10. Humility, Community, and the Life of the Church -->
             <article class="examination-section" id="section-10">
                 <h2>10. Humility, Community, and the Life of the Church</h2>
-                <p class="scripture"><em>“Do nothing from selfishness or conceit...”</em> — <strong>Philippians 2:3</strong></p>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Been: 
+                
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="humility-proud">
+                    <label><input type="checkbox" name="sin"> Been:
                         <span class="sub-choices" data-base="been {choice}" data-venial-base="I was {choice}">
                             <span class="choice-pill" data-value="proud">proud</span>
                             <span class="choice-pill" data-value="self-righteous">self-righteous</span>
@@ -1374,8 +1500,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="humility-refused-correction">
+                    <label><input type="checkbox" name="sin">
                         <span class="sub-choices" data-base="{choice}" data-venial-base="I {choice}">
                             <span class="choice-pill" data-value="refused correction">refused correction</span>
                             <span class="choice-pill" data-value="rejected good advice out of pride">rejected good advice out of pride</span>
@@ -1384,8 +1511,9 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-                <div class="sin-item-row venial-item" data-default-type="venial">
-                    <label><input type="checkbox" name="sin"> Caused division in the: 
+
+                <div class="sin-item-row venial-item" data-default-type="venial" data-row-id="humility-church-division">
+                    <label><input type="checkbox" name="sin"> Caused division in the:
                         <span class="sub-choices" data-base="caused division in the {choice}" data-venial-base="I caused division in the {choice}">
                             <span class="choice-pill" data-value="Church">Church</span>
                             <span class="choice-pill" data-value="parish">parish</span>
@@ -1396,16 +1524,6 @@
                     <button type="button" class="type-toggle-btn venial">Venial</button>
                     <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input"></div>
                 </div>
-
-                <!-- Free-Form Custom Sin Field for Section 10 -->
-                <div class="custom-sin-group sin-item-row venial-item" id="custom-row-10" data-default-type="venial">
-                    <label for="custom-sin-10">Other unrepresented sin(s) in this category:</label>
-                    <div class="custom-sin-input-row">
-                        <input type="text" id="custom-sin-10" class="custom-sin-input" placeholder="Type any other sin here...">
-                        <button type="button" class="type-toggle-btn venial">Venial</button>
-                        <div class="occ-container">Occasions: <input type="number" min="1" value="1" class="occ-input custom-occ-input"></div>
-                    </div>
-                </div>
             </article>
         </form>
 
@@ -1413,7 +1531,7 @@
             <button id="generate-btn" class="secondary-btn" style="background: var(--accent-color); color: white; padding: 1rem 2rem; font-size: 1.1rem; cursor: pointer;">Process Examination</button>
         </section>
 
-        <section id="script-container">
+        <section id="script-container" style="display: none;">
             <h2>Your Generated Confession Script</h2>
             <div id="script-output" class="confession-script-output"></div>
         </section>
@@ -1426,28 +1544,12 @@
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
     </footer>
 
-    <!-- Script to handle toggle, pill selections, and script generation -->
     <script>
-        /*
-        Examination of Conscious and Confession Script Writer
-        Copyright (C) 2026  RJE Consulting, LLC 
-
-        This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
-
-        See the GNU Affero General Public License for more details.  You should have received a copy of the GNU Affero General Public License along with this program.  If not, see https://www.gnu.org/licenses/ 
-
-        To contact the author, write to Rich Edinger, RJE Consulting, LLC, 1930 Federal Ct, Lawrenceville, GA 30044 or email us at rapwedinger@gmail.com. God Bless.
-        */
-
-        // Dark Mode Toggle Logic inside Settings
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const themeText = document.getElementById('theme-text');
         const htmlElement = document.documentElement;
 
-        // Settings Dropdown Menu & Hamburger Animation Logic
         const settingsToggleBtn = document.getElementById('settings-toggle-btn');
         const settingsDropdownMenu = document.getElementById('settings-dropdown-menu');
 
@@ -1457,7 +1559,6 @@ This program is free software: you can redistribute it and/or modify it under th
             settingsToggleBtn.classList.toggle('open');
         });
 
-        // Close dropdown and reset hamburger icon when clicking outside
         window.addEventListener('click', () => {
             if (settingsDropdownMenu.classList.contains('show')) {
                 settingsDropdownMenu.classList.remove('show');
@@ -1469,7 +1570,6 @@ This program is free software: you can redistribute it and/or modify it under th
             e.stopPropagation();
         });
 
-        // Dynamic jump behavior for the "Confession Script" dropdown link
         const confessionScriptLink = document.getElementById('confession-script-link');
         confessionScriptLink.addEventListener('click', (e) => {
             const scriptContainer = document.getElementById('script-container');
@@ -1483,7 +1583,6 @@ This program is free software: you can redistribute it and/or modify it under th
             }
         });
 
-        // Check for saved user preference or system preference
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             htmlElement.setAttribute('data-theme', savedTheme);
@@ -1521,13 +1620,102 @@ This program is free software: you can redistribute it and/or modify it under th
             }
         }
 
-        // Toggle choice pills on/off and handle expandable teaching drawers
+        // --- LocalStorage Persistence Functions ---
+        const STORAGE_KEY = 'examination_state_v1';
+
+        function saveState() {
+            const state = {
+                rows: [],
+                scriptVisible: document.getElementById('script-container').style.display !== 'none',
+                scriptHtml: document.getElementById('script-output').innerHTML
+            };
+
+            document.querySelectorAll('.sin-item-row').forEach((row, index) => {
+                const checkbox = row.querySelector('input[type="checkbox"]');
+                const typeBtn = row.querySelector('.type-toggle-btn');
+                const occInput = row.querySelector('.occ-input');
+                const activePills = Array.from(row.querySelectorAll('.choice-pill.active')).map(p => p.getAttribute('data-value'));
+                
+                state.rows.push({
+                    index: index,
+                    checked: checkbox ? checkbox.checked : false,
+                    isMortal: typeBtn ? typeBtn.classList.contains('mortal') : false,
+                    occasions: occInput ? occInput.value : '1',
+                    activePills: activePills
+                });
+            });
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        function loadState() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (!saved) return;
+
+            try {
+                const state = JSON.parse(saved);
+                const rows = document.querySelectorAll('.sin-item-row');
+
+                state.rows.forEach(savedRow => {
+                    const row = rows[savedRow.index];
+                    if (!row) return;
+
+                    const checkbox = row.querySelector('input[type="checkbox"]');
+                    const typeBtn = row.querySelector('.type-toggle-btn');
+                    const occInput = row.querySelector('.occ-input');
+                    const expandBox = row.querySelector('.expanded-teachings-container > .teaching-expand-box');
+
+                    if (checkbox && savedRow.checked) {
+                        checkbox.checked = true;
+                        row.classList.add(savedRow.isMortal ? 'mortal-active' : 'venial-active');
+                        if (expandBox) expandBox.style.display = 'block';
+                    }
+
+                    if (typeBtn && savedRow.isMortal) {
+                        typeBtn.classList.remove('venial');
+                        typeBtn.classList.add('mortal');
+                        typeBtn.innerText = 'Mortal';
+                        row.classList.remove('venial-active');
+                        row.classList.add('mortal-active', 'is-mortal');
+                    }
+
+                    if (occInput && savedRow.occasions) {
+                        occInput.value = savedRow.occasions;
+                    }
+
+                    if (savedRow.activePills && savedRow.activePills.length > 0) {
+                        row.querySelectorAll('.choice-pill').forEach(pill => {
+                            const val = pill.getAttribute('data-value');
+                            if (savedRow.activePills.includes(val)) {
+                                pill.classList.add('active');
+                                const wrapper = pill.closest('.teaching-pill-wrapper');
+                                if (wrapper) {
+                                    wrapper.classList.add('expanded');
+                                    const box = wrapper.querySelector('.teaching-expand-box');
+                                    if (box) box.style.display = 'block';
+                                }
+                            }
+                        });
+                    }
+                });
+
+                if (state.scriptVisible && state.scriptHtml) {
+                    const outputDiv = document.getElementById('script-output');
+                    const containerDiv = document.getElementById('script-container');
+                    outputDiv.innerHTML = state.scriptHtml;
+                    containerDiv.style.display = 'block';
+                }
+            } catch (e) {
+                console.error('Failed to load examination state', e);
+            }
+        }
+
+        // Toggle choice pills on/off and handle chip-level accordions (when immediately adjacent)
         document.querySelectorAll('.choice-pill').forEach(pill => {
             pill.addEventListener('click', (e) => {
                 e.preventDefault();
                 pill.classList.toggle('active');
                 
-                // Toggle expansion box for teaching accordion items
                 const wrapper = pill.closest('.teaching-pill-wrapper');
                 if (wrapper) {
                     if (pill.classList.contains('active')) {
@@ -1540,10 +1728,10 @@ This program is free software: you can redistribute it and/or modify it under th
                         if (box) box.style.display = 'none';
                     }
                 }
+                saveState();
             });
         });
 
-        // Toggle button handler for Mortal/Venial
         document.querySelectorAll('.type-toggle-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const row = e.target.closest('.sin-item-row');
@@ -1560,10 +1748,11 @@ This program is free software: you can redistribute it and/or modify it under th
                     row.classList.remove('mortal-active', 'is-mortal');
                     row.classList.add('venial-active');
                 }
+                saveState();
             });
         });
 
-     // Highlight row when checkbox is checked & handle accordion visibility
+        // Highlight row when checkbox is checked & handle checkbox-level accordions (blank line between sin and accordion)
         document.querySelectorAll('input[type="checkbox"]').forEach(box => {
             box.addEventListener('change', (e) => {
                 const row = e.target.closest('.sin-item-row');
@@ -1574,69 +1763,26 @@ This program is free software: you can redistribute it and/or modify it under th
                     row.classList.remove('mortal-active', 'venial-active');
                 }
 
-                // Handle specific accordion toggle for concrete love
-                const accordionBox = row.querySelector('#concrete-love-accordion .teaching-expand-box');
-                if (accordionBox) {
-                    if (e.target.checked) {
-                        accordionBox.style.display = 'block';
-                    } else {
-                        accordionBox.style.display = 'none';
-                    }
+                // Handle accordion display when there is a blank line (checkbox level)
+                const expandBox = row.querySelector('.expanded-teachings-container > .teaching-expand-box');
+                if (expandBox) {
+                    expandBox.style.display = e.target.checked ? 'block' : 'none';
                 }
-
-                // Handle specific accordion toggle for prayer time
-                const prayerAccordionBox = row.querySelector('#prayer-time-accordion .teaching-expand-box');
-                if (prayerAccordionBox) {
-                    if (e.target.checked) {
-                        prayerAccordionBox.style.display = 'block';
-                    } else {
-                        prayerAccordionBox.style.display = 'none';
-                    }
-                }
-
-                // Handle specific accordion toggle for prayed-only
-                const prayedOnlyAccordionBox = row.querySelector('#prayed-only-accordion .teaching-expand-box');
-                if (prayedOnlyAccordionBox) {
-                    if (e.target.checked) {
-                        prayedOnlyAccordionBox.style.display = 'block';
-                    } else {
-                        prayedOnlyAccordionBox.style.display = 'none';
-                    }
-                }
-
-                // Handle specific accordion toggle for doubt accordion
-                const doubtAccordionBox = row.querySelector('#doubt-accordion .teaching-expand-box');
-                if (doubtAccordionBox) {
-                    if (e.target.checked) {
-                        doubtAccordionBox.style.display = 'block';
-                    } else {
-                        doubtAccordionBox.style.display = 'none';
-                    }
-                }
-
-                // Handle specific accordion toggle for mass obligation accordion
-                const massAccordionBox = row.querySelector('#mass-obligation-accordion .teaching-expand-box');
-                if (massAccordionBox) {
-                    if (e.target.checked) {
-                        massAccordionBox.style.display = 'block';
-                    } else {
-                        massAccordionBox.style.display = 'none';
-                    }
-                }
-
-                // Handle specific accordion toggle for presumption accordion
-                const presumptionAccordionBox = row.querySelector('#presumption-accordion .teaching-expand-box');
-                if (presumptionAccordionBox) {
-                    if (e.target.checked) {
-                        presumptionAccordionBox.style.display = 'block';
-                    } else {
-                        presumptionAccordionBox.style.display = 'none';
-                    }
-                }
+                saveState();
             });
         });
 
-        // Helper function to format combined choices naturally with commas and "or"/"and"
+        document.querySelectorAll('.occ-input').forEach(input => {
+            input.addEventListener('input', () => {
+                saveState();
+            });
+        });
+
+        // Load saved state on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+        });
+
         function formatList(items) {
             if (items.length === 0) return '';
             if (items.length === 1) return items[0];
@@ -1644,12 +1790,10 @@ This program is free software: you can redistribute it and/or modify it under th
             return items.slice(0, -1).join(', ') + ', and ' + items[items.length - 1];
         }
 
-        // Generate Script Button Logic
         document.getElementById('generate-btn').addEventListener('click', () => {
             let mortalList = [];
             let venialList = [];
 
-            // 1. Process regular checkbox selections
             const rows = document.querySelectorAll('.sin-item-row:not(.custom-sin-group)');
             rows.forEach(row => {
                 const checkbox = row.querySelector('input[type="checkbox"]');
@@ -1661,7 +1805,6 @@ This program is free software: you can redistribute it and/or modify it under th
                     let statement = '';
                     let venialStatement = '';
 
-                    // Special handling for Section 1: neglected row
                     if (row.id === 'neglected-row') {
                         const activeReasons = Array.from(document.querySelectorAll('#neglected-choices .choice-pill.active'))
                                                    .map(p => p.getAttribute('data-value'));
@@ -1678,7 +1821,6 @@ This program is free software: you can redistribute it and/or modify it under th
                             return;
                         }
                     }
-                    // Special handling for Section 4: mock/insult row
                     else if (row.id === 'mock-insult-row') {
                         const activePills = Array.from(document.querySelectorAll('#mock-insult-choices .choice-pill.active'))
                                                  .map(p => p.getAttribute('data-value'));
@@ -1702,7 +1844,6 @@ This program is free software: you can redistribute it and/or modify it under th
                             return;
                         }
                     }
-                    // Special handling for Section 8: violence row
                     else if (row.id === 'violence-row') {
                         const activePills = Array.from(document.querySelectorAll('#violence-choices .choice-pill.active'))
                                                  .map(p => p.getAttribute('data-value'));
@@ -1725,7 +1866,6 @@ This program is free software: you can redistribute it and/or modify it under th
                             return;
                         }
                     }
-                    // Special handling for Section 9: driving row
                     else if (row.id === 'driving-row') {
                         const activePills = Array.from(document.querySelectorAll('#driving-choices .choice-pill.active'))
                                                  .map(p => p.getAttribute('data-value'));
@@ -1743,7 +1883,6 @@ This program is free software: you can redistribute it and/or modify it under th
                             return;
                         }
                     }
-                    // Special handling for Section 6: parents/guardians row
                     else if (row.id === 'parents-guardians-row') {
                         const activeActions = Array.from(document.querySelectorAll('#parents-guardians-choices .choice-pill.active'))
                                                    .map(p => p.getAttribute('data-value'));
@@ -1754,8 +1893,8 @@ This program is free software: you can redistribute it and/or modify it under th
                             let actionPhrases = activeActions.map(action => {
                                 if (action === 'love') return 'love';
                                 if (action === 'respect') return 'respect';
-                                if (action === 'have patience with') return 'have patience with';
-                                if (action === 'show gratitude toward') return 'show gratitude toward';
+                                if (action === 'have patience') return 'have patience with';
+                                if (action === 'show gratitude') return 'show gratitude toward';
                                 return action;
                             });
 
@@ -1768,7 +1907,6 @@ This program is free software: you can redistribute it and/or modify it under th
                             return; 
                         }
                     } 
-                    // Special handling for Rule 5: Section 7 property/justice row
                     else if (row.id === 'justice-property-row') {
                         const activePills = Array.from(subContainer.querySelectorAll('.choice-pill.active'))
                                                  .map(p => p.getAttribute('data-value'));
@@ -1806,7 +1944,6 @@ This program is free software: you can redistribute it and/or modify it under th
                                                  .map(p => p.getAttribute('data-value'));
                         
                         if (activePills.length > 0) {
-                            // Check for Rule 4: gossiped alone
                             if (activePills.length === 1 && activePills[0] === 'gossiped') {
                                 statement = 'gossiped about someone';
                                 venialStatement = 'I have gossiped about someone';
@@ -1822,7 +1959,6 @@ This program is free software: you can redistribute it and/or modify it under th
                                 statement = baseTemplate.replace('{choice}', formattedChoices);
                                 venialStatement = venialBaseTemplate.replace('{choice}', formattedChoices);
 
-                                // Rule 1: fix "been jealous" -> "I was jealous"
                                 if (venialStatement.includes('been jealous')) {
                                     venialStatement = venialStatement.replace('I was been jealous', 'I was jealous').replace('I have been been jealous', 'I was jealous');
                                     if (venialStatement.startsWith('I was been')) {
@@ -1834,7 +1970,6 @@ This program is free software: you can redistribute it and/or modify it under th
                                     }
                                 }
 
-                                // Rule 2: "speaking contemptuously about them" -> "I spoke contemptuously..."
                                 if (venialStatement.includes('speaking contemptuously about them')) {
                                     venialStatement = venialStatement.replace('I judged others speaking contemptuously about them', 'I judged others and spoke contemptuously about them');
                                 }
@@ -1860,56 +1995,49 @@ This program is free software: you can redistribute it and/or modify it under th
                 }
             });
 
-            // 2. Process custom free-form input fields with their individual Mortal/Venial type settings
-            for (let i = 1; i <= 10; i++) {
-                const customInput = document.getElementById(`custom-sin-${i}`);
-                if (customInput && customInput.value.trim() !== '') {
-                    const row = document.getElementById(`custom-row-${i}`);
-                    const isMortal = row.classList.contains('is-mortal');
-                    const occInput = row.querySelector('.custom-occ-input');
-                    const textValue = customInput.value.trim();
+            let scriptText = `PREPARATORY PRAYER:\nCome, Holy Spirit, enlighten my mind and move my heart. Help me to see my life truthfully: to recognize my sins without excuses, to repent without despair, and to receive the mercy won for me by Jesus Christ. Give me a sincere desire to love God and neighbor more faithfully. Amen.\n\n`;
 
-                    if (isMortal) {
-                        const count = occInput ? (occInput.value || 1) : 1;
-                        mortalList.push(`• On ${count} occasion${count > 1 ? 's' : ''}, I ${textValue}.`);
-                    } else {
-                        venialList.push(`• I ${textValue}.`);
-                    }
-                }
-            }
-
-            let scriptText = `PREPARATORY PRAYER:\n"Come, Holy Spirit, enlighten my mind and move my heart. Help me to see my life truthfully: to recognize my sins without excuses, to repent without despair, and to receive the mercy won for me by Jesus Christ. Give me a sincere desire to love God and neighbor more faithfully. Amen."\n\n`;
-
-            scriptText += `IN THE CONFESSIONAL:\n***Priest:*** In the name of the Father, and of the Son, and of the Holy Spirit. Amen.\n***Penitent:*** Bless me, Father, for I have sinned. It has been [insert time] since my last confession. These are my sins:\n\n`;
+            scriptText += `IN THE CONFESSIONAL:\n<strong><em><span style="color: black;">Priest:</span></em></strong> <span style="color: red;">In the name of the Father, and of the Son, and of the Holy Spirit. Amen.</span>\n<strong><em><span style="color: black;">Penitent:</span></em></strong> <span style="color: blue;">Bless me, Father, for I have sinned. It has been [insert time] since my last confession. These are my sins:</span>\n\n`;
 
             if (mortalList.length > 0) {
-                scriptText += `MORTAL SINS:\n` + mortalList.join('\n') + `\n\n`;
+                let formattedMortalSins = mortalList.map(s => `<span style="color: blue;">${s}</span>`).join('<br>');
+                scriptText += `MORTAL SINS:\n${formattedMortalSins}\n\n`;
             }
 
             if (venialList.length > 0) {
-                scriptText += `VENIAL SINS:\n` + venialList.join('\n') + `\n\n`;
+                let formattedVenialSins = venialList.map(s => `<span style="color: blue;">${s}</span>`).join('<br>');
+                scriptText += `VENIAL SINS:\n${formattedVenialSins}\n\n`;
             }
 
             if (mortalList.length === 0 && venialList.length === 0) {
                 scriptText += `(No sins selected. Please select items and specific choices from the examination above.)\n\n`;
             }
 
-            scriptText += `CLOSING STATEMENT:\n***Penitent:*** "For these and all my sins, and for the sins I cannot remember, I am truly sorry."\n\n`;
+            scriptText += `CLOSING STATEMENT:\n<strong><em><span style="color: black;">Penitent:</span></em></strong> <span style="color: blue;">For these and all my sins, and for the sins I cannot remember, I am truly sorry.</span>\n\n`;
 
-            scriptText += `ACT OF CONTRITION:\n***Penitent:*** "Lord Jesus Christ, Son of the living God, have mercy on me, a sinner. I am sorry for all the sins I have committed, for the good I have failed to do, and for the ways I have failed to love You and my neighbor. By Your grace, I firmly resolve to avoid sin, to make restitution where I can, to forgive those who have wronged me, and to amend my life. Amen."\n\n`;
+            scriptText += `GUIDANCE & PENANCE\n<strong><em><span style="color: black;">Priest:</span></em></strong> <span style="color: black;">Offers spiritual advice or counsel, and assigns a penance (such as specific prayers or an act of charity).</span>\n\n`;
 
-            scriptText += `POST-CONFESSION PRAYER:\n"He who began a good work in you will bring it to completion. (Philippians 1:6) Lord, thank you for your mercy and healing grace. Give me the strength to fulfill my penance and walk faithfully in your light."`;
+            scriptText += `ACT OF CONTRITION\n<strong><em><span style="color: black;">Penitent:</span></em></strong> <span style="color: blue;">My God, I am sorry for my sins with all my heart. In choosing to do wrong and failing to do good, I have sinned against You whom I should love above all things. I firmly intend, with Your help, to do penance, to sin no more, and to avoid whatever leads me to sin. Our Savior Jesus Christ suffered and died for us. In His name, my God, have mercy.</span>\n\n`;
+
+            scriptText += `ABSOLUTION\n<strong><em><span style="color: black;">Priest:</span></em></strong> <span style="color: black;">Extends his hands (or right hand) over the penitent and prays the Prayer of Absolution:<br><span style="color: red;">God, the Father of mercies, through the death and the resurrection of His Son has reconciled the world to Himself and sent the Holy Spirit among us for the forgiveness of sins; through the ministry of the Church may God give you pardon and peace, and I absolve you from your sins, in the name of the Father, and of the Son, and of the Holy Spirit.</span></span>\n\n`;
+
+            scriptText += `<strong><em><span style="color: black;">Penitent:</span></em></strong> <span style="color: black;">Makes the Sign of the Cross and responds:<br><span style="color: blue;">Amen.</span></span>\n\n`;
+
+            scriptText += `CONCLUSION\n<strong><em><span style="color: black;">Priest:</span></em></strong> <span style="color: black;">May say, <span style="color: red;">Go in the peace of the Lord,</span></span>\n<strong><em><span style="color: black;">Penitent:</span></em></strong> <span style="color: blue;">Thanks be to God.</span>\n\n`;
+
+            scriptText += `POST-CONFESSION PRAYER:\nHe who began a good work in you will bring it to completion. (Philippians 1:6) Lord, thank you for your mercy and healing grace. Give me the strength to fulfill my penance and walk faithfully in your light.`;
 
             const outputDiv = document.getElementById('script-output');
             const containerDiv = document.getElementById('script-container');
 
-            outputDiv.textContent = scriptText;
+            outputDiv.innerHTML = scriptText.replace(/\n/g, '<br>');
             containerDiv.style.display = 'block';
+            saveState();
             containerDiv.scrollIntoView({ behavior: 'smooth' });
         });
 
-      // Reset Button
         document.getElementById('reset-btn').addEventListener('click', () => {
+            localStorage.removeItem(STORAGE_KEY);
             document.getElementById('confession-form').reset();
             document.querySelectorAll('.choice-pill').forEach(pill => pill.classList.remove('active'));
             
@@ -1919,30 +2047,6 @@ This program is free software: you can redistribute it and/or modify it under th
                 if (box) box.style.display = 'none';
             });
             
-            // Hide the concrete love accordion box on reset
-            const concreteBox = document.querySelector('#concrete-love-accordion .teaching-expand-box');
-            if (concreteBox) concreteBox.style.display = 'none';
-
-            // Hide the prayer time accordion box on reset
-            const prayerBox = document.querySelector('#prayer-time-accordion .teaching-expand-box');
-            if (prayerBox) prayerBox.style.display = 'none';
-
-            // Hide the prayed-only accordion box on reset
-            const prayedOnlyBox = document.querySelector('#prayed-only-accordion .teaching-expand-box');
-            if (prayedOnlyBox) prayedOnlyBox.style.display = 'none';
-
-            // Hide the doubt accordion box on reset
-            const doubtBox = document.querySelector('#doubt-accordion .teaching-expand-box');
-            if (doubtBox) doubtBox.style.display = 'none';
-
-            // Hide the mass obligation accordion box on reset
-            const massBox = document.querySelector('#mass-obligation-accordion .teaching-expand-box');
-            if (massBox) massBox.style.display = 'none';
-
-            // Hide the presumption accordion box on reset
-            const presumptionBox = document.querySelector('#presumption-accordion .teaching-expand-box');
-            if (presumptionBox) presumptionBox.style.display = 'none';
-
             document.querySelectorAll('.sin-item-row').forEach(row => {
                 row.classList.remove('mortal-active', 'venial-active', 'is-mortal');
                 const btn = row.querySelector('.type-toggle-btn');
@@ -1950,19 +2054,14 @@ This program is free software: you can redistribute it and/or modify it under th
                     btn.className = 'type-toggle-btn venial';
                     btn.innerText = 'Venial';
                 }
+                const expandBox = row.querySelector('.expanded-teachings-container > .teaching-expand-box');
+                if (expandBox) {
+                    expandBox.style.display = 'none';
+                }
             });
             document.getElementById('script-container').style.display = 'none';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
-<script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-            for(let registration of registrations) {
-                registration.update(); // Checks for new version on GitHub
-            }
-        });
-    }
-</script>
 </body>
 </html>
