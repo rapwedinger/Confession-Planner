@@ -15,7 +15,7 @@ For many Catholics, preparing for confession can sometimes feel overwhelming, di
    Rather than forcing the user to carry a bulky notebook or loose-leaf paper into the confessional, the app dynamically compiles checked items, customizable choices, and frequency counts into an orderly, ready-to-read confession script. It clearly separates mortal and venial sins and includes introductory prayers, the standard confessional rite, a traditional Act of Contrition, and a post-penance prayer.
 
 3. **Absolute Privacy:** 
-   Confession is deeply sacred and confidential. This application operates **entirely client-side** in your browser. **No data, selections, or personal inputs are ever saved, tracked, or transmitted to any server or device.** Once you reset your selections or close the window, your information is completely gone.
+   Confession is deeply sacred and confidential. This application operates entirely client-side in your browser, saving your selections locally to the browser's cache for convenience. No data or personal inputs are transmitted to any external server or device. Once you click "Reset All Selections" or clear your cache, your information is completely gone.
 
 4. **Clarity on Church Teachings:** 
    Includes clear reference prompts, definitions for mortal versus venial sin conditions, and expandable explainers for key Catholic teachings to ensure an informed and well-formed conscience.
